@@ -6,16 +6,11 @@
 /*   By: hyeojung <hyeojung@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/03 15:29:53 by hyeojung          #+#    #+#             */
-/*   Updated: 2021/05/03 15:33:40 by hyeojung         ###   ########.fr       */
+/*   Updated: 2021/05/03 15:56:27 by hyeojung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void		*memmove(void *dest, const void *src, size_t n)
-{
-	size_t	i;
-
-	i = 0;
-
-}
+void		*ft_memmove(void *dest, const void *src, size_t n)
+{}
