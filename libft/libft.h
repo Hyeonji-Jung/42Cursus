@@ -6,7 +6,7 @@
 /*   By: hyeojung <hyeojung@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/04 12:31:24 by hyeojung          #+#    #+#             */
-/*   Updated: 2021/05/04 16:45:32 by hyeojung         ###   ########.fr       */
+/*   Updated: 2021/05/04 16:48:23 by hyeojung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 # define LIBFT_H
 
 #include <stdio.h>
-#include <string.h>
 #include <stdlib.h>
-#include <limits.h>
+#include <string.h>
+#include <unistd.h>
 
 void	*ft_bzero(void *dest, size_t size);
 void	*ft_memset(void *dest, int c, size_t size);
