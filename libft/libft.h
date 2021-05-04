@@ -6,7 +6,7 @@
 /*   By: hyeojung <hyeojung@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/04 12:31:24 by hyeojung          #+#    #+#             */
-/*   Updated: 2021/05/04 16:48:23 by hyeojung         ###   ########.fr       */
+/*   Updated: 2021/05/04 16:49:26 by hyeojung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <unistd.h>
+#include <limits.h>
 
 void	*ft_bzero(void *dest, size_t size);
 void	*ft_memset(void *dest, int c, size_t size);
