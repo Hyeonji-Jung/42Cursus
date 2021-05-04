@@ -1,26 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hyeojung <hyeojung@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/03 15:29:53 by hyeojung          #+#    #+#             */
-/*   Updated: 2021/05/04 17:07:16 by hyeojung         ###   ########.fr       */
+/*   Created: 2021/05/04 16:59:54 by hyeojung          #+#    #+#             */
+/*   Updated: 2021/05/04 17:06:08 by hyeojung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memmove(void *dest, const void *src, size_t size)
+int	ft_memcmp(const void *dest, const void *src, size_t size)
 {
-	char	*tmp;
+	unsigned char	*d;
+	unsigned char	*s;
+	size_t			i;
 
-	tmp = (char *)malloc(size);
-	if (tmp == NULL)
-		return (NULL);
-	ft_memcpy(tmp, src, size);
-	ft_memcpy(dest, tmp, size);
-	free(tmp);
-	return (dest);
+	d = (unsigned char *)dest;
+	s = (unsigned char *)src;
+	i = 0;
+	while (i < size)
+	{
+		if (d[i] != s[i])
+			return (d[i] - s[i]);
+		i++;
+	}
+	return (0);
 }
