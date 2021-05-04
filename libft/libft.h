@@ -1,25 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hyeojung <hyeojung@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/03 15:05:50 by hyeojung          #+#    #+#             */
-/*   Updated: 2021/05/04 13:38:46 by hyeojung         ###   ########.fr       */
+/*   Created: 2021/05/04 12:31:24 by hyeojung          #+#    #+#             */
+/*   Updated: 2021/05/04 12:40:53 by hyeojung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#ifndef LIBFT_H
+# define LIBFT_H
 
-void	*ft_memset(void *dest, int c, size_t size)
-{
-	unsigned char	*tmp;
-	size_t			i;
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
 
-	tmp = (unsigned char *)dest;
-	i = 0;
-	while (i < size)
-		tmp[i++] = (unsigned char)c;
-	return (tmp);
-}
+#endif

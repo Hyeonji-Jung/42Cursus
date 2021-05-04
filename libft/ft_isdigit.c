@@ -1,25 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   ft_isdigit.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hyeojung <hyeojung@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/03 15:05:50 by hyeojung          #+#    #+#             */
-/*   Updated: 2021/05/04 13:38:46 by hyeojung         ###   ########.fr       */
+/*   Created: 2021/05/04 13:04:14 by hyeojung          #+#    #+#             */
+/*   Updated: 2021/05/04 13:05:20 by hyeojung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memset(void *dest, int c, size_t size)
+int	ft_isdigit(int c)
 {
-	unsigned char	*tmp;
-	size_t			i;
-
-	tmp = (unsigned char *)dest;
-	i = 0;
-	while (i < size)
-		tmp[i++] = (unsigned char)c;
-	return (tmp);
+	return (c >= '0' && c <= '9');
 }
