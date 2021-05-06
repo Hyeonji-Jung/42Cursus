@@ -1,18 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hyeojung <hyeojung@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/04 13:34:34 by hyeojung          #+#    #+#             */
-/*   Updated: 2021/05/06 17:52:49 by hyeojung         ###   ########.fr       */
+/*   Created: 2021/05/06 15:26:48 by hyeojung          #+#    #+#             */
+/*   Updated: 2021/05/06 17:53:42 by hyeojung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_bzero(void *dest, size_t size)
+char	*ft_strdup(const char *str)
 {
-	return (ft_memset(dest, 0, size));
+	unsigned int	len;
+	char			*ret;
+
+	len = (unsigned int)ft_strlen(str);
+	ret = (char*)malloc(len + 1);
+	ret[len] = 0;
+	while (--len >= 0)
+		ret[len] = str[len];
+	return (ret);
 }

@@ -1,18 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hyeojung <hyeojung@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/04 13:34:34 by hyeojung          #+#    #+#             */
-/*   Updated: 2021/05/06 17:52:49 by hyeojung         ###   ########.fr       */
+/*   Created: 2021/05/06 14:47:52 by hyeojung          #+#    #+#             */
+/*   Updated: 2021/05/06 17:55:45 by hyeojung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_bzero(void *dest, size_t size)
+char	*ft_strrchr(const char *s, int c)
 {
-	return (ft_memset(dest, 0, size));
+	int	len;
+
+	len = ft_strlen(s);
+	while (--len >= 0)
+		if (s[len] == c)
+			return ((char*)s + len);
+	return (NULL);
 }
