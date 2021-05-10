@@ -6,13 +6,14 @@
 /*   By: hyeojung <hyeojung@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/04 12:31:24 by hyeojung          #+#    #+#             */
-/*   Updated: 2021/05/06 17:51:35 by hyeojung         ###   ########.fr       */
+/*   Updated: 2021/05/10 15:34:23 by hyeojung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 
+# include <stdio.h>
 # include <stdlib.h>
 # include <string.h>
 # include <unistd.h>

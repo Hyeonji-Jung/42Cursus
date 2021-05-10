@@ -6,7 +6,7 @@
 /*   By: hyeojung <hyeojung@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/04 16:52:41 by hyeojung          #+#    #+#             */
-/*   Updated: 2021/05/06 15:26:00 by hyeojung         ###   ########.fr       */
+/*   Updated: 2021/05/10 16:13:15 by hyeojung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,22 +14,21 @@
 
 void		*ft_memccpy(void *dest, const void *src, int c, size_t size)
 {
-	size_t	i;
-	int		flag;
+	size_t			i;
+	unsigned char	find;
+	unsigned char	*ptr1;
+	unsigned char	*ptr2;
 
 	i = 0;
-	flag = 0;
+	find = (unsigned char)c;
+	ptr1 = (unsigned char*)dest;
+	ptr2 = (unsigned char*)src;
 	while (i < size)
 	{
-		((char*)dest)[i] = ((char*)src)[i];
-		if (((char*)src)[i++] == c)
-		{
-			flag = 1;
-			break ;
-		}
+		*(ptr1 + i) = *(ptr2 + i);
+		if (*(ptr2 + i) == find)
+			return (dest + i + 1);
+		i++;
 	}
-	if (flag)
-		return (dest);
-	else
-		return (NULL);
+	return (NULL);
 }
