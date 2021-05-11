@@ -27,6 +27,7 @@ SRCS = ft_atoi.c\
 	   ft_toupper.c\
 	   ft_substr.c\
 	   ft_strjoin.c\
+	   ft_strtrim.c\
 
 NAME = libft.a
 OBJS = $(SRCS:.c=.o)
