@@ -6,7 +6,7 @@
 /*   By: hyeojung <hyeojung@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/06 14:56:10 by hyeojung          #+#    #+#             */
-/*   Updated: 2021/05/06 17:55:17 by hyeojung         ###   ########.fr       */
+/*   Updated: 2021/05/11 16:58:14 by hyeojung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,27 +14,19 @@
 
 char	*ft_strnstr(const char *str, const char *find, size_t size)
 {
-	char	*tmp;
-	size_t	i;
+	size_t	find_len;
 
-	tmp = (char*)find;
-	i = 0;
-	if (!*find)
-		return ((char*)str);
-	while (*str && ++i <= size)
+	find_len = ft_strlen(find);
+	if (*find)
 	{
-		if (*str == *find)
+		if (size == 0)
+			return (NULL);
+		while (ft_strncmp(str, find, find_len) != 0 && size--)
 		{
+			if (!*str || size < find_len)
+				return (NULL);
 			str++;
-			find++;
-			if (!*find)
-				return ((char*)str - ((char*)find - tmp));
-		}
-		else
-		{
-			str++;
-			find = tmp;
 		}
 	}
-	return (NULL);
+	return ((char*)str);
 }
