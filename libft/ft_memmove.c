@@ -6,7 +6,7 @@
 /*   By: hyeojung <hyeojung@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/03 15:29:53 by hyeojung          #+#    #+#             */
-/*   Updated: 2021/05/10 16:25:31 by hyeojung         ###   ########.fr       */
+/*   Updated: 2021/05/11 15:41:55 by hyeojung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,12 @@
 
 void	*ft_memmove(void *dest, const void *src, size_t size)
 {
-	char	*tmp;
-
-	tmp = (char *)malloc(size);
-	ft_memcpy(tmp, src, size);
-	ft_memcpy(dest, tmp, size);
-	free(tmp);
+	if (!dest && !src)
+		return (NULL);
+	if ((size_t)(dest - src) >= size)
+		ft_memcpy(dest, src, size);
+	else
+		while (size--)
+			*((unsigned char*)dest + size) = *((unsigned char*)src + size);
 	return (dest);
 }
