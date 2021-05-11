@@ -9,6 +9,7 @@ SRCS = ft_atoi.c\
 	   ft_isascii.c\
 	   ft_isdigit.c\
 	   ft_isprint.c\
+	   ft_itoa.c\
 	   ft_memccpy.c\
 	   ft_memchr.c\
 	   ft_memcmp.c\
@@ -28,6 +29,10 @@ SRCS = ft_atoi.c\
 	   ft_substr.c\
 	   ft_strjoin.c\
 	   ft_strtrim.c\
+	   ft_putchar_fd.c\
+	   ft_putstr_fd.c\
+	   ft_putendl_fd.c\
+	   ft_putnbr_fd.c\
 
 NAME = libft.a
 OBJS = $(SRCS:.c=.o)

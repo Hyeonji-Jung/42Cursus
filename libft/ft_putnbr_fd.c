@@ -1,32 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_substr.c                                        :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hyeojung <hyeojung@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/11 17:03:36 by hyeojung          #+#    #+#             */
-/*   Updated: 2021/05/11 22:17:04 by hwso             ###   ########.fr       */
+/*   Created: 2021/05/11 22:25:01 by hyeojung          #+#    #+#             */
+/*   Updated: 2021/05/11 23:24:39 by hyeojung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_substr(char const *s, unsigned int start, size_t len)
+static void	write_nbr(long long n, int fd)
 {
-	char	*substr;
-	int	i;
+	if (n >= 10)
+		write_nbr(n / 10, fd);
+	write(fd, &"0123456789"[n % 10], 1);
+}
 
-	if (!s)
-		return (NULL);
-	if (start >= ft_strlen(s))
-		return (ft_calloc(sizeof(char), 1));
-	substr = (char*)ft_calloc(sizeof(char), len + 1);
-	if (!substr)
-		return (NULL);
-	len = len < ft_strlen(s + start) ? len : ft_strlen(s + start);
-	i = 0;
-	while (len--)
-		*(substr + i++) = *(s + start++);
-	return (substr);
+void	ft_putnbr_fd(int n, int fd)
+{
+	long long	num;
+
+	num = n;
+	if (fd < 0)
+		return ;
+	if (n == 0)
+	{
+		ft_putchar_fd('0', fd);
+		return ;
+	}
+	else if (n < 0)
+	{
+		ft_putchar_fd('-', fd);
+		num *= -1;
+	}
+	write_nbr(num, fd);
 }
