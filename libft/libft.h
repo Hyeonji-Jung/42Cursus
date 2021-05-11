@@ -6,7 +6,7 @@
 /*   By: hyeojung <hyeojung@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/04 12:31:24 by hyeojung          #+#    #+#             */
-/*   Updated: 2021/05/11 14:28:04 by hyeojung         ###   ########.fr       */
+/*   Updated: 2021/05/11 17:43:25 by hyeojung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,9 @@ int		ft_memcmp(const void *dest, const void *src, size_t size);
 char	*ft_strchr(const char *s, int c);
 char	*ft_strrchr(const char *s, int c);
 char	*ft_strdup(const char *str);
+char	*ft_strjoin(char const *s1, char const *s2);
 char	*ft_strnstr(const char *str, const char *find, size_t size);
+char	*ft_substr(char const *s, unsigned int start, size_t len);
 
 size_t	ft_strlen(const char *str);
 size_t	ft_strlcat(char *dest, const char *src, size_t size);
