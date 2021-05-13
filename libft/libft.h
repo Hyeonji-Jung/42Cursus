@@ -6,7 +6,7 @@
 /*   By: hyeojung <hyeojung@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/04 12:31:24 by hyeojung          #+#    #+#             */
-/*   Updated: 2021/05/11 22:46:10 by hyeojung         ###   ########.fr       */
+/*   Updated: 2021/05/13 14:36:09 by hyeojung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,8 @@ char	*ft_strjoin(char const *s1, char const *s2);
 char	*ft_strtrim(char const *s1, char const *set);
 char	*ft_strnstr(const char *str, const char *find, size_t size);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
+
+char	**ft_split(char const *s, char c);
 
 size_t	ft_strlen(const char *str);
 size_t	ft_strlcat(char *dest, const char *src, size_t size);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hyeojung <hyeojung@student.42seoul.kr      +#+  +:+       +#+        */
+/*   By: hyeojung <hyeojung@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/11 22:28:54 by hyeojung          #+#    #+#             */
-/*   Updated: 2021/05/11 23:04:04 by hyeojung         ###   ########.fr       */
+/*   Updated: 2021/05/13 13:46:22 by hyeojung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,11 +25,11 @@ static int	subfunc_len(int n)
 	return (len);
 }
 
-char	*ft_itoa(int n)
+char		*ft_itoa(int n)
 {
 	char	*num;
-	int	len;
-	int	sign;
+	int		len;
+	int		sign;
 
 	len = subfunc_len(n);
 	num = (char*)ft_calloc(sizeof(char), len + 1);
