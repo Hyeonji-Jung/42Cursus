@@ -6,7 +6,7 @@
 /*   By: hyeojung <hyeojung@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/11 17:03:36 by hyeojung          #+#    #+#             */
-/*   Updated: 2021/05/11 22:17:04 by hwso             ###   ########.fr       */
+/*   Updated: 2021/05/13 12:41:25 by hyeojung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,18 +15,14 @@
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
 	char	*substr;
-	int	i;
 
 	if (!s)
 		return (NULL);
 	if (start >= ft_strlen(s))
-		return (ft_calloc(sizeof(char), 1));
-	substr = (char*)ft_calloc(sizeof(char), len + 1);
-	if (!substr)
+		return (ft_strdup(""));
+	if (!(substr = (char*)malloc(sizeof(char) * len + 1)))
 		return (NULL);
-	len = len < ft_strlen(s + start) ? len : ft_strlen(s + start);
-	i = 0;
-	while (len--)
-		*(substr + i++) = *(s + start++);
+	len = ft_strlen(s + start) < len ? ft_strlen(s + start) : len;
+	ft_strlcpy(substr, s + start, len + 1);
 	return (substr);
 }
