@@ -6,7 +6,7 @@
 /*   By: hyeojung <hyeojung@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/13 12:47:08 by hyeojung          #+#    #+#             */
-/*   Updated: 2021/05/13 15:36:09 by hyeojung         ###   ########.fr       */
+/*   Updated: 2021/05/13 16:03:23 by hyeojung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,8 @@ static int			get_wd_cnt(char *s, char c)
 			while (*s && *s != c)
 				++s;
 		}
-		++s;
+		else
+			++s;
 	}
 	return (cnt);
 }
@@ -65,7 +66,8 @@ static char			**split_sub(char **arr, char *s, char c)
 				return (malloc_error(arr));
 			my_strcpy(arr[i++], from, s);
 		}
-		++s;
+		else
+			++s;
 	}
 	arr[i] = NULL;
 	return (arr);
