@@ -6,7 +6,7 @@
 /*   By: hyeojung <hyeojung@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/13 12:47:08 by hyeojung          #+#    #+#             */
-/*   Updated: 2021/05/13 14:55:00 by hyeojung         ###   ########.fr       */
+/*   Updated: 2021/05/13 15:21:59 by hyeojung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ static char			**split_sub(char **arr, char *s, char c)
 		}
 		++s;
 	}
-	arr[i] = 0;
+	arr[i] = NULL;
 	return (arr);
 }
 
