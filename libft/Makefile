@@ -1,5 +1,7 @@
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
+RM = rm -f
+LIB = ar rcs
 
 SRCS = ft_atoi.c\
 	   ft_bzero.c\
@@ -36,28 +38,38 @@ SRCS = ft_atoi.c\
 	   ft_putendl_fd.c\
 	   ft_putnbr_fd.c\
 
+SRCS_B = ft_lstnew.c\
+		 ft_lstadd_front.c\
+		 ft_lstsize.c\
+		 ft_lstlast.c\
+		 ft_lstadd_back.c\
+		 ft_lstdelone.c\
+		 ft_lstclear.c\
+		 ft_lstiter.c\
+		 ft_lstmap.c\
+
+OBJS	=	$(SRCS:.c=.o)
+OBJS_B	=	$(SRCS_B:.c=.o)
+
 NAME = libft.a
-OBJS = $(SRCS:.c=.o)
 
 $(NAME): $(OBJS)
-	@ar rc $(NAME) $(OBJS)
-	@echo "$(NAME) created"
-	@ranlib $(NAME)
-	@echo "$(NAME) indexed"
+	$(LIB) $@ $^
 
 all: $(NAME)
 
 %.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@
 
+bonus: $(OBJS_B)
+	$(LIB) $(NAME) $^
+
 clean:
-	@rm -f $(OBJS)
-	@echo "obj files deleted"
+	$(RM) $(OBJS) $(OBJS_B)
 
 fclean:
-	@rm -f $(NAME)
-	@echo "$(NAME) deleted"
+	$(RM) $(NAME)
 
 re: fclean all
 
-.PHONY: all, clean, fclean, re
+.PHONY: all clean fclean re bonus

@@ -1,18 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hyeojung <hyeojung@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/04 13:34:34 by hyeojung          #+#    #+#             */
-/*   Updated: 2021/05/13 17:10:21 by hyeojung         ###   ########.fr       */
+/*   Created: 2021/05/13 16:35:45 by hyeojung          #+#    #+#             */
+/*   Updated: 2021/05/13 17:37:00 by hyeojung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_bzero(void *dest, size_t size)
+t_list	*ft_lstnew(void *content)
 {
-	return (ft_memset(dest, 0, size));
+	t_list	*newlist;
+
+	if (!(newlist = (t_list*)malloc(sizeof(t_list))))
+		return (NULL);
+	newlist->content = content;
+	newlist->next = NULL;
+	return (newlist);
 }

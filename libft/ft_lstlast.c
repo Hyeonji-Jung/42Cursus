@@ -1,18 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   ft_lstlast.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hyeojung <hyeojung@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/04 13:34:34 by hyeojung          #+#    #+#             */
-/*   Updated: 2021/05/13 17:10:21 by hyeojung         ###   ########.fr       */
+/*   Created: 2021/05/13 17:51:18 by hyeojung          #+#    #+#             */
+/*   Updated: 2021/05/13 17:52:48 by hyeojung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_bzero(void *dest, size_t size)
+t_list	*ft_lstlast(t_list *lst)
 {
-	return (ft_memset(dest, 0, size));
+	if (lst)
+		while (lst->next)
+			lst = lst->next;
+	return (lst);
 }

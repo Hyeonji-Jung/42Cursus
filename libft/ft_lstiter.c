@@ -1,18 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   ft_lstiter.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hyeojung <hyeojung@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/04 13:34:34 by hyeojung          #+#    #+#             */
-/*   Updated: 2021/05/13 17:10:21 by hyeojung         ###   ########.fr       */
+/*   Created: 2021/05/13 18:15:54 by hyeojung          #+#    #+#             */
+/*   Updated: 2021/05/13 18:18:04 by hyeojung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_bzero(void *dest, size_t size)
+void	ft_lstiter(t_list *lst, void (*f)(void*))
 {
-	return (ft_memset(dest, 0, size));
+	if (f)
+		while (lst)
+		{
+			f(lst->content);
+			lst = lst->next;
+		}
 }
