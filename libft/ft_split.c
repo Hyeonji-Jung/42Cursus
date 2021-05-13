@@ -6,7 +6,7 @@
 /*   By: hyeojung <hyeojung@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/13 12:47:08 by hyeojung          #+#    #+#             */
-/*   Updated: 2021/05/13 15:30:41 by hyeojung         ###   ########.fr       */
+/*   Updated: 2021/05/13 15:36:09 by hyeojung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,7 @@ char				**ft_split(char const *s, char c)
 	if (!s)
 		return (NULL);
 	ptr = (char*)s;
-	if (!(arr = (char**)malloc((sizeof(char*) * get_wd_cnt(ptr, c)) + 1)))
+	if (!(arr = (char**)malloc(sizeof(char*) * (get_wd_cnt(ptr, c) + 1))))
 		return (NULL);
 	return (split_sub(arr, ptr, c));
 }
