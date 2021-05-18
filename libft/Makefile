@@ -2,6 +2,7 @@ CC = gcc
 CFLAGS = -Wall -Wextra -Werror
 RM = rm -f
 LIB = ar rcs
+NAME = libft.a
 
 SRCS = ft_atoi.c\
 	   ft_bzero.c\
@@ -51,9 +52,13 @@ SRCS_B = ft_lstnew.c\
 OBJS	=	$(SRCS:.c=.o)
 OBJS_B	=	$(SRCS_B:.c=.o)
 
-NAME = libft.a
+ifdef WITH_BONUS
+	OBJS_SWITCH = $(OBJS) $(OBJS_B)
+else
+	OBJS_SWITCH = $(OBJS)
+endif
 
-$(NAME): $(OBJS)
+$(NAME): $(OBJS_SWITCH)
 	$(LIB) $@ $^
 
 all: $(NAME)
@@ -61,13 +66,13 @@ all: $(NAME)
 %.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@
 
-bonus: $(OBJS_B)
-	$(LIB) $(NAME) $^
+bonus:
+	make WITH_BONUS=1 all
 
 clean:
 	$(RM) $(OBJS) $(OBJS_B)
 
-fclean:
+fclean: clean
 	$(RM) $(NAME)
 
 re: fclean all
