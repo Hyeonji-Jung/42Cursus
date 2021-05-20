@@ -1,5 +1,17 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: hyeojung <hyeojung@student.42seoul.kr>     +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2021/05/20 11:32:27 by hyeojung          #+#    #+#              #
+#    Updated: 2021/05/20 11:32:46 by hyeojung         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
 CC = gcc
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -I.
 RM = rm -f
 LIB = ar rcs
 NAME = libft.a
