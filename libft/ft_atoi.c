@@ -6,7 +6,7 @@
 /*   By: hyeojung <hyeojung@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/06 13:20:12 by hyeojung          #+#    #+#             */
-/*   Updated: 2021/05/11 14:58:51 by hyeojung         ###   ########.fr       */
+/*   Updated: 2021/05/21 16:42:32 by hyeojung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,5 @@ int	ft_atoi(const char *str)
 	}
 	while (*str >= '0' && *str <= '9')
 		num = num * 10 + (*(str++) - '0');
-	if (num * sign > LONG_MAX)
-		return (-1);
-	if (num * sign < LONG_MIN)
-		return (0);
 	return (num * sign);
 }
