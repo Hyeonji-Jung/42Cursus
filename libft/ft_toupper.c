@@ -6,11 +6,9 @@
 /*   By: hyeojung <hyeojung@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/04 13:21:46 by hyeojung          #+#    #+#             */
-/*   Updated: 2021/05/04 13:23:15 by hyeojung         ###   ########.fr       */
+/*   Updated: 2021/05/25 13:27:39 by hyeojung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include "libft.h"
 
 int	ft_toupper(int c)
 {

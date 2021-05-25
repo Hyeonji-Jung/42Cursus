@@ -6,11 +6,9 @@
 /*   By: hyeojung <hyeojung@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/04 13:17:35 by hyeojung          #+#    #+#             */
-/*   Updated: 2021/05/04 13:18:30 by hyeojung         ###   ########.fr       */
+/*   Updated: 2021/05/25 13:17:51 by hyeojung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include "libft.h"
 
 int	ft_isascii(int c)
 {

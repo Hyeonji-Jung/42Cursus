@@ -6,11 +6,9 @@
 /*   By: hyeojung <hyeojung@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/04 13:04:14 by hyeojung          #+#    #+#             */
-/*   Updated: 2021/05/04 13:05:20 by hyeojung         ###   ########.fr       */
+/*   Updated: 2021/05/25 13:17:38 by hyeojung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include "libft.h"
 
 int	ft_isdigit(int c)
 {
