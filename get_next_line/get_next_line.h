@@ -6,7 +6,7 @@
 /*   By: hyeojung <hyeojung@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/21 12:59:12 by hyeojung          #+#    #+#             */
-/*   Updated: 2021/06/01 18:22:47 by hyeojung         ###   ########.fr       */
+/*   Updated: 2021/06/02 21:16:52 by hyeojung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@
 # include <unistd.h>
 # include <limits.h>
 # include <fcntl.h>
-# include <stdio.h>
 
 int		get_next_line(int fd, char **line);
 int		is_newline(char *str);
