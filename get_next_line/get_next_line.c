@@ -6,7 +6,7 @@
 /*   By: hyeojung <hyeojung@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/21 12:59:36 by hyeojung          #+#    #+#             */
-/*   Updated: 2021/06/03 10:21:20 by hyeojung         ###   ########.fr       */
+/*   Updated: 2021/06/03 14:13:59 by hyeojung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,15 +54,15 @@ char	*ft_get_line(char *str)
 int		get_next_line(int fd, char **line)
 {
 	int			read_ret;
-	static char	*static_buff[OPEN_MAX];
 	char		*buff;
+	static char	*st_buff[OPEN_MAX];
 
 	read_ret = 1;
 	if (fd < 0 || fd > OPEN_MAX || BUFFER_SIZE <= 0 || !line)
 		return (-1);
 	if (!(buff = (char*)malloc(BUFFER_SIZE + 1)))
 		return (-1);
-	while (!is_newline(static_buff[fd]) && read_ret != 0)
+	while (!is_newline(st_buff[fd]) && read_ret != 0)
 	{
 		if ((read_ret = read(fd, buff, BUFFER_SIZE)) == -1)
 		{
@@ -70,11 +70,11 @@ int		get_next_line(int fd, char **line)
 			return (-1);
 		}
 		buff[read_ret] = 0;
-		static_buff[fd] = ft_strjoin(static_buff[fd], buff);
+		st_buff[fd] = ft_strjoin(st_buff[fd], buff);
 	}
 	free(buff);
-	*line = ft_get_line(static_buff[fd]);
-	static_buff[fd] = ft_nextline(static_buff[fd]);
+	*line = ft_get_line(st_buff[fd]);
+	st_buff[fd] = ft_nextline(st_buff[fd]);
 	if (!read_ret)
 		return (0);
 	return (1);
