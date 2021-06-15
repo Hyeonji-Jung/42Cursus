@@ -6,7 +6,7 @@
 /*   By: hyeojung <hyeojung@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/03 17:30:55 by hyeojung          #+#    #+#             */
-/*   Updated: 2021/06/15 18:56:08 by hyeojung         ###   ########.fr       */
+/*   Updated: 2021/06/15 21:16:02 by hyeojung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ static void	init_flag(t_flag *flag)
 	flag->dot = 0;
 	flag->sign = 1;
 	flag->prec = -1;
-	flag_type = '\0';
+	flag->type = '\0';
 }
 
 static int	parsing_format(const char **format, va_list *ap)
