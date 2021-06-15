@@ -6,7 +6,7 @@
 /*   By: hyeojung <hyeojung@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/03 17:32:32 by hyeojung          #+#    #+#             */
-/*   Updated: 2021/06/15 18:54:56 by hyeojung         ###   ########.fr       */
+/*   Updated: 2021/06/15 20:18:23 by hyeojung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,12 +35,13 @@ extern int		g_ret;
 
 int				ft_printf(const char *format, ...);
 int				ft_strchr(const char *s, char c);
+int				ft_atoi(const char *str, int *len);
 
 void			ft_putchar(char c);
 void			ft_putstr(char *str);
 void			parsing_minus(const char **format, t_flag *flag);
 void			parsing_zero(const char **format, t_flag *flag);
-void			parsing_width(const char **format, t_flag *flag, va_list ap);
-void			parsing_prec(const char **format, t_flag *flag, va_list ap);
+void			parsing_width(const char **format, t_flag *flag, va_list *ap);
+void			parsing_prec(const char **format, t_flag *flag, va_list *ap);
 
 #endif
