@@ -6,7 +6,7 @@
 /*   By: hyeojung <hyeojung@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/16 12:37:09 by hyeojung          #+#    #+#             */
-/*   Updated: 2021/06/16 13:21:58 by hyeojung         ###   ########.fr       */
+/*   Updated: 2021/06/16 17:17:44 by hyeojung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@ int	printf_c(t_flag *flag, va_list *ap)
 
 int	printf_s(t_flag *flag, va_list *ap)
 {
-	ft_putstr(va_arg(*ap, char*));
 	return (0);
 }
 

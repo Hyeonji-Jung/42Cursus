@@ -6,7 +6,7 @@
 /*   By: hyeojung <hyeojung@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/03 17:30:55 by hyeojung          #+#    #+#             */
-/*   Updated: 2021/06/16 13:22:10 by hyeojung         ###   ########.fr       */
+/*   Updated: 2021/06/16 17:16:35 by hyeojung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,7 @@ static int	parsing_format(const char **format, va_list *ap)
 			return (-1);
 	}
 	flag.type = **format;
+	(*format)++;
 	return (recog_type(&flag, ap));
 }
 
