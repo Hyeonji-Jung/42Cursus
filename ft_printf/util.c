@@ -6,7 +6,7 @@
 /*   By: hyeojung <hyeojung@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/15 17:56:14 by hyeojung          #+#    #+#             */
-/*   Updated: 2021/06/15 20:17:57 by hyeojung         ###   ########.fr       */
+/*   Updated: 2021/06/16 13:17:28 by hyeojung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	ft_putchar(char c)
 void	ft_putstr(char *str)
 {
 	while (*str)
-		write(1, str, 1);
+		write(1, str++, 1);
 }
 
 int		ft_strchr(const char *s, char c)

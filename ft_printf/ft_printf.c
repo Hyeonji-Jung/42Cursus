@@ -6,7 +6,7 @@
 /*   By: hyeojung <hyeojung@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/03 17:30:55 by hyeojung          #+#    #+#             */
-/*   Updated: 2021/06/15 21:16:02 by hyeojung         ###   ########.fr       */
+/*   Updated: 2021/06/16 13:22:10 by hyeojung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,24 @@ static void	init_flag(t_flag *flag)
 	flag->sign = 1;
 	flag->prec = -1;
 	flag->type = '\0';
+}
+
+static int	recog_type(t_flag *flag, va_list *ap)
+{
+	if (flag->type == 'c')
+		return (printf_c(flag, ap));
+	else if (flag->type == 's')
+		return (printf_s(flag, ap));
+	else if (flag->type == 'p')
+		return (printf_p(flag, ap));
+	else if (flag->type == 'd' || flag->type == 'i')
+		return (printf_int(flag, ap));
+	else if (flag->type == 'x' || flag->type == 'X')
+		return (printf_hex(flag, ap));
+	else if (flag->type == '%')
+		return (printf_per(flag, ap));
+	else
+		return (-1);
 }
 
 static int	parsing_format(const char **format, va_list *ap)
@@ -44,7 +62,7 @@ static int	parsing_format(const char **format, va_list *ap)
 			return (-1);
 	}
 	flag.type = **format;
-	return (1);
+	return (recog_type(&flag, ap));
 }
 
 int			ft_printf(const char *format, ...)
@@ -55,7 +73,7 @@ int			ft_printf(const char *format, ...)
 	g_ret = 0;
 	while (*format)
 	{
-		if (format != '%')
+		if (*format != '%')
 		{
 			ft_putchar(*format);
 			g_ret++;
@@ -63,7 +81,8 @@ int			ft_printf(const char *format, ...)
 		}
 		else
 		{
-			if (parsing_format(&(format + 1), &ap) == -1)
+			format++;
+			if (parsing_format(&format, &ap) == -1)
 				return (-1);
 		}
 	}

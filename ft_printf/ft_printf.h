@@ -6,7 +6,7 @@
 /*   By: hyeojung <hyeojung@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/03 17:32:32 by hyeojung          #+#    #+#             */
-/*   Updated: 2021/06/15 20:18:23 by hyeojung         ###   ########.fr       */
+/*   Updated: 2021/06/16 12:44:44 by hyeojung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,12 @@ extern int		g_ret;
 int				ft_printf(const char *format, ...);
 int				ft_strchr(const char *s, char c);
 int				ft_atoi(const char *str, int *len);
+int				printf_c(t_flag *flag, va_list *ap);
+int				printf_s(t_flag *flag, va_list *ap);
+int				printf_p(t_flag *flag, va_list *ap);
+int				printf_per(t_flag *flag, va_list *ap);
+int				printf_int(t_flag *flag, va_list *ap);
+int				printf_hex(t_flag *flag, va_list *ap);
 
 void			ft_putchar(char c);
 void			ft_putstr(char *str);
