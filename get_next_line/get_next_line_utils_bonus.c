@@ -6,7 +6,7 @@
 /*   By: hyeojung <hyeojung@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/01 16:16:53 by hyeojung          #+#    #+#             */
-/*   Updated: 2021/06/03 14:20:25 by hyeojung         ###   ########.fr       */
+/*   Updated: 2021/06/26 17:34:58 by hyeojung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,9 +64,12 @@ char	*ft_strjoin(char *s1, char *s2)
 	if (!s1 && !s2)
 		return (0);
 	len = ft_strlen((const char*)s1) + ft_strlen((const char*)s2);
-	new = (char*)malloc((len + 1));
-	if (!new)
-		return (NULL);
+	if (!(new = (char*)malloc(len + 1)))
+	{
+		if (s1)
+			free(s1);
+		return (0);
+	}
 	*new = 0;
 	ft_strlcat(new, (char*)s1, len + 1);
 	ft_strlcat(new, (char*)s2, len + 1);

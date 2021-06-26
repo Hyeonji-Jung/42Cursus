@@ -6,7 +6,7 @@
 /*   By: hyeojung <hyeojung@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/21 12:59:36 by hyeojung          #+#    #+#             */
-/*   Updated: 2021/06/03 14:20:10 by hyeojung         ###   ########.fr       */
+/*   Updated: 2021/06/26 17:34:45 by hyeojung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,16 @@ char	*ft_get_line(char *str)
 	return (ret);
 }
 
+int		gnl_err(int read_ret, char *st_buff, char *line)
+{
+	if (read_ret != 0 && (!st_buff || !line))
+		return (-1);
+	else if (read_ret == 0)
+		return (0);
+	else
+		return (1);
+}
+
 int		get_next_line(int fd, char **line)
 {
 	int			read_ret;
@@ -75,7 +85,5 @@ int		get_next_line(int fd, char **line)
 	free(buff);
 	*line = ft_get_line(st_buff[fd]);
 	st_buff[fd] = ft_nextline(st_buff[fd]);
-	if (!read_ret)
-		return (0);
-	return (1);
+	return (gnl_err(read_ret, st_buff[fd], *line));
 }

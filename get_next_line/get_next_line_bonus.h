@@ -6,7 +6,7 @@
 /*   By: hyeojung <hyeojung@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/21 12:59:12 by hyeojung          #+#    #+#             */
-/*   Updated: 2021/06/03 14:20:41 by hyeojung         ###   ########.fr       */
+/*   Updated: 2021/06/26 17:35:19 by hyeojung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 # include <limits.h>
 
 int		get_next_line(int fd, char **line);
+int		gnl_err(int read_ret, char *st_buff, char *line);
 int		is_newline(char *str);
 
 size_t	ft_strlen(const char *str);
