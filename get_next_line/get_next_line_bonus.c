@@ -6,7 +6,7 @@
 /*   By: hyeojung <hyeojung@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/21 12:59:36 by hyeojung          #+#    #+#             */
-/*   Updated: 2021/06/26 17:34:45 by hyeojung         ###   ########.fr       */
+/*   Updated: 2021/06/27 15:28:22 by hyeojung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,13 +22,11 @@ char	*ft_nextline(char *str)
 	i = 0;
 	while (str[i] && str[i] != '\n')
 		i++;
-	if (!str[i])
+	if (!str[i] || !(ret = (char*)malloc(ft_strlen(str) - i + 1)))
 	{
 		free(str);
 		return (0);
 	}
-	if (!(ret = (char*)malloc(ft_strlen(str) - i + 1)))
-		return (0);
 	*ret = 0;
 	i++;
 	ft_strlcat(ret, str + i, ft_strlen(str) - i + 1);
