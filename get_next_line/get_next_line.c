@@ -6,7 +6,7 @@
 /*   By: hyeojung <hyeojung@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/21 12:59:36 by hyeojung          #+#    #+#             */
-/*   Updated: 2021/06/27 15:28:12 by hyeojung         ###   ########.fr       */
+/*   Updated: 2021/07/01 14:46:57 by hyeojung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ int		get_next_line(int fd, char **line)
 	static char	*st_buff[OPEN_MAX];
 
 	read_ret = 1;
-	if (fd < 0 || fd > OPEN_MAX || BUFFER_SIZE <= 0 || !line)
+	if (fd < 0 || fd >= OPEN_MAX || BUFFER_SIZE <= 0 || !line)
 		return (-1);
 	if (!(buff = (char*)malloc(BUFFER_SIZE + 1)))
 		return (-1);
