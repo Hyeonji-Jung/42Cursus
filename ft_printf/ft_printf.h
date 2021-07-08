@@ -6,7 +6,7 @@
 /*   By: hyeojung <hyeojung@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/03 17:32:32 by hyeojung          #+#    #+#             */
-/*   Updated: 2021/07/08 11:07:28 by hyeojung         ###   ########.fr       */
+/*   Updated: 2021/07/08 11:27:47 by hyeojung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,8 @@ typedef struct s_flag
 	int			sign;
 	long long	prec;
 	char		type;
+	int			ret;
 }				t_flag;
-
-extern int		g_ret;
 
 int				ft_printf(const char *format, ...);
 int				ft_strchr(const char *s, char c);

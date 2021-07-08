@@ -6,13 +6,11 @@
 /*   By: hyeojung <hyeojung@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/03 17:30:55 by hyeojung          #+#    #+#             */
-/*   Updated: 2021/07/08 11:08:00 by hyeojung         ###   ########.fr       */
+/*   Updated: 2021/07/08 11:22:45 by hyeojung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-
-int	g_ret;
 
 static void	init_flag(t_flag *flag)
 {
@@ -68,16 +66,17 @@ static int	parsing_format(const char **format, va_list *ap)
 
 int	ft_printf(const char *format, ...)
 {
+	int		ret;
 	va_list	ap;
 
+	ret = 0;
 	va_start(ap, format);
-	g_ret = 0;
 	while (*format)
 	{
 		if (*format != '%')
 		{
 			ft_putchar(*format);
-			g_ret++;
+			ret++;
 			format++;
 		}
 		else
@@ -88,5 +87,5 @@ int	ft_printf(const char *format, ...)
 		}
 	}
 	va_end(ap);
-	return (g_ret);
+	return (ret);
 }
