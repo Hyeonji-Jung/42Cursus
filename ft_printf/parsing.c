@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hyeojung <hyeojung@student.42seoul.kr>     +#+  +:+       +#+        */
+/*   By: hyeojung <hyeojung@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/15 18:52:11 by hyeojung          #+#    #+#             */
-/*   Updated: 2021/06/16 13:14:50 by hyeojung         ###   ########.fr       */
+/*   Updated: 2021/07/08 11:07:18 by hyeojung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	parsing_zero(const char **format, t_flag *flag)
 
 void	parsing_width(const char **format, t_flag *flag, va_list *ap)
 {
-	int n_or_len;
+	int	n_or_len;
 
 	if (**format == '*')
 	{

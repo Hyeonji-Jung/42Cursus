@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hyeojung <hyeojung@student.42seoul.kr>     +#+  +:+       +#+        */
+/*   By: hyeojung <hyeojung@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/03 17:32:32 by hyeojung          #+#    #+#             */
-/*   Updated: 2021/06/16 12:44:44 by hyeojung         ###   ########.fr       */
+/*   Updated: 2021/07/08 11:07:28 by hyeojung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 # define DIGIT "123456789"
 # define TYPE "cspdiuxX%"
 
-typedef struct	s_flag
+typedef struct s_flag
 {
 	int			minus;
 	int			zero;

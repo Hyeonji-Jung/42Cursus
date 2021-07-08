@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   util.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hyeojung <hyeojung@student.42seoul.kr>     +#+  +:+       +#+        */
+/*   By: hyeojung <hyeojung@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/15 17:56:14 by hyeojung          #+#    #+#             */
-/*   Updated: 2021/06/16 13:17:28 by hyeojung         ###   ########.fr       */
+/*   Updated: 2021/07/08 11:07:03 by hyeojung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	ft_putstr(char *str)
 		write(1, str++, 1);
 }
 
-int		ft_strchr(const char *s, char c)
+int	ft_strchr(const char *s, char c)
 {
 	while (*s)
 	{
@@ -33,10 +33,10 @@ int		ft_strchr(const char *s, char c)
 	return (0);
 }
 
-int		ft_atoi(const char *str, int *len)
+int	ft_atoi(const char *str, int *len)
 {
 	int	ret;
-	int sign;
+	int	sign;
 	int	i;
 
 	ret = 0;

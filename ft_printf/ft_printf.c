@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hyeojung <hyeojung@student.42seoul.kr>     +#+  +:+       +#+        */
+/*   By: hyeojung <hyeojung@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/03 17:30:55 by hyeojung          #+#    #+#             */
-/*   Updated: 2021/06/16 17:16:35 by hyeojung         ###   ########.fr       */
+/*   Updated: 2021/07/08 11:08:00 by hyeojung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int g_ret;
+int	g_ret;
 
 static void	init_flag(t_flag *flag)
 {
@@ -66,7 +66,7 @@ static int	parsing_format(const char **format, va_list *ap)
 	return (recog_type(&flag, ap));
 }
 
-int			ft_printf(const char *format, ...)
+int	ft_printf(const char *format, ...)
 {
 	va_list	ap;
 
