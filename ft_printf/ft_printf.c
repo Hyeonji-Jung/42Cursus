@@ -6,7 +6,7 @@
 /*   By: hyeojung <hyeojung@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/03 17:30:55 by hyeojung          #+#    #+#             */
-/*   Updated: 2021/07/08 11:22:45 by hyeojung         ###   ########.fr       */
+/*   Updated: 2021/07/08 14:46:33 by hyeojung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,51 +41,49 @@ static int	recog_type(t_flag *flag, va_list *ap)
 		return (-1);
 }
 
-static int	parsing_format(const char **format, va_list *ap)
+static int	parsing_format(const char **format, va_list *ap, t_flag *flag)
 {
-	t_flag	flag;
-
-	init_flag(&flag);
+	init_flag(flag);
 	while (!ft_strchr(TYPE, **format))
 	{
 		if (**format == '-')
-			parsing_minus(format, &flag);
+			parsing_minus(format, flag);
 		else if (**format == '0')
-			parsing_zero(format, &flag);
+			parsing_zero(format, flag);
 		else if (**format == '*' || ft_strchr(DIGIT, **format))
-			parsing_width(format, &flag, ap);
+			parsing_width(format, flag, ap);
 		else if (**format == '.')
-			parsing_prec(format, &flag, ap);
+			parsing_prec(format, flag, ap);
 		else
 			return (-1);
 	}
-	flag.type = **format;
+	(*flag).type = **format;
 	(*format)++;
-	return (recog_type(&flag, ap));
+	return (recog_type(flag, ap));
 }
 
 int	ft_printf(const char *format, ...)
 {
-	int		ret;
+	t_flag	flag;
 	va_list	ap;
 
-	ret = 0;
+	flag.ret = 0;
 	va_start(ap, format);
 	while (*format)
 	{
 		if (*format != '%')
 		{
 			ft_putchar(*format);
-			ret++;
+			flag.ret++;
 			format++;
 		}
 		else
 		{
 			format++;
-			if (parsing_format(&format, &ap) == -1)
+			if (parsing_format(&format, &ap, &flag) == -1)
 				return (-1);
 		}
 	}
 	va_end(ap);
-	return (ret);
+	return (flag.ret);
 }
