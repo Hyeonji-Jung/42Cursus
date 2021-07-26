@@ -6,12 +6,75 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>이력서</title>
     <style>
+        .center-sort {
+            text-align: center;
+        }
         .header {
-            color: blue;
+            color: green;
+            margin: 30px;
+        }
+        table {
+            border: solid;
+            border-collapse: collapse;
+            border-color: lightcoral;
+            margin: auto;
+            width: 50%;
+        }
+        th, td {
+            border: 2px solid rebeccapurple;
+        }
+        th {
+            text-align: center;
+        }
+        ul {
+            background-color: lightgoldenrodyellow;
+            width: 50%;
+        }
+        .goal {
+            color: lightseagreen;
+        }
+        .table-right-low {
+            border: solid;
+            border-color: #424242;
         }
     </style>
 </head>
 <body>
+    <h1 class="header center-sort">42seoul 이력서</h1>
     
+    <table>
+        <thead>
+            <tr>
+                <th scope="col">구분</th>
+                <th scope="col">내용</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th scope="row">이름</th>
+                <td>hyeojung</td>
+            </tr>
+            <tr>
+                <th scope="row">기술 스택</th>
+                <td>
+                    <ol>
+                        <li>python</li>
+                        <li>django</li>
+                        <li>html</li>
+                        <li>css</li>
+                    </ol>
+                </td>
+            </tr>
+            <tr>
+                <th scope="row">진로</th>
+                <td class="table-right-low">
+                    <ul class="goal">
+                        <li>웹 백엔드</li>
+                        <li>ios</li>
+                    </ul>
+                </td>
+            </tr>
+        </tbody>
+    </table>
 </body>
 </html>
