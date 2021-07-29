@@ -23,7 +23,7 @@ def var_to_dict():
     ('Thompson' , '1949'),
     ('Burton' , '1939')
     ]
-    ret = dict(map(reversed, d))
+    ret = dict((y, x) for x, y in d)
     for i in ret.items():
         print(i[0], " : ", i[1])
 

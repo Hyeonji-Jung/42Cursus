@@ -35,7 +35,7 @@ def print_state(city):
 
 def print_unknown(flag):
     if flag != True:
-        print("Unknown Capital city")
+        print("Unknown capital city")
 
 if __name__ == '__main__':
     capital_city()
