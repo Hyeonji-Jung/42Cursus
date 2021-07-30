@@ -18,8 +18,8 @@ class Page:
     def is_valid(self) -> bool:
         return self.__norm_html(self.elem)
 
-    def __norm_html(self, elem: Elem()) -> bool:
-        if not (isinstance(elem, (Html, Head, Body, Title, Meta, Img, Table, Th, Tr, Td, Ul, Ol, Li, H1, H2, P, Div, Span, Hr, Br)) or type(elem) == Text):
+    def __norm_html(self, elem: Elem) -> bool:
+        if (not (isinstance(elem, (Html, Head, Body, Title, Meta, Img, Table, Th, Tr, Td, Ul, Ol, Li, H1, H2, P, Div, Span, Hr, Br))) or (type(elem) == Text)):
             return False
         if isinstance(elem, Meta) or type(elem) == Text:
             return True
@@ -52,11 +52,11 @@ class Page:
 if __name__ == "__main__":
 
     valid = Html([ Head([Title([])]), Body([]) ])
-    print(Page(valid))
+#    print(Page(valid))
     print(f'valid: {Page(valid).is_valid()}\n')
     
     invalid_no_title = Html([Head([]), Body([])])
-    print(Page(invalid_no_title))
+#    print(Page(invalid_no_title))
     print(f'invalid_no_title: {Page(invalid_no_title).is_valid()}\n')
 
     invalid_order = Html([Body([]), Head([Title([])])])
