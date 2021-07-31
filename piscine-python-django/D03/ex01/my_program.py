@@ -7,8 +7,11 @@ def test():
     try:
         Path.makedirs('./test')
     except Exception as e:
-        print(e)
-    Path.touch('test/something')
+        return print(e)
+    try:
+        Path.touch('test/something')
+    except Exception as e:
+        return print(e)
     f = Path('test/something')
     f.write_text('Writing Text ...')
     with open(f.abspath(), 'r') as f:
