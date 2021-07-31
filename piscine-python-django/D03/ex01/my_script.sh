@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 python3 -m venv local_lib
 source local_lib/bin/activate
