@@ -11,7 +11,6 @@ def search(word: str):
     parameters = {
         'action' : 'parse',
         'page' : word,
-        'redirects' : True,
         'prop' : 'wikitext',
         'format' : 'json'
     }
