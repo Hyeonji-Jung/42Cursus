@@ -1,0 +1,31 @@
+{% extends 'ex03/base.html' %}
+{% load static %}
+
+{% block title %}
+<title>Color Table</title>
+{% endblock title %}
+
+{% block style %}
+<link rel="stylesheet" href="{% static 'style.css' %}">
+{% endblock style %}
+
+{% block content %}
+<div>
+    <table>
+        <tr>
+            <th>Black</th>
+            <th>Red</th>
+            <th>Blue</th>
+            <th>Green</th>
+        </tr>
+        {% for c in colors %}
+        <tr>
+            <td style="background-color: rgb({{c}}, {{c}}, {{c}});"></td>
+            <td style="background-color: rgb({{c}}, 0, 0);"></td>
+            <td style="background-color: rgb(0, {{c}}, 0);"></td>
+            <td style="background-color: rgb(0, 0, {{c}});"></td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+{% endblock content %}

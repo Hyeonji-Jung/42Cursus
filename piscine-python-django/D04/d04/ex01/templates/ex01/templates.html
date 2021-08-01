@@ -1,0 +1,77 @@
+{% extends 'ex01/base.html' %}
+{% load static %}
+
+{% block title %}
+<title>Ex01: Template engine.</title>
+{% endblock title %}
+
+{% block style %}
+<link rel="stylesheet" href="{% static 'style2.css' %}">
+{% endblock style %}
+
+{% block content %}
+
+<div>
+    <h1>Templates</h1>
+    <br><br><br>
+
+    <h2>Block</h2>
+
+    <p>공통된 html 코드 부분을 base.html이라는 별도의 파일로 작성하여, 다른 페이지(자식)들이 상속(extends)받게 할 수 있습니다.</p>
+
+    <p>base.html 파일의 작성과 상속을 위해 각 파일은 다음과 같은 형식으로 작성됩니다.</p>
+
+    <strong>base.html</strong>
+    
+    {% verbatim %}
+    <ul>
+        <li>{% block contents %}</li>
+        <li>다른 페이지의 html 코드가 들어갈 장소</li>
+        <li>{% endblock %}</li>
+    </ul>
+    {% endverbatim %}
+
+    <strong>다른 html 파일들</strong>
+    
+    {% verbatim %}
+    <ul>
+        <li>{% extends "base.html" %}</li>
+        <li>{% block contents %}</li>
+        <li>해당 페이지에서 사용하는 html코드</li>
+        <li>{% endblock %}</li>
+    </ul>
+    {% endverbatim %}
+
+    <br>
+    <h2>for</h2>
+
+    <p>배열의 각 원소에 대하여 반복(루프)하는 것을 말합니다.</p>
+
+    <p>간단한 예로, student_list에 들어 있는 선수의 목록을 출력하기 위해 아래의 예제처럼 사용할 수 있습니다.</p>
+
+    {% verbatim %}
+    <ul>
+        <li>{% for student in student_list %}</li>
+        <li>{{ student.name }}</li>
+        <li>{% endfor %}</li>
+    </ul>
+    {% endverbatim %}
+
+    <br>
+    <h2>if / else</h2>
+
+    <p>변수가 true이면 블록의 컨텐츠를 표시하는 기능으로, if 태그 내에 템플릿 필터 및 각종 연산자를 사용할 수 있습니다.</p>
+
+    {% verbatim %}
+    <ul>
+        <li>{% if student_list %}</li>
+        <li>총 학생 수 : {{ student_list|length }}</li>
+        <li>{% else %}</li>
+        <li>학생이 없습니다.</li>
+        <li>{% endif %}</li>
+    </ul>
+    {% endverbatim %}
+
+</div>
+
+{% endblock content %}

@@ -1,0 +1,30 @@
+{% extends 'ex02/base.html' %}
+
+{% block title %}
+<title>Form</title>
+{% endblock title %}
+
+{% block style %}
+<style>
+    .text-center {
+        text-align: center;
+    }
+</style>
+{% endblock style %}
+
+{% block content %}
+<div class="text-center">
+    <h1>Form</h1>
+    <form action="" method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Submit" />
+    </form>
+    <br>
+
+    <h1>History</h1>
+    {% for datalog in log %}
+    <p>{{ datalog }}</p>
+    {% endfor %}
+</div>
+{% endblock content %}

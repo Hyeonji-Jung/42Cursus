@@ -1,0 +1,8 @@
+th, tr {
+    height: 40px;
+    width: 80px;
+}
+
+table {
+    border-collapse: collapse;
+}
