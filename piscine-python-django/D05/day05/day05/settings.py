@@ -37,6 +37,12 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'ex00',
+    'ex01',
+    'ex02',
+    'ex03',
+    'ex04',
+    'ex05'
 ]
 
 MIDDLEWARE = [
@@ -75,8 +81,10 @@ WSGI_APPLICATION = 'day05.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'djangotraining',
+        'USER': 'djangouser',
+        'PASSWORD': 'djangouser'
     }
 }
 
