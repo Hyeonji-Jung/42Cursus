@@ -1,0 +1,87 @@
+0	Luke Skywalker	19BBY	male	blue	blond	172	77	Tatooine
+1	C-3PO	112BBY	n/a	yellow	n/a	167	75	Tatooine
+2	R2-D2	33BBY	n/a	red	n/a	96	32	Naboo
+3	Darth Vader	41.9BBY	male	yellow	none	202	136	Tatooine
+4	Leia Organa	19BBY	female	brown	brown	150	49	Alderaan
+5	Owen Lars	52BBY	male	blue	brown, grey	178	120	Tatooine
+6	Beru Whitesun lars	47BBY	female	blue	brown	165	75	Tatooine
+7	R5-D4	NULL	n/a	red	n/a	97	32	Tatooine
+8	Biggs Darklighter	24BBY	male	brown	black	183	84	Tatooine
+9	Obi-Wan Kenobi	57BBY	male	blue-gray	auburn, white	182	77	Stewjon
+10	Anakin Skywalker	41.9BBY	male	blue	blond	188	84	Tatooine
+11	Wilhuff Tarkin	64BBY	male	blue	auburn, grey	180	NULL	Eriadu
+12	Chewbacca	200BBY	male	blue	brown	228	112	Kashyyyk
+13	Han Solo	29BBY	male	brown	brown	180	80	Corellia
+14	Greedo	44BBY	male	black	n/a	173	74	Rodia
+15	Jabba Desilijic Tiure	600BBY	hermaphrodite	orange	n/a	175	1.358	Nal Hutta
+16	Wedge Antilles	21BBY	male	hazel	brown	170	77	Corellia
+17	Jek Tono Porkins	NULL	male	blue	brown	180	110	Bestine IV
+18	Yoda	896BBY	male	brown	white	66	17	NULL
+19	Palpatine	82BBY	male	yellow	grey	170	75	Naboo
+20	Boba Fett	31.5BBY	male	brown	black	183	78.2	Kamino
+21	IG-88	15BBY	none	red	none	200	140	NULL
+22	Bossk	53BBY	male	red	none	190	113	Trandosha
+23	Lando Calrissian	31BBY	male	brown	black	177	79	Socorro
+24	Lobot	37BBY	male	blue	none	175	79	Bespin
+25	Ackbar	41BBY	male	orange	none	180	83	Mon Cala
+26	Mon Mothma	48BBY	female	blue	auburn	150	NULL	Chandrila
+27	Arvel Crynyd	NULL	male	brown	brown	NULL	NULL	NULL
+28	Wicket Systri Warrick	8BBY	male	brown	brown	88	20	Endor
+29	Nien Nunb	NULL	male	black	none	160	68	Sullust
+30	Qui-Gon Jinn	92BBY	male	blue	brown	193	89	NULL
+31	Nute Gunray	NULL	male	red	none	191	90	Cato Neimoidia
+32	Finis Valorum	91BBY	male	blue	blond	170	NULL	Coruscant
+33	Jar Jar Binks	52BBY	male	orange	none	196	66	Naboo
+34	Roos Tarpals	NULL	male	orange	none	224	82	Naboo
+35	Rugor Nass	NULL	male	orange	none	206	NULL	Naboo
+36	Ric Olié	NULL	male	blue	brown	183	NULL	Naboo
+37	Watto	NULL	male	yellow	black	137	NULL	Toydaria
+38	Sebulba	NULL	male	orange	none	112	40	Malastare
+39	Quarsh Panaka	62BBY	male	brown	black	183	NULL	Naboo
+40	Shmi Skywalker	72BBY	female	brown	black	163	NULL	Tatooine
+41	Darth Maul	54BBY	male	yellow	none	175	80	Dathomir
+42	Bib Fortuna	NULL	male	pink	none	180	NULL	Ryloth
+43	Ayla Secura	48BBY	female	hazel	none	178	55	Ryloth
+44	Ratts Tyerel	NULL	male	NULL	none	79	15	Aleen Minor
+45	Dud Bolt	NULL	male	yellow	none	94	45	Vulpter
+46	Gasgano	NULL	male	black	none	122	NULL	Troiken
+47	Ben Quadinaros	NULL	male	orange	none	163	65	Tund
+48	Mace Windu	72BBY	male	brown	none	188	84	Haruun Kal
+49	Ki-Adi-Mundi	92BBY	male	yellow	white	198	82	Cerea
+50	Kit Fisto	NULL	male	black	none	196	87	Glee Anselm
+51	Eeth Koth	NULL	male	brown	black	171	NULL	Iridonia
+52	Adi Gallia	NULL	female	blue	none	184	50	Coruscant
+53	Saesee Tiin	NULL	male	orange	none	188	NULL	Iktotch
+54	Yarael Poof	NULL	male	yellow	none	264	NULL	Quermia
+55	Plo Koon	22BBY	male	black	none	188	80	Dorin
+56	Mas Amedda	NULL	male	blue	none	196	NULL	Champala
+57	Gregar Typho	NULL	male	brown	black	185	85	Naboo
+58	Cordé	NULL	female	brown	brown	157	NULL	Naboo
+59	Cliegg Lars	82BBY	male	blue	brown	183	NULL	Tatooine
+60	Poggle the Lesser	NULL	male	yellow	none	183	80	Geonosis
+61	Luminara Unduli	58BBY	female	blue	black	170	56.2	Mirial
+62	Barriss Offee	40BBY	female	blue	black	166	50	Mirial
+63	Dormé	NULL	female	brown	brown	165	NULL	Naboo
+64	Dooku	102BBY	male	brown	white	193	80	Serenno
+65	Bail Prestor Organa	67BBY	male	brown	black	191	NULL	Alderaan
+66	Jango Fett	66BBY	male	brown	black	183	79	Concord Dawn
+67	Zam Wesell	NULL	female	yellow	blonde	168	55	Zolan
+68	Dexter Jettster	NULL	male	yellow	none	198	102	Ojom
+69	Lama Su	NULL	male	black	none	229	88	Kamino
+70	Taun We	NULL	female	black	none	213	NULL	Kamino
+71	Jocasta Nu	NULL	female	blue	white	167	NULL	Coruscant
+72	R4-P17	NULL	female	red, blue	none	96	NULL	NULL
+73	Wat Tambor	NULL	male	NULL	none	193	48	Skako
+74	San Hill	NULL	male	gold	none	191	NULL	Muunilinst
+75	Shaak Ti	NULL	female	black	none	178	57	Shili
+76	Grievous	NULL	male	green, yellow	none	216	159	Kalee
+77	Tarfful	NULL	male	blue	brown	234	136	Kashyyyk
+78	Raymus Antilles	NULL	male	brown	brown	188	79	Alderaan
+79	Sly Moore	NULL	female	white	none	178	48	Umbara
+80	Tion Medon	NULL	male	black	none	206	80	Utapau
+81	Finn	NULL	male	dark	black	NULL	NULL	NULL
+82	Rey	NULL	female	hazel	brown	NULL	NULL	NULL
+83	Poe Dameron	NULL	male	brown	brown	NULL	NULL	NULL
+84	BB8	NULL	none	black	none	NULL	NULL	NULL
+85	Captain Phasma	NULL	female	NULL	NULL	NULL	NULL	NULL
+86	Padmé Amidala	46BBY	female	brown	brown	165	45	Naboo

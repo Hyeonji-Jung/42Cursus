@@ -1,0 +1,60 @@
+0	Alderaan	temperate	12500	364	2000000000	24	40	grasslands, mountains
+1	Yavin IV	temperate, tropical	10200	4818	1000	24	8	jungle, rainforests
+2	Hoth	frozen	7200	549	NULL	23	100	tundra, ice caves, mountain ranges
+3	Dagobah	murky	8900	341	NULL	23	8	swamp, jungles
+4	Bespin	temperate	118000	5110	6000000	12	0	gas giant
+5	Endor	temperate	4900	402	30000000	18	8	forests, mountains, lakes
+6	Naboo	temperate	12120	312	4500000000	26	12	grassy hills, swamps, forests, mountains
+7	Coruscant	temperate	12240	368	1000000000000	24	NULL	cityscape, mountains
+8	Kamino	temperate	19720	463	1000000000	27	100	ocean
+9	Geonosis	temperate, arid	11370	256	100000000000	30	5	rock, desert, mountain, barren
+10	Utapau	temperate, arid, windy	12900	351	95000000	27	0.9	scrublands, savanna, canyons, sinkholes
+11	Mustafar	hot	4200	412	20000	36	0	volcanoes, lava rivers, mountains, caves
+12	Kashyyyk	tropical	12765	381	45000000	26	60	jungle, forests, lakes, rivers
+13	Polis Massa	artificial temperate 	0	590	1000000	24	0	airless asteroid
+14	Mygeeto	frigid	10088	167	19000000	12	NULL	glaciers, mountains, ice canyons
+15	Felucia	hot, humid	9100	231	8500000	34	NULL	fungus forests
+16	Cato Neimoidia	temperate, moist	0	278	10000000	25	NULL	mountains, fields, forests, rock arches
+17	Saleucami	hot	14920	392	1400000000	26	NULL	caves, desert, mountains, volcanoes
+18	Stewjon	temperate	0	NULL	NULL	NULL	NULL	grass
+19	Eriadu	polluted	13490	360	22000000000	24	NULL	cityscape
+20	Corellia	temperate	11000	329	3000000000	25	70	plains, urban, hills, forests
+21	Rodia	hot	7549	305	1300000000	29	60	jungles, oceans, urban, swamps
+22	Nal Hutta	temperate	12150	413	7000000000	87	NULL	urban, oceans, swamps, bogs
+23	Dantooine	temperate	9830	378	1000	25	NULL	oceans, savannas, mountains, grasslands
+24	Bestine IV	temperate	6400	680	62000000	26	98	rocky islands, oceans
+25	Ord Mantell	temperate	14050	334	4000000000	26	10	plains, seas, mesas
+26	Trandosha	arid	0	371	42000000	25	NULL	mountains, seas, grasslands, deserts
+27	Socorro	arid	0	326	300000000	20	NULL	deserts, mountains
+28	Mon Cala	temperate	11030	398	27000000000	21	100	oceans, reefs, islands
+29	Chandrila	temperate	13500	368	1200000000	20	40	plains, forests
+30	Sullust	superheated	12780	263	18500000000	20	5	mountains, volcanoes, rocky deserts
+31	Toydaria	temperate	7900	184	11000000	21	NULL	swamps, lakes
+32	Malastare	arid, temperate, tropical	18880	201	2000000000	26	NULL	swamps, deserts, jungles, mountains
+33	Dathomir	temperate	10480	491	5200	24	NULL	forests, deserts, savannas
+34	Ryloth	temperate, arid, subartic	10600	305	1500000000	30	5	mountains, valleys, deserts, tundra
+35	Aleen Minor	NULL	NULL	NULL	NULL	NULL	NULL	NULL
+36	Vulpter	temperate, artic	14900	391	421000000	22	NULL	urban, barren
+37	Troiken	NULL	NULL	NULL	NULL	NULL	NULL	desert, tundra, rainforests, mountains
+38	Tund	NULL	12190	1770	0	48	NULL	barren, ash
+39	Haruun Kal	temperate	10120	383	705300	25	NULL	toxic cloudsea, plateaus, volcanoes
+40	Cerea	temperate	NULL	386	450000000	27	20	verdant
+41	Glee Anselm	tropical, temperate	15600	206	500000000	33	80	lakes, islands, swamps, seas
+42	Iridonia	NULL	NULL	413	NULL	29	NULL	rocky canyons, acid pools
+43	Tholoth	NULL	NULL	NULL	NULL	NULL	NULL	NULL
+44	Iktotch	arid, rocky, windy	NULL	481	NULL	22	NULL	rocky
+45	Quermia	NULL	NULL	NULL	NULL	NULL	NULL	NULL
+46	Dorin	temperate	13400	409	NULL	22	NULL	NULL
+47	Champala	temperate	NULL	318	3500000000	27	NULL	oceans, rainforests, plateaus
+48	Mirial	NULL	NULL	NULL	NULL	NULL	NULL	deserts
+49	Serenno	NULL	NULL	NULL	NULL	NULL	NULL	rainforests, rivers, mountains
+50	Concord Dawn	NULL	NULL	NULL	NULL	NULL	NULL	jungles, forests, deserts
+51	Zolan	NULL	NULL	NULL	NULL	NULL	NULL	NULL
+52	Ojom	frigid	NULL	NULL	500000000	NULL	100	oceans, glaciers
+53	Skako	temperate	NULL	384	500000000000	27	NULL	urban, vines
+54	Muunilinst	temperate	13800	412	5000000000	28	25	plains, forests, hills, mountains
+55	Shili	temperate	NULL	NULL	NULL	NULL	NULL	cities, savannahs, seas, plains
+56	Kalee	arid, temperate, tropical	13850	378	4000000000	23	NULL	rainforests, cliffs, canyons, seas
+57	Umbara	NULL	NULL	NULL	NULL	NULL	NULL	NULL
+58	Tatooine	arid	10465	304	200000	23	1	desert
+59	Jakku	NULL	NULL	NULL	NULL	NULL	NULL	deserts
