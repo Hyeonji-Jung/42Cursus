@@ -29,13 +29,9 @@
         </tr>
         {% for person in people %}
         <tr>
-            {% for planet in planets %}
-            {% if person.homeworld == planet.name %}
             <td>{{person.name}}</td>
-            <td>{{planet.name}}</td>
-            <td>{{planet.climate}}</td>
-            {% endif %}
-            {% endfor %}
+            <td>{{person.homeworld__name}}</td>
+            <td>{{person.homeworld__climate}}</td>
         </tr>
         {% endfor %}
     </table>

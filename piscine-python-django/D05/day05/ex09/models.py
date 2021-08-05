@@ -1,33 +1,33 @@
 from django.db import models
-from django.db.models.fields import BigIntegerField, BooleanField, CharField, DateTimeField, IntegerField
+from django.utils import timezone
 
 class Planets(models.Model):
-    name = CharField(unique=True, max_length=64, null=False)
-    climate = CharField()
-    diameter = IntegerField()
-    orbital_period = IntegerField()
-    population = BigIntegerField()
-    rotation_period: IntegerField()
-    surface_water: BooleanField()
-    terrain = CharField()
-    created = DateTimeField()
-    updated = DateTimeField()
+    name = models.CharField(unique=True, max_length=64, null=False)
+    climate = models.TextField(null=True)
+    diameter = models.IntegerField(null=True)
+    orbital_period = models.IntegerField(null=True)
+    population = models.BigIntegerField(null=True)
+    rotation_period = models.IntegerField(null=True)
+    surface_water = models.FloatField(null=True)
+    terrain = models.TextField(null=True)
+    created = models.DateTimeField(auto_now_add=True)
+    updated = models.DateTimeField(auto_now=True)
 
     def __str__(self):
         return self.name
 
 
 class People(models.Model):
-    name = CharField(max_length=64, null=False)
-    birth_year = CharField(max_length=32)
-    gender = CharField(max_length=32)
-    eye_color = CharField(max_length=32)
-    hair_color = CharField(max_length=32)
-    height = IntegerField()
-    mass = BooleanField()
-    homeworld = models.OneToOneField(related_name='name')
-    created = DateTimeField()
-    updated = DateTimeField()
+    name = models.CharField(max_length=64, null=False)
+    birth_year = models.CharField(max_length=32, null=True)
+    gender = models.CharField(max_length=32, null=True)
+    eye_color = models.CharField(max_length=32, null=True)
+    hair_color = models.CharField(max_length=32, null=True)
+    height = models.IntegerField(null=True)
+    mass = models.FloatField(null=True)
+    homeworld = models.ForeignKey('Planets', on_delete=models.PROTECT, max_length=64, null=True)
+    created = models.DateTimeField(auto_now_add=True)
+    updated = models.DateTimeField(auto_now=True)
 
     def __str__(self):
         return self.name
