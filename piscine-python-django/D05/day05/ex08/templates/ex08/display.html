@@ -30,7 +30,7 @@
         {% for person in people %}
         <tr>
             {% for planet in planets %}
-            {% if person.8 == planet.1 %}
+            {% if person.8 == planet.1 and 'windy' in planet.2 %}
             <td>{{person.1}}</td>
             <td>{{planet.1}}</td>
             <td>{{planet.2}}</td>

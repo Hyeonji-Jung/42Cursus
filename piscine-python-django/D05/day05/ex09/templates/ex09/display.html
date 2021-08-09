@@ -28,11 +28,13 @@
             <th>Climate</th>
         </tr>
         {% for person in people %}
+        {% if 'windy' in person.homeworld__climate %}
         <tr>
             <td>{{person.name}}</td>
             <td>{{person.homeworld__name}}</td>
             <td>{{person.homeworld__climate}}</td>
         </tr>
+        {% endif %}
         {% endfor %}
     </table>
 </body>
