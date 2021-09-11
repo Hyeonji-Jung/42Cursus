@@ -6,19 +6,17 @@
 /*   By: hyeojung <hyeojung@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/03 17:32:32 by hyeojung          #+#    #+#             */
-/*   Updated: 2021/09/11 13:51:07 by hyeojung         ###   ########.fr       */
+/*   Updated: 2021/09/11 14:23:56 by hyeojung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_PRINTF_H
 # define FT_PRINTF_H
 
-# include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
 # include <stdarg.h>
 
-# define DIGIT "123456789"
 # define TYPE "cspdiuxX%"
 
 typedef struct s_flag
