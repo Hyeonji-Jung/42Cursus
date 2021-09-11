@@ -6,14 +6,13 @@
 /*   By: hyeojung <hyeojung@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/03 17:32:32 by hyeojung          #+#    #+#             */
-/*   Updated: 2021/09/11 14:23:56 by hyeojung         ###   ########.fr       */
+/*   Updated: 2021/09/11 14:38:18 by hyeojung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_PRINTF_H
 # define FT_PRINTF_H
 
-# include <stdlib.h>
 # include <unistd.h>
 # include <stdarg.h>
 
@@ -27,7 +26,6 @@ typedef struct s_flag
 
 int				ft_printf(const char *format, ...);
 int				ft_strchr(const char *s, char c);
-int				ft_atoi(const char *str, int *len);
 int				printf_c(t_flag *flag, va_list *ap);
 int				printf_s(t_flag *flag, va_list *ap);
 int				printf_p(t_flag *flag, va_list *ap);
