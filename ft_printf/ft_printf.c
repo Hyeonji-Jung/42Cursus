@@ -3,25 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hyeojung <hyeojung@student.42.fr>          +#+  +:+       +#+        */
+/*   By: hyeojung <hyeojung@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/03 17:30:55 by hyeojung          #+#    #+#             */
-/*   Updated: 2021/07/08 14:46:33 by hyeojung         ###   ########.fr       */
+/*   Updated: 2021/09/11 14:18:14 by hyeojung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-
-static void	init_flag(t_flag *flag)
-{
-	flag->minus = 0;
-	flag->zero = 0;
-	flag->width = -1;
-	flag->dot = 0;
-	flag->sign = 1;
-	flag->prec = -1;
-	flag->type = '\0';
-}
 
 static int	recog_type(t_flag *flag, va_list *ap)
 {
@@ -33,31 +22,23 @@ static int	recog_type(t_flag *flag, va_list *ap)
 		return (printf_p(flag, ap));
 	else if (flag->type == 'd' || flag->type == 'i')
 		return (printf_int(flag, ap));
+	else if (flag->type == 'u')
+		return (printf_u(flag, ap));
 	else if (flag->type == 'x' || flag->type == 'X')
-		return (printf_hex(flag, ap));
+		return (printf_x(flag, ap));
 	else if (flag->type == '%')
-		return (printf_per(flag, ap));
+		return (printf_per(flag));
 	else
 		return (-1);
 }
 
 static int	parsing_format(const char **format, va_list *ap, t_flag *flag)
 {
-	init_flag(flag);
-	while (!ft_strchr(TYPE, **format))
-	{
-		if (**format == '-')
-			parsing_minus(format, flag);
-		else if (**format == '0')
-			parsing_zero(format, flag);
-		else if (**format == '*' || ft_strchr(DIGIT, **format))
-			parsing_width(format, flag, ap);
-		else if (**format == '.')
-			parsing_prec(format, flag, ap);
-		else
-			return (-1);
-	}
-	(*flag).type = **format;
+	flag->type = '\0';
+	if (ft_strchr(TYPE, **format))
+		(*flag).type = **format;
+	else
+		return (-1);
 	(*format)++;
 	return (recog_type(flag, ap));
 }

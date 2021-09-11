@@ -1,39 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   util.c                                             :+:      :+:    :+:   */
+/*   util_2.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hyeojung <hyeojung@student.42.fr>          +#+  +:+       +#+        */
+/*   By: hyeojung <hyeojung@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/15 17:56:14 by hyeojung          #+#    #+#             */
-/*   Updated: 2021/07/08 11:07:03 by hyeojung         ###   ########.fr       */
+/*   Created: 2021/09/04 17:45:08 by hyeojung          #+#    #+#             */
+/*   Updated: 2021/09/11 13:01:48 by hyeojung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	ft_putchar(char c)
-{
-	write(1, &c, 1);
-}
-
-void	ft_putstr(char *str)
-{
-	while (*str)
-		write(1, str++, 1);
-}
-
-int	ft_strchr(const char *s, char c)
-{
-	while (*s)
-	{
-		if (*(s++) == c)
-			return (1);
-	}
-	return (0);
-}
-
-int	ft_atoi(const char *str, int *len)
+int		ft_atoi(const char *str, int *len)
 {
 	int	ret;
 	int	sign;
@@ -54,4 +33,31 @@ int	ft_atoi(const char *str, int *len)
 	}
 	*len = i;
 	return (ret * sign);
+}
+
+void	ft_putnbr(long long n)
+{
+	if (n == -2147483648)
+		ft_putstr("-2147483648");
+	else
+	{
+		if (n < 0)
+		{
+			ft_putchar('-');
+			n *= -1;
+		}
+		if (n >= 10)
+			ft_putnbr(n / 10);
+		ft_putchar((n % 10) + '0');
+	}
+}
+
+void	ft_putnbr_hex(unsigned long n, char c)
+{
+	if (n >= 16)
+		ft_putnbr_hex(n / 16, c);
+	if (c == 'p' || c == 'x')
+		ft_putchar("0123456789abcdef"[n % 16]);
+	else if (c == 'X')
+		ft_putchar("0123456789ABCDEF"[n % 16]);
 }

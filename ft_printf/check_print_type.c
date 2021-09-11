@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_print_type.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hyeojung <hyeojung@student.42.fr>          +#+  +:+       +#+        */
+/*   By: hyeojung <hyeojung@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/16 12:37:09 by hyeojung          #+#    #+#             */
-/*   Updated: 2021/07/08 18:22:39 by hyeojung         ###   ########.fr       */
+/*   Updated: 2021/09/11 13:30:05 by hyeojung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,22 +24,32 @@ int	printf_c(t_flag *flag, va_list *ap)
 
 int	printf_s(t_flag *flag, va_list *ap)
 {
-	(void)flag;
-	(void)ap;
+	char	*s;
+	int		len;
+
+	s = va_arg(*ap, char *);
+	if (!s)
+		s = "(null)";
+	len = ft_strlen(s);
+	ft_putstr(s);
+	flag->ret += len;
 	return (0);
 }
 
 int	printf_p(t_flag *flag, va_list *ap)
 {
-	(void)flag;
-	(void)ap;
+	unsigned long val;
+
+	val = (unsigned long)va_arg(*ap, void *);
+	ft_putstr("0x");
+	ft_putnbr_hex(val, 'p');
+	flag->ret += ft_len(val, 16) + 2;
 	return (0);
 }
 
-int	printf_per(t_flag *flag, va_list *ap)
+int	printf_per(t_flag *flag)
 {
-	(void)flag;
-	(void)ap;
 	ft_putchar('%');
+	flag->ret++;
 	return (0);
 }

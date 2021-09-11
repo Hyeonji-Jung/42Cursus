@@ -6,7 +6,7 @@
 #    By: hyeojung <hyeojung@student.42seoul.kr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/06/03 16:37:42 by hyeojung          #+#    #+#              #
-#    Updated: 2021/06/16 13:21:14 by hyeojung         ###   ########.fr        #
+#    Updated: 2021/09/11 13:57:09 by hyeojung         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,8 +18,8 @@ RM = rm -f
 NAME = libftprintf.a
 
 SRCS = ft_printf.c\
-	   util.c\
-	   parsing.c\
+	   util_1.c\
+	   util_2.c\
 	   check_print_type.c\
 	   check_print_num.c\
 

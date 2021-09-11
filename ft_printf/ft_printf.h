@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hyeojung <hyeojung@student.42.fr>          +#+  +:+       +#+        */
+/*   By: hyeojung <hyeojung@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/03 17:32:32 by hyeojung          #+#    #+#             */
-/*   Updated: 2021/07/08 14:40:02 by hyeojung         ###   ########.fr       */
+/*   Updated: 2021/09/11 13:51:07 by hyeojung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define FT_PRINTF_H
 
 # include <stdio.h>
+# include <stdlib.h>
 # include <unistd.h>
 # include <stdarg.h>
 
@@ -22,12 +23,6 @@
 
 typedef struct s_flag
 {
-	int			minus;
-	int			zero;
-	long long	width;
-	int			dot;
-	int			sign;
-	long long	prec;
 	char		type;
 	int			ret;
 }				t_flag;
@@ -38,15 +33,18 @@ int				ft_atoi(const char *str, int *len);
 int				printf_c(t_flag *flag, va_list *ap);
 int				printf_s(t_flag *flag, va_list *ap);
 int				printf_p(t_flag *flag, va_list *ap);
-int				printf_per(t_flag *flag, va_list *ap);
 int				printf_int(t_flag *flag, va_list *ap);
-int				printf_hex(t_flag *flag, va_list *ap);
+int				printf_u(t_flag *flag, va_list *ap);
+int				printf_x(t_flag *flag, va_list *ap);
+int				printf_per(t_flag *flag);
 
 void			ft_putchar(char c);
 void			ft_putstr(char *str);
-void			parsing_minus(const char **format, t_flag *flag);
-void			parsing_zero(const char **format, t_flag *flag);
-void			parsing_width(const char **format, t_flag *flag, va_list *ap);
-void			parsing_prec(const char **format, t_flag *flag, va_list *ap);
+void			ft_putnbr(long long n);
+void			ft_putnbr_hex(unsigned long n, char c);
+
+size_t			ft_strlen(char *s);
+size_t			ft_len(unsigned long n, int base);
+
 
 #endif
