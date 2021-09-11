@@ -6,7 +6,7 @@
 /*   By: hyeojung <hyeojung@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/16 12:37:09 by hyeojung          #+#    #+#             */
-/*   Updated: 2021/09/11 13:30:05 by hyeojung         ###   ########.fr       */
+/*   Updated: 2021/09/11 14:43:08 by hyeojung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ int	printf_s(t_flag *flag, va_list *ap)
 
 int	printf_p(t_flag *flag, va_list *ap)
 {
-	unsigned long val;
+	unsigned long	val;
 
 	val = (unsigned long)va_arg(*ap, void *);
 	ft_putstr("0x");

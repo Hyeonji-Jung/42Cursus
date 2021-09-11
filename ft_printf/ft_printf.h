@@ -6,7 +6,7 @@
 /*   By: hyeojung <hyeojung@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/03 17:32:32 by hyeojung          #+#    #+#             */
-/*   Updated: 2021/09/11 14:38:18 by hyeojung         ###   ########.fr       */
+/*   Updated: 2021/09/11 14:43:21 by hyeojung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,5 @@ void			ft_putnbr_hex(unsigned long n, char c);
 
 size_t			ft_strlen(char *s);
 size_t			ft_len(unsigned long n, int base);
-
 
 #endif

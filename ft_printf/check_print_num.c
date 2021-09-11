@@ -6,7 +6,7 @@
 /*   By: hyeojung <hyeojung@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/16 12:41:44 by hyeojung          #+#    #+#             */
-/*   Updated: 2021/09/11 14:15:01 by hyeojung         ###   ########.fr       */
+/*   Updated: 2021/09/11 14:42:59 by hyeojung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,9 @@ int	printf_int(t_flag *flag, va_list *ap)
 	return (0);
 }
 
-int printf_u(t_flag *flag, va_list *ap)
+int	printf_u(t_flag *flag, va_list *ap)
 {
-	unsigned long val;
+	unsigned long	val;
 
 	val = va_arg(*ap, unsigned int);
 	ft_putnbr(val);
@@ -39,7 +39,7 @@ int printf_u(t_flag *flag, va_list *ap)
 
 int	printf_x(t_flag *flag, va_list *ap)
 {
-	unsigned int val;
+	unsigned int	val;
 
 	val = va_arg(*ap, int);
 	ft_putnbr_hex(val, flag->type);

@@ -6,7 +6,7 @@
 /*   By: hyeojung <hyeojung@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/15 17:56:14 by hyeojung          #+#    #+#             */
-/*   Updated: 2021/09/11 14:23:07 by hyeojung         ###   ########.fr       */
+/*   Updated: 2021/09/11 14:43:51 by hyeojung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 size_t	ft_strlen(char *s)
 {
-	int	len;
+	size_t	len;
 
 	len = 0;
 	while (s[len])
@@ -24,7 +24,7 @@ size_t	ft_strlen(char *s)
 
 size_t	ft_len(unsigned long n, int base)
 {
-	size_t i;
+	size_t	i;
 
 	i = 0;
 	if (n == 0)
