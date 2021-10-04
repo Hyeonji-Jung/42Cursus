@@ -6,7 +6,7 @@
 /*   By: hyeojung <hyeojung@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/04 16:43:39 by hyeojung          #+#    #+#             */
-/*   Updated: 2021/10/04 18:46:49 by hyeojung         ###   ########.fr       */
+/*   Updated: 2021/10/04 18:56:34 by hyeojung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,11 @@
 
 void	check_file(char *s)
 {
-	int	flag;
+	int		flag;
+	char	*tmp;
 
 	flag = 0;
+	tmp = s;
 	while (*s)
 		if (*s++ == '.')
 			if (*s++ == 'b')
@@ -27,7 +29,7 @@ void	check_file(char *s)
 	if (!flag)
 		print_err("Invalid Filename");
 	else
-		read_file();
+		read_file(tmp);
 }
 
 void	check_map(char *s)

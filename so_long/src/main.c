@@ -6,12 +6,11 @@
 /*   By: hyeojung <hyeojung@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/04 15:03:07 by hyeojung          #+#    #+#             */
-/*   Updated: 2021/10/04 18:41:32 by hyeojung         ###   ########.fr       */
+/*   Updated: 2021/10/04 18:54:53 by hyeojung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
-#include <stdio.h>
 
 // void	my_mlx_pixel_put(t_data *data, int x, int y, int color)
 // {
