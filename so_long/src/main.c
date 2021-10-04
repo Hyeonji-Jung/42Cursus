@@ -6,7 +6,7 @@
 /*   By: hyeojung <hyeojung@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/04 15:03:07 by hyeojung          #+#    #+#             */
-/*   Updated: 2021/10/04 17:21:50 by hyeojung         ###   ########.fr       */
+/*   Updated: 2021/10/04 18:41:32 by hyeojung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int	main(int ac, char **av)
 {
 	if (ac == 2)
 	{
-		check_filename(av[1]);
+		check_file(av[1]);
 	}
 	return (0);
 }
