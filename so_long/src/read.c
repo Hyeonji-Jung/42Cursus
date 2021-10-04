@@ -6,13 +6,13 @@
 /*   By: hyeojung <hyeojung@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/04 18:37:02 by hyeojung          #+#    #+#             */
-/*   Updated: 2021/10/04 18:41:15 by hyeojung         ###   ########.fr       */
+/*   Updated: 2021/10/04 18:47:12 by hyeojung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void    read_file(void)
+void	read_file(void)
 {
-    write(1, "read", 4);
+	write(1, "read", 4);
 }

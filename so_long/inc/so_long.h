@@ -6,7 +6,7 @@
 /*   By: hyeojung <hyeojung@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/04 15:01:30 by hyeojung          #+#    #+#             */
-/*   Updated: 2021/10/04 18:41:29 by hyeojung         ###   ########.fr       */
+/*   Updated: 2021/10/04 18:43:48 by hyeojung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,15 +18,6 @@
 # include <string.h>
 # include <fcntl.h>
 # include <unistd.h>
-
-typedef struct s_data
-{
-	void		*img;
-	char		*addr;
-	int			bits_per_pixel;
-	int			line_length;
-	int			endian;
-}				t_data;
 
 void	check_file(char *s);
 void	check_map(char *s);

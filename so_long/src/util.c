@@ -6,15 +6,15 @@
 /*   By: hyeojung <hyeojung@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/04 17:11:59 by hyeojung          #+#    #+#             */
-/*   Updated: 2021/10/04 18:09:49 by hyeojung         ###   ########.fr       */
+/*   Updated: 2021/10/04 18:47:35 by hyeojung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void    ft_putstr(char *s)
+void	ft_putstr(char *s)
 {
-    if (!s)
+	if (!s)
 		return ;
 	while (*s)
 		write(1, s++, 1);
