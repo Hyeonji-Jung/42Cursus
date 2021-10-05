@@ -6,7 +6,7 @@
 /*   By: hyeojung <hyeojung@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/04 16:43:39 by hyeojung          #+#    #+#             */
-/*   Updated: 2021/10/04 18:56:34 by hyeojung         ###   ########.fr       */
+/*   Updated: 2021/10/05 16:28:12 by hyeojung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,18 +27,17 @@ void	check_file(char *s)
 						if (*s++ == 0)
 							flag = 1;
 	if (!flag)
-		print_err("Invalid Filename");
-	else
-		read_file(tmp);
+		print_err("Invalid filename");
 }
 
-void	check_map(char *s)
-{
-	(void)s;
-}
+// void	check_map(char *s)
+// {
+// 	void(s);
+// }
 
 void	print_err(char *s)
 {
+	ft_putstr("Error\n");
 	ft_putstr(s);
 	exit(-1);
 }
