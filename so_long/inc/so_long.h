@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hyeojung <hyeojung@student.42seoul.kr>     +#+  +:+       +#+        */
+/*   By: hyeojung <hyeojung@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/04 15:01:30 by hyeojung          #+#    #+#             */
-/*   Updated: 2021/10/05 16:53:48 by hyeojung         ###   ########.fr       */
+/*   Updated: 2021/10/05 21:41:19 by hyeojung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,8 +42,9 @@ void	ft_strlcat(char *dest, char *src, size_t size);
 void	read_file(t_game *game, char *s, int read_ret);
 
 char	*ft_strjoin(char *s1, char *s2);
+char	*is_newline(char *s);
 
-char	**ft_split(t_game *game, char *src);
+char	**ft_split(char *src);
 
 size_t	ft_strlen(char *str);
 
