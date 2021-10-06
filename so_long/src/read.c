@@ -6,7 +6,7 @@
 /*   By: hyeojung <hyeojung@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/04 18:37:02 by hyeojung          #+#    #+#             */
-/*   Updated: 2021/10/05 21:40:47 by hyeojung         ###   ########.fr       */
+/*   Updated: 2021/10/06 17:08:56 by hyeojung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void	read_file(t_game *game, char *s, int read_ret)
 		map = ft_strjoin(map, buff);
 	}
 	free(buff);
-	game->map.map = ft_split(map);
+	game->map.map = ft_split(game, map);
 }
 
 void	ft_strlcat(char *dest, char *src, size_t size)

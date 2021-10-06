@@ -6,7 +6,7 @@
 /*   By: hyeojung <hyeojung@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/04 17:11:59 by hyeojung          #+#    #+#             */
-/*   Updated: 2021/10/05 21:50:55 by hyeojung         ###   ########.fr       */
+/*   Updated: 2021/10/06 17:13:34 by hyeojung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ size_t	ft_strlen(char *str)
 	return (len);
 }
 
-int		wd_len(char *s)
+int	wd_len(char *s)
 {
 	int	cnt;
 
@@ -43,14 +43,15 @@ int		wd_len(char *s)
 	return (cnt);
 }
 
-char	**ft_split(char *src)
+char	**ft_split(t_game *game, char *src)
 {
 	int		i;
 	char	*tmp;
 	char	**arr;
 
 	i = 0;
-	arr = (char **)malloc(sizeof(char *) * (wd_len(src) + 1));
+	game->map.row = wd_len(src);
+	arr = (char **)malloc(sizeof(char *) * (game->map.row + 1));
 	while (*src)
 	{
 		tmp = src;
@@ -59,11 +60,10 @@ char	**ft_split(char *src)
 		if (*tmp == '\n')
 		{
 			arr[i] = (char *)malloc(tmp - src + 1);
-			ft_strlcat(arr[i++], src, tmp - src);
-			src += tmp - src;
+			ft_strlcat(arr[i], src, tmp - src + 1);
+			src += ft_strlen(arr[i++]) + 1;
 		}
 	}
-	for (int j = 0; j < wd_len(src) + 1; j++)
-		ft_putstr(arr[j]);
-	return (0);
+	arr[i] = 0;
+	return (arr);
 }

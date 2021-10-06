@@ -6,7 +6,7 @@
 /*   By: hyeojung <hyeojung@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/04 15:01:30 by hyeojung          #+#    #+#             */
-/*   Updated: 2021/10/05 21:41:19 by hyeojung         ###   ########.fr       */
+/*   Updated: 2021/10/06 17:08:49 by hyeojung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,8 @@
 typedef struct s_map
 {
 	char	**map;
-	size_t	row;
-	size_t	col;
+	int		row;
+	int		col;
 }			t_map;
 
 typedef struct s_game
@@ -44,7 +44,7 @@ void	read_file(t_game *game, char *s, int read_ret);
 char	*ft_strjoin(char *s1, char *s2);
 char	*is_newline(char *s);
 
-char	**ft_split(char *src);
+char	**ft_split(t_game *game, char *src);
 
 size_t	ft_strlen(char *str);
 
