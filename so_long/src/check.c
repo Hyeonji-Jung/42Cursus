@@ -6,7 +6,7 @@
 /*   By: hyeojung <hyeojung@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/04 16:43:39 by hyeojung          #+#    #+#             */
-/*   Updated: 2021/10/05 21:49:23 by hyeojung         ###   ########.fr       */
+/*   Updated: 2021/10/06 17:32:43 by hyeojung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,10 +30,18 @@ void	check_file(char *s)
 		print_err("Invalid filename");
 }
 
-// void	check_map(char *s)
-// {
-// 	void(s);
-// }
+void	check_map(t_game *game)
+{
+	int	len;
+
+	len = game->map.row;
+	game->map.col = ft_strlen(game->map.map[0]);
+	while (len--)
+	{
+		if (ft_strlen(game->map.map[len]) != game->map.col)
+			print_err("Invalid map");
+	}
+}
 
 void	print_err(char *s)
 {

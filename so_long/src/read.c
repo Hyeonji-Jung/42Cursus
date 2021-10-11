@@ -6,7 +6,7 @@
 /*   By: hyeojung <hyeojung@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/04 18:37:02 by hyeojung          #+#    #+#             */
-/*   Updated: 2021/10/06 17:08:56 by hyeojung         ###   ########.fr       */
+/*   Updated: 2021/10/06 17:24:18 by hyeojung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,8 @@ void	ft_strlcat(char *dest, char *src, size_t size)
 	size_t	i;
 
 	i = 0;
+	if (!dest)
+		print_err("Memory allocation error");
 	while (*dest && i < size)
 	{
 		i++;

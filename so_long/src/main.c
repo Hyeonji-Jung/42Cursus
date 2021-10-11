@@ -6,7 +6,7 @@
 /*   By: hyeojung <hyeojung@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/04 15:03:07 by hyeojung          #+#    #+#             */
-/*   Updated: 2021/10/05 21:49:20 by hyeojung         ###   ########.fr       */
+/*   Updated: 2021/10/06 17:26:12 by hyeojung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ int	main(int ac, char **av)
 	{
 		check_file(av[1]);
 		read_file(&game, av[1], 1);
+		check_map(&game);
 	}
 	return (0);
 }

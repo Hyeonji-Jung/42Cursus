@@ -6,7 +6,7 @@
 /*   By: hyeojung <hyeojung@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/04 17:11:59 by hyeojung          #+#    #+#             */
-/*   Updated: 2021/10/06 17:13:34 by hyeojung         ###   ########.fr       */
+/*   Updated: 2021/10/06 17:33:32 by hyeojung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,9 @@ void	ft_putstr(char *s)
 		write(1, s++, 1);
 }
 
-size_t	ft_strlen(char *str)
+int	ft_strlen(char *str)
 {
-	size_t	len;
+	int	len;
 
 	if (!str)
 		return (0);
@@ -52,6 +52,8 @@ char	**ft_split(t_game *game, char *src)
 	i = 0;
 	game->map.row = wd_len(src);
 	arr = (char **)malloc(sizeof(char *) * (game->map.row + 1));
+	if (!arr)
+		print_err("Memory allocation error");
 	while (*src)
 	{
 		tmp = src;
