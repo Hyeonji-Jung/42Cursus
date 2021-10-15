@@ -6,7 +6,7 @@
 /*   By: hyeojung <hyeojung@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/04 16:43:39 by hyeojung          #+#    #+#             */
-/*   Updated: 2021/10/15 21:57:31 by hyeojung         ###   ########.fr       */
+/*   Updated: 2021/10/15 22:03:46 by hyeojung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,18 +41,18 @@ void	check_map(t_game *game)
 	while (++row < game->map.row)
 	{
 		if (ft_strlen(game->map.map[row]) != game->map.col)
-			print_err("col 길이가 달라요");
+			print_err(MAPERR);
 		if (row == 0 || row == game->map.row - 1)
 		{
 			col = -1;
 			while (++col < game->map.col)
 				if (game->map.map[row][col] != '1')
-					print_err("첫줄이랑 마지막줄이 벽이 아니에요");
+					print_err(MAPERR);
 		}
 		if (row > 0 && row < (game->map.row - 1)
 			&& (game->map.map[row][0] != '1'
 			|| game->map.map[row][game->map.col - 1] != '1'))
-			print_err("양옆이 벽이 아니에요");
+			print_err(MAPERR);
 	}
 	check_map_components(game);
 }
@@ -83,13 +83,13 @@ void	check_map_components(t_game *game)
 		}
 	}
 	if (c < 1 || e != 1 || p != 1)
-		print_err("Invalid map");
+		print_err(MAPERR);
 }
 
 void	check_start(t_game *game, int x, int y, int p)
 {
 	if (p > 1)
-		print_err("Invalid map");
+		print_err(MAPERR);
 	game->map.cur_x = x;
 	game->map.cur_y = y;
 }

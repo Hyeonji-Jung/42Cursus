@@ -6,7 +6,7 @@
 /*   By: hyeojung <hyeojung@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/04 15:01:30 by hyeojung          #+#    #+#             */
-/*   Updated: 2021/10/15 21:57:35 by hyeojung         ###   ########.fr       */
+/*   Updated: 2021/10/15 22:03:30 by hyeojung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,9 @@
 # include <stdio.h>
 
 # define BUFFER_SIZE 30
+# define FILEERR "File parsing error"
+# define MAPERR "Invalid map"
+# define MEMERR "Memory allocation error"
 
 typedef struct s_map
 {

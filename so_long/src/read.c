@@ -6,7 +6,7 @@
 /*   By: hyeojung <hyeojung@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/04 18:37:02 by hyeojung          #+#    #+#             */
-/*   Updated: 2021/10/15 16:59:56 by hyeojung         ###   ########.fr       */
+/*   Updated: 2021/10/15 22:03:34 by hyeojung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	read_file(t_game *game, char *s, int read_ret)
 
 	fd = open(s, O_RDONLY);
 	if (fd < 0)
-		print_err("Can`t open file");
+		print_err(FILEERR);
 	buff = (char *)malloc(BUFFER_SIZE + 1);
 	map = 0;
 	while (read_ret != 0)
@@ -29,7 +29,7 @@ void	read_file(t_game *game, char *s, int read_ret)
 		if (read_ret == -1)
 		{
 			free(buff);
-			print_err("Can`t read file");
+			print_err(FILEERR);
 		}
 		buff[read_ret] = 0;
 		map = ft_strjoin(map, buff);
@@ -44,7 +44,7 @@ void	ft_strlcat(char *dest, char *src, size_t size)
 
 	i = 0;
 	if (!dest)
-		print_err("Memory allocation error");
+		print_err(MEMERR);
 	while (*dest && i < size)
 	{
 		i++;
@@ -70,11 +70,11 @@ char	*ft_strjoin(char *s1, char *s2)
 	char	*new;
 
 	if (!s1 && !s2)
-		print_err("Can`t parsing map");
+		print_err(MAPERR);
 	len = ft_strlen(s1) + ft_strlen(s2);
 	new = (char *)malloc(len + 1);
 	if (!new)
-		print_err("Memory allocation error");
+		print_err(MEMERR);
 	*new = 0;
 	ft_strlcat(new, s1, len + 1);
 	ft_strlcat(new, s2, len + 1);

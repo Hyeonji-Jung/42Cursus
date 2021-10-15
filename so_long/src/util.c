@@ -6,7 +6,7 @@
 /*   By: hyeojung <hyeojung@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/04 17:11:59 by hyeojung          #+#    #+#             */
-/*   Updated: 2021/10/15 17:03:36 by hyeojung         ###   ########.fr       */
+/*   Updated: 2021/10/15 22:03:38 by hyeojung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ char	**ft_split(t_game *game, char *src)
 	game->map.row = wd_len(src) + 1;
 	arr = (char **)malloc(sizeof(char *) * (game->map.row + 1));
 	if (!arr)
-		print_err("Memory allocation error");
+		print_err(MEMERR);
 	while (*src)
 	{
 		tmp = src;
