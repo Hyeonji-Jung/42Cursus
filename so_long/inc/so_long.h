@@ -6,7 +6,7 @@
 /*   By: hyeojung <hyeojung@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/04 15:01:30 by hyeojung          #+#    #+#             */
-/*   Updated: 2021/10/15 21:54:17 by hyeojung         ###   ########.fr       */
+/*   Updated: 2021/10/15 21:57:35 by hyeojung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,8 +44,6 @@ void	print_err(char *s);
 void	ft_putstr(char *s);
 void	ft_strlcat(char *dest, char *src, size_t size);
 void	read_file(t_game *game, char *s, int read_ret);
-// 테스트용 함수
-void	print_map(t_game *game);
 
 char	*ft_strjoin(char *s1, char *s2);
 char	*is_newline(char *s);

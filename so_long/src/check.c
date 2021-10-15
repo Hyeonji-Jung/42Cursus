@@ -6,7 +6,7 @@
 /*   By: hyeojung <hyeojung@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/04 16:43:39 by hyeojung          #+#    #+#             */
-/*   Updated: 2021/10/15 21:55:39 by hyeojung         ###   ########.fr       */
+/*   Updated: 2021/10/15 21:57:31 by hyeojung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,16 +99,4 @@ void	print_err(char *s)
 	ft_putstr("Error\n");
 	ft_putstr(s);
 	exit(-1);
-}
-
-void	print_map(t_game *game)
-{
-	printf("--------------------\n");
-	for (int i = 0; i < game->map.row; i++)
-	{
-		for (int j = 0; j < game->map.col; j++)
-			printf("%c", game->map.map[i][j]);
-		printf("\n");
-	}
-	printf("--------------------\n");
 }
