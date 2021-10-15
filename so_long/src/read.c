@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   read.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hyeojung <hyeojung@student.42.fr>          +#+  +:+       +#+        */
+/*   By: hyeojung <hyeojung@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/04 18:37:02 by hyeojung          #+#    #+#             */
-/*   Updated: 2021/10/06 17:24:18 by hyeojung         ###   ########.fr       */
+/*   Updated: 2021/10/15 16:59:56 by hyeojung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ void	read_file(t_game *game, char *s, int read_ret)
 	if (fd < 0)
 		print_err("Can`t open file");
 	buff = (char *)malloc(BUFFER_SIZE + 1);
+	map = 0;
 	while (read_ret != 0)
 	{
 		read_ret = read(fd, buff, BUFFER_SIZE);
@@ -65,19 +66,15 @@ void	ft_strlcat(char *dest, char *src, size_t size)
 
 char	*ft_strjoin(char *s1, char *s2)
 {
-	size_t	len;
+	int		len;
 	char	*new;
 
 	if (!s1 && !s2)
-		return (0);
+		print_err("Can`t parsing map");
 	len = ft_strlen(s1) + ft_strlen(s2);
 	new = (char *)malloc(len + 1);
 	if (!new)
-	{
-		if (s1)
-			free(s1);
-		return (0);
-	}
+		print_err("Memory allocation error");
 	*new = 0;
 	ft_strlcat(new, s1, len + 1);
 	ft_strlcat(new, s2, len + 1);

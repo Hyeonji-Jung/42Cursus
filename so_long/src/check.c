@@ -6,7 +6,7 @@
 /*   By: hyeojung <hyeojung@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/04 16:43:39 by hyeojung          #+#    #+#             */
-/*   Updated: 2021/10/13 21:16:42 by hyeojung         ###   ########.fr       */
+/*   Updated: 2021/10/15 17:04:04 by hyeojung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,23 +42,17 @@ void	check_map(t_game *game)
 	while (len--)
 	{
 		if (ft_strlen(game->map.map[len]) != game->map.col)
-		{
-			printf("len: %d\n", ft_strlen(game->map.map[len]));
 			print_err("col 길이가 달라요");
-		}
 		if (len == 0 || len == (game->map.row - 1))
 			while (++idx < game->map.col)
-			{
-				printf("row: %d, col: %d\n", len, idx);
-				if (game->map.map[len][idx] != 1)
+				if (game->map.map[len][idx] != '1')
 					print_err("첫줄이랑 마지막줄이 벽이 아니에요");
-			}
 		if (len > 0 && len < (game->map.row - 1))
-			if (game->map.map[len][0] != 1
-				|| game->map.map[len][game->map.col - 1])
+			if (game->map.map[len][0] != '1'
+				|| game->map.map[len][game->map.col - 1] != '1')
 				print_err("양옆이 벽이 아니에요");
 	}
-	print_err("huu 이게맞냐");
+	print_err("멀쩡한 지도로군 !");
 }
 
 void	print_err(char *s)
