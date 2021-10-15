@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   util.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hyeojung <hyeojung@student.42.fr>          +#+  +:+       +#+        */
+/*   By: hyeojung <hyeojung@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/04 17:11:59 by hyeojung          #+#    #+#             */
-/*   Updated: 2021/10/06 17:33:32 by hyeojung         ###   ########.fr       */
+/*   Updated: 2021/10/13 21:16:14 by hyeojung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ char	**ft_split(t_game *game, char *src)
 	char	**arr;
 
 	i = 0;
-	game->map.row = wd_len(src);
+	game->map.row = wd_len(src) + 1;
 	arr = (char **)malloc(sizeof(char *) * (game->map.row + 1));
 	if (!arr)
 		print_err("Memory allocation error");
@@ -66,6 +66,7 @@ char	**ft_split(t_game *game, char *src)
 			src += ft_strlen(arr[i++]) + 1;
 		}
 	}
+	printf("i: %d\n", i);
 	arr[i] = 0;
 	return (arr);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hyeojung <hyeojung@student.42.fr>          +#+  +:+       +#+        */
+/*   By: hyeojung <hyeojung@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/04 16:43:39 by hyeojung          #+#    #+#             */
-/*   Updated: 2021/10/06 17:32:43 by hyeojung         ###   ########.fr       */
+/*   Updated: 2021/10/13 21:16:42 by hyeojung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,14 +33,32 @@ void	check_file(char *s)
 void	check_map(t_game *game)
 {
 	int	len;
+	int	idx;
 
 	len = game->map.row;
+	idx = -1;
 	game->map.col = ft_strlen(game->map.map[0]);
+	print_map(game);
 	while (len--)
 	{
 		if (ft_strlen(game->map.map[len]) != game->map.col)
-			print_err("Invalid map");
+		{
+			printf("len: %d\n", ft_strlen(game->map.map[len]));
+			print_err("col 길이가 달라요");
+		}
+		if (len == 0 || len == (game->map.row - 1))
+			while (++idx < game->map.col)
+			{
+				printf("row: %d, col: %d\n", len, idx);
+				if (game->map.map[len][idx] != 1)
+					print_err("첫줄이랑 마지막줄이 벽이 아니에요");
+			}
+		if (len > 0 && len < (game->map.row - 1))
+			if (game->map.map[len][0] != 1
+				|| game->map.map[len][game->map.col - 1])
+				print_err("양옆이 벽이 아니에요");
 	}
+	print_err("huu 이게맞냐");
 }
 
 void	print_err(char *s)
@@ -48,4 +66,16 @@ void	print_err(char *s)
 	ft_putstr("Error\n");
 	ft_putstr(s);
 	exit(-1);
+}
+
+void	print_map(t_game *game)
+{
+	printf("--------------------\n");
+	for (int i = 0; i < game->map.row; i++)
+	{
+		for (int j = 0; j < game->map.col; j++)
+			printf("%c", game->map.map[i][j]);
+		printf("\n");
+	}
+	printf("--------------------\n");
 }
