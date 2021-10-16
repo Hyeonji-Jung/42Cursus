@@ -6,7 +6,7 @@
 /*   By: hyeojung <hyeojung@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/05 16:30:47 by hyeojung          #+#    #+#             */
-/*   Updated: 2021/10/16 16:54:25 by hyeojung         ###   ########.fr       */
+/*   Updated: 2021/10/16 18:05:34 by hyeojung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,5 +24,5 @@ void	so_long_init(t_game *game)
 
 void	set_game_images(t_game *game)
 {
-	return (0);
+	game->image.ground = mlx_xpm_file_to_image(game->mlx);
 }

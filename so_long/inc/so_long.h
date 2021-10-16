@@ -6,7 +6,7 @@
 /*   By: hyeojung <hyeojung@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/04 15:01:30 by hyeojung          #+#    #+#             */
-/*   Updated: 2021/10/16 16:55:03 by hyeojung         ###   ########.fr       */
+/*   Updated: 2021/10/16 18:05:02 by hyeojung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,9 +35,20 @@ typedef struct s_map
 	int		cur_y;
 }			t_map;
 
+typedef struct s_image
+{
+	void	*ground;
+	void	*wall;
+	void	*collect;
+	void	*exit;
+	void	*player;
+}			t_image;
+
+
 typedef struct s_game
 {
 	t_map	map;
+	t_image	image;
 	void	*mlx;
 	void	*win;
 }			t_game;
