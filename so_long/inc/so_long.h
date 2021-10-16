@@ -6,7 +6,7 @@
 /*   By: hyeojung <hyeojung@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/04 15:01:30 by hyeojung          #+#    #+#             */
-/*   Updated: 2021/10/15 22:03:30 by hyeojung         ###   ########.fr       */
+/*   Updated: 2021/10/15 22:19:37 by hyeojung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,8 @@
 # include <unistd.h>
 # include <stdio.h>
 
-# define BUFFER_SIZE 30
+# define BUFFER_SIZE 64
+# define BLOCK 20
 # define FILEERR "File parsing error"
 # define MAPERR "Invalid map"
 # define MEMERR "Memory allocation error"
@@ -37,6 +38,8 @@ typedef struct s_map
 typedef struct s_game
 {
 	t_map	map;
+	void	*mlx;
+	void	*win;
 }			t_game;
 
 void	check_file(char *s);
@@ -47,6 +50,7 @@ void	print_err(char *s);
 void	ft_putstr(char *s);
 void	ft_strlcat(char *dest, char *src, size_t size);
 void	read_file(t_game *game, char *s, int read_ret);
+void    so_long_init(t_game *game);
 
 char	*ft_strjoin(char *s1, char *s2);
 char	*is_newline(char *s);
