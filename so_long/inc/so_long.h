@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hyeojung <hyeojung@student.42.fr>          +#+  +:+       +#+        */
+/*   By: hyeojung <hyeojung@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/04 15:01:30 by hyeojung          #+#    #+#             */
-/*   Updated: 2021/10/16 18:05:02 by hyeojung         ###   ########.fr       */
+/*   Updated: 2021/10/18 17:55:14 by hyeojung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,8 @@
 # include <unistd.h>
 # include <stdio.h>
 
-# define BUFFER_SIZE 64
-# define BLOCK 20
+# define BUFFER_SIZE 30
+# define BLOCKS 64
 # define FILEERR "File parsing error"
 # define MAPERR "Invalid map"
 # define MEMERR "Memory allocation error"
@@ -38,10 +38,13 @@ typedef struct s_map
 typedef struct s_image
 {
 	void	*ground;
-	void	*wall;
-	void	*collect;
-	void	*exit;
-	void	*player;
+	// void	*wall;
+	// void	*collect;
+	// void	*exit;
+	// void	*up;
+	void	*down;
+	// void	*left;
+	// void	*right;
 }			t_image;
 
 
@@ -63,6 +66,7 @@ void	ft_strlcat(char *dest, char *src, size_t size);
 void	read_file(t_game *game, char *s, int read_ret);
 void	so_long_init(t_game *game);
 void	set_game_images(t_game *game);
+void	draw_blocks(t_game *game);
 
 char	*ft_strjoin(char *s1, char *s2);
 char	*is_newline(char *s);

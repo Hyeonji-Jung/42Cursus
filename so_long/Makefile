@@ -1,6 +1,7 @@
 NAME = so_long
 
-SRC = src/main.c src/check.c src/util.c src/read.c src/init.c
+SRC = src/main.c src/check.c src/util.c src/read.c src/init.c\
+	src/draw.c
 
 FLAGS = -Wall -Wextra -Werror
 
