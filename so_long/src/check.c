@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hyeojung <hyeojung@student.42seoul.kr>     +#+  +:+       +#+        */
+/*   By: hyeojung <hyeojung@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/04 16:43:39 by hyeojung          #+#    #+#             */
-/*   Updated: 2021/10/15 22:03:46 by hyeojung         ###   ########.fr       */
+/*   Updated: 2021/10/20 18:53:35 by hyeojung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,6 @@ void	check_map(t_game *game)
 
 	row = -1;
 	game->map.col = ft_strlen(game->map.map[0]);
-	print_map(game);
 	while (++row < game->map.row)
 	{
 		if (ft_strlen(game->map.map[row]) != game->map.col)

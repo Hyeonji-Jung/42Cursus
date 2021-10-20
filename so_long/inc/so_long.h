@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hyeojung <hyeojung@student.42seoul.kr>     +#+  +:+       +#+        */
+/*   By: hyeojung <hyeojung@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/04 15:01:30 by hyeojung          #+#    #+#             */
-/*   Updated: 2021/10/18 17:55:14 by hyeojung         ###   ########.fr       */
+/*   Updated: 2021/10/20 19:07:24 by hyeojung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,8 @@ typedef struct s_map
 
 typedef struct s_image
 {
+	int		width;
+	int		height;
 	void	*ground;
 	// void	*wall;
 	// void	*collect;
@@ -47,13 +49,13 @@ typedef struct s_image
 	// void	*right;
 }			t_image;
 
-
 typedef struct s_game
 {
 	t_map	map;
 	t_image	image;
 	void	*mlx;
 	void	*win;
+	int		collect;
 }			t_game;
 
 void	check_file(char *s);
@@ -67,6 +69,8 @@ void	read_file(t_game *game, char *s, int read_ret);
 void	so_long_init(t_game *game);
 void	set_game_images(t_game *game);
 void	draw_blocks(t_game *game);
+void    draw_ground(t_game *game, int x, int y);
+void    draw(t_game *game);
 
 char	*ft_strjoin(char *s1, char *s2);
 char	*is_newline(char *s);
@@ -74,5 +78,6 @@ char	*is_newline(char *s);
 char	**ft_split(t_game *game, char *src);
 
 int		ft_strlen(char *str);
+int     is_valid_component(char c);
 
 #endif

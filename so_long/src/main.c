@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hyeojung <hyeojung@student.42seoul.kr>     +#+  +:+       +#+        */
+/*   By: hyeojung <hyeojung@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/04 15:03:07 by hyeojung          #+#    #+#             */
-/*   Updated: 2021/10/18 17:56:58 by hyeojung         ###   ########.fr       */
+/*   Updated: 2021/10/20 20:50:43 by hyeojung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,9 @@ int	main(int ac, char **av)
 		read_file(&game, av[1], 1);
 		check_map(&game);
 		so_long_init(&game);
-		draw_blocks(&game);
+		mlx_loop(game.mlx);
 	}
+	else
+		print_err("Usage: ./so_long \"filename\"");
 	exit(1);
 }
