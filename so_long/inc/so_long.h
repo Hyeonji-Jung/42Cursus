@@ -6,7 +6,7 @@
 /*   By: hyeojung <hyeojung@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/04 15:01:30 by hyeojung          #+#    #+#             */
-/*   Updated: 2021/10/21 16:40:31 by hyeojung         ###   ########.fr       */
+/*   Updated: 2021/10/21 16:59:44 by hyeojung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,8 +68,8 @@ void	ft_strlcat(char *dest, char *src, size_t size);
 void	read_file(t_game *game, char *s, int read_ret);
 void	so_long_init(t_game *game);
 void	set_game_images(t_game *game);
-void	draw_component(t_game *game, char c, int x, int y);
-void    draw(t_game *game);
+void	draw_one(t_game *game, char c, int x, int y);
+void	draw(t_game *game);
 
 char	*ft_strjoin(char *s1, char *s2);
 char	*is_newline(char *s);
@@ -77,6 +77,6 @@ char	*is_newline(char *s);
 char	**ft_split(t_game *game, char *src);
 
 int		ft_strlen(char *str);
-int     is_valid_component(char c);
+int		is_valid_component(char c);
 
 #endif
