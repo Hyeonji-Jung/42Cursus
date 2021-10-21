@@ -6,7 +6,7 @@
 /*   By: hyeojung <hyeojung@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/04 15:01:30 by hyeojung          #+#    #+#             */
-/*   Updated: 2021/10/20 21:41:51 by hyeojung         ###   ########.fr       */
+/*   Updated: 2021/10/21 16:40:31 by hyeojung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 # include <stdio.h>
 
 # define BUFFER_SIZE 30
-# define BLOCKS 64
+# define BLOCKS 32
 # define FILEERR "File parsing error"
 # define MAPERR "Invalid map"
 # define MEMERR "Memory allocation error"
@@ -40,19 +40,19 @@ typedef struct s_image
 	int		width;
 	int		height;
 	void	*ground;
-	// void	*wall;
-	// void	*collect;
-	// void	*exit;
-	// void	*up;
+	void	*wall;
+	void	*box;
+	void	*exit;
+	void	*up;
 	void	*down;
-	// void	*left;
-	// void	*right;
+	void	*left;
+	void	*right;
 }			t_image;
 
 typedef struct s_game
 {
 	t_map	map;
-	t_image	image;
+	t_image	img;
 	void	*mlx;
 	void	*win;
 	int		collect;

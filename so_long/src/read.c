@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   read.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hyeojung <hyeojung@student.42seoul.kr>     +#+  +:+       +#+        */
+/*   By: hyeojung <hyeojung@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/04 18:37:02 by hyeojung          #+#    #+#             */
-/*   Updated: 2021/10/15 22:03:34 by hyeojung         ###   ########.fr       */
+/*   Updated: 2021/10/21 16:56:07 by hyeojung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ void	read_file(t_game *game, char *s, int read_ret)
 		map = ft_strjoin(map, buff);
 	}
 	free(buff);
+	close(fd);
 	game->map.map = ft_split(game, map);
 }
 
