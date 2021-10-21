@@ -6,7 +6,7 @@
 /*   By: hyeojung <hyeojung@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/05 16:30:47 by hyeojung          #+#    #+#             */
-/*   Updated: 2021/10/21 16:59:20 by hyeojung         ###   ########.fr       */
+/*   Updated: 2021/10/21 17:36:10 by hyeojung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ void	so_long_init(t_game *game)
 			game->map.col * BLOCKS,
 			game->map.row * BLOCKS,
 			"Slime Forest");
+	game->step = 0;
+	game->score = 0;
 	set_game_images(game);
 	draw(game);
 }

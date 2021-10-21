@@ -6,7 +6,7 @@
 /*   By: hyeojung <hyeojung@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/18 17:54:13 by hyeojung          #+#    #+#             */
-/*   Updated: 2021/10/21 16:58:40 by hyeojung         ###   ########.fr       */
+/*   Updated: 2021/10/21 19:00:10 by hyeojung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,12 @@
 int	is_valid_component(char c)
 {
 	return (c == '0' || c == '1' || c == 'C' || c == 'E' || c == 'P');
+}
+
+void	draw_player(t_game *game, void *side)
+{
+	mlx_put_image_to_window(game->mlx, game->win, side,
+		game->map.cur_y, game->map.cur_x);
 }
 
 void	draw_one(t_game *game, char c, int x, int y)
@@ -27,7 +33,7 @@ void	draw_one(t_game *game, char c, int x, int y)
 	else if (c == 'E')
 		mlx_put_image_to_window(game->mlx, game->win, game->img.exit, y, x);
 	else if (c == 'P')
-		mlx_put_image_to_window(game->mlx, game->win, game->img.down, y, x);
+		draw_player(game, game->img.down);
 }
 
 void	draw(t_game *game)
