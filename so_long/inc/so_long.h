@@ -6,7 +6,7 @@
 /*   By: hyeojung <hyeojung@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/04 15:01:30 by hyeojung          #+#    #+#             */
-/*   Updated: 2021/10/21 19:04:21 by hyeojung         ###   ########.fr       */
+/*   Updated: 2021/10/23 15:22:20 by hyeojung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,9 +81,11 @@ void	set_game_images(t_game *game);
 void	draw_one(t_game *game, char c, int x, int y);
 void	draw_player(t_game *game, void *side);
 void	draw(t_game *game);
-void    key_move(t_game *game, void *side, int x, int y);
+void	key_move(t_game *game, void *side, int x, int y);
 void	set_position(t_game *game, int x, int y);
-void    turn_player(t_game *game, int key);
+void	turn_player(t_game *game, int key);
+void	ft_putnbr(int n);
+void	print_steps(t_game *game);
 
 char	*ft_strjoin(char *s1, char *s2);
 char	*is_newline(char *s);
@@ -92,7 +94,7 @@ char	**ft_split(t_game *game, char *src);
 
 int		ft_strlen(char *str);
 int		is_valid_component(char c);
-int    	exit_game();
-int	    key_press(int key, t_game *game);
+int		exit_game(t_game *game);
+int		key_press(int key, t_game *game);
 
 #endif

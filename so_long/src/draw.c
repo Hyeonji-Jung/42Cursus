@@ -6,7 +6,7 @@
 /*   By: hyeojung <hyeojung@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/18 17:54:13 by hyeojung          #+#    #+#             */
-/*   Updated: 2021/10/21 19:00:10 by hyeojung         ###   ########.fr       */
+/*   Updated: 2021/10/23 15:21:22 by hyeojung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,10 @@ void	draw_one(t_game *game, char c, int x, int y)
 	if (c == '1')
 		mlx_put_image_to_window(game->mlx, game->win, game->img.wall, y, x);
 	else if (c == 'C')
+	{
 		mlx_put_image_to_window(game->mlx, game->win, game->img.box, y, x);
+		game->collect++;
+	}
 	else if (c == 'E')
 		mlx_put_image_to_window(game->mlx, game->win, game->img.exit, y, x);
 	else if (c == 'P')

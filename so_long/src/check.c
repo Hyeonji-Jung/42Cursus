@@ -6,7 +6,7 @@
 /*   By: hyeojung <hyeojung@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/04 16:43:39 by hyeojung          #+#    #+#             */
-/*   Updated: 2021/10/21 17:35:57 by hyeojung         ###   ########.fr       */
+/*   Updated: 2021/10/23 15:20:50 by hyeojung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,8 +83,6 @@ void	check_map_components(t_game *game)
 	}
 	if (c < 1 || e != 1 || p != 1)
 		print_err(MAPERR);
-	else
-		game->collect = c;
 }
 
 void	check_start(t_game *game, int x, int y, int p)

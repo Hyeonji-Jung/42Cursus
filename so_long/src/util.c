@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   util.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hyeojung <hyeojung@student.42seoul.kr>     +#+  +:+       +#+        */
+/*   By: hyeojung <hyeojung@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/04 17:11:59 by hyeojung          #+#    #+#             */
-/*   Updated: 2021/10/15 22:03:38 by hyeojung         ###   ########.fr       */
+/*   Updated: 2021/10/23 15:17:48 by hyeojung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,40 +32,28 @@ int	ft_strlen(char *str)
 	return (len);
 }
 
-int	wd_len(char *s)
+void	ft_putnbr(int n)
 {
-	int	cnt;
-
-	cnt = 0;
-	while (*s++)
-		if (*s == '\n')
-			cnt++;
-	return (cnt);
-}
-
-char	**ft_split(t_game *game, char *src)
-{
-	int		i;
-	char	*tmp;
-	char	**arr;
-
-	i = 0;
-	game->map.row = wd_len(src) + 1;
-	arr = (char **)malloc(sizeof(char *) * (game->map.row + 1));
-	if (!arr)
-		print_err(MEMERR);
-	while (*src)
+	if (n == -2147483647)
+		ft_putstr("-2147483648");
+	else
 	{
-		tmp = src;
-		while (*tmp != '\n')
-			tmp++;
-		if (*tmp == '\n')
+		if (n < 0)
 		{
-			arr[i] = (char *)malloc(tmp - src + 1);
-			ft_strlcat(arr[i], src, tmp - src + 1);
-			src += ft_strlen(arr[i++]) + 1;
+			write(1, "-", 1);
+			n *= -1;
+		}
+		if (n >= 10)
+		{
+			ft_putnbr(n / 10);
+			write(1, &"0123456789"[n % 10], 1);
 		}
 	}
-	arr[i] = 0;
-	return (arr);
+}
+
+void	print_steps(t_game *game)
+{
+	ft_putstr("STEPS: ");
+	ft_putnbr(game->step);
+	write(1, "\n", 1);
 }
