@@ -6,7 +6,7 @@
 /*   By: hyeojung <hyeojung@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/21 17:20:41 by hyeojung          #+#    #+#             */
-/*   Updated: 2021/10/23 15:24:38 by hyeojung         ###   ########.fr       */
+/*   Updated: 2021/10/23 15:30:50 by hyeojung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,10 @@
 int	exit_game(t_game *game)
 {
 	ft_putstr("SCORE: ");
-	ft_putnbr(game->score);
+	if (game->score)
+		ft_putnbr(game->score);
+	else
+		write(1, "0", 1);
 	ft_putstr(" / ");
 	ft_putnbr(game->collect);
 	ft_putstr("\nByeBye\n");
