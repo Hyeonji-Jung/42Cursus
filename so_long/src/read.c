@@ -6,7 +6,7 @@
 /*   By: hyeojung <hyeojung@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/04 18:37:02 by hyeojung          #+#    #+#             */
-/*   Updated: 2021/10/23 12:53:42 by hyeojung         ###   ########.fr       */
+/*   Updated: 2021/10/23 18:26:58 by hyeojung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,70 +15,50 @@
 void	read_file(t_game *game, char *s, int read_ret)
 {
 	int		fd;
-	char	*buff;
+	char	buff[BUFFER_SIZE + 1];
 	char	*map;
 
 	fd = open(s, O_RDONLY);
 	if (fd < 0)
-		print_err(FILEERR);
-	buff = (char *)malloc(BUFFER_SIZE + 1);
+		print_err(game, FILEERR);
 	map = 0;
-	while (read_ret != 0)
+	while (read_ret)
 	{
 		read_ret = read(fd, buff, BUFFER_SIZE);
 		if (read_ret == -1)
 		{
 			free(buff);
-			print_err(FILEERR);
+			print_err(game, FILEERR);
 		}
 		buff[read_ret] = 0;
-		map = ft_strjoin(map, buff);
+		map = ft_strjoin(game, map, buff);
 	}
-	free(buff);
+	if (*buff)
+		free(buff);
 	close(fd);
 	game->map.map = ft_split(game, map);
 }
 
-void	ft_strlcat(char *dest, char *src, size_t size)
+void	ft_strcpy(char *dest, char *from, char *to)
 {
-	size_t	i;
-
-	i = 0;
-	if (!dest)
-		print_err(MEMERR);
-	while (*dest && i < size)
-	{
-		i++;
-		dest++;
-	}
-	if (src)
-	{
-		while (*src && i + 1 < size)
-		{
-			*dest = *src;
-			i++;
-			dest++;
-			src++;
-		}
-	}
-	if (i < size)
-		*dest = 0;
+	while (from < to)
+		*(dest++) = *(from++);
+	*dest = 0;
 }
 
-char	*ft_strjoin(char *s1, char *s2)
+char	*ft_strjoin(t_game *game, char *s1, char *s2)
 {
 	int		len;
 	char	*new;
 
 	if (!s1 && !s2)
-		print_err(MAPERR);
+		print_err(game, MAPERR);
 	len = ft_strlen(s1) + ft_strlen(s2);
-	new = (char *)malloc(len + 1);
+	new = (char *)malloc(ft_strlen(s1) + ft_strlen(s2) + 1);
 	if (!new)
-		print_err(MEMERR);
-	*new = 0;
-	ft_strlcat(new, s1, len + 1);
-	ft_strlcat(new, s2, len + 1);
+		print_err(game, MEMERR);
+	ft_strlcat(game, new, s1, len + 1);
+	ft_strlcat(game, new, s2, len + 1);
 	if (s1)
 		free(s1);
 	return (new);
@@ -105,18 +85,20 @@ char	**ft_split(t_game *game, char *src)
 	game->map.row = wd_len(src) + 1;
 	arr = (char **)malloc(sizeof(char *) * (game->map.row + 1));
 	if (!arr)
-		print_err(MEMERR);
+		print_err(game, MEMERR);
 	while (*src)
 	{
-		tmp = src;
-		while (*tmp != '\n')
-			tmp++;
-		if (*tmp == '\n')
+		if (*src != '\n')
 		{
-			arr[i] = (char *)malloc(tmp - src + 1);
-			ft_strlcat(arr[i], src, tmp - src + 1);
-			src += ft_strlen(arr[i++]) + 1;
+			tmp = src;
+			while (*src && *src != '\n')
+				src++;
+			arr[i] = (char *)malloc(src - tmp + 1);
+			if (!arr[i])
+				print_err(game, MEMERR);
+			ft_strcpy(arr[i++], tmp, src);
 		}
+		src++;
 	}
 	arr[i] = 0;
 	return (arr);

@@ -23,9 +23,6 @@ clean :
 fclean : clean
 	$(RM) $(NAME)
 
-# bonus : $(OBJ_B) inc/so_long_bonus.h
-# 	gcc $(FLAGS) $(OBJ_B) -I inc/ $(FLAGS_MLX) -o $(NAME)
-
 re : fclean all
 
 .PHONY: all clean fclean re bonus

@@ -6,7 +6,7 @@
 /*   By: hyeojung <hyeojung@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/18 17:54:13 by hyeojung          #+#    #+#             */
-/*   Updated: 2021/10/23 15:21:22 by hyeojung         ###   ########.fr       */
+/*   Updated: 2021/10/23 15:57:13 by hyeojung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ void	draw(t_game *game)
 		while (++j < game->map.col)
 		{
 			if (!is_valid_component(game->map.map[i][j]))
-				print_err(MAPERR);
+				print_err(game, MAPERR);
 			else
 				draw_one(game, game->map.map[i][j], i * BLOCKS, j * BLOCKS);
 		}

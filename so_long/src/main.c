@@ -6,11 +6,25 @@
 /*   By: hyeojung <hyeojung@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/04 15:03:07 by hyeojung          #+#    #+#             */
-/*   Updated: 2021/10/23 15:21:03 by hyeojung         ###   ########.fr       */
+/*   Updated: 2021/10/23 18:23:57 by hyeojung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
+
+void	arr_free(t_game *game)
+{
+	int	i;
+
+	i = -1;
+	while (++i < game->map.row)
+	{
+		free(game->map.map[i]);
+		game->map.map[i] = 0;
+	}
+	free(game->map.map);
+	game->map.map = 0;
+}
 
 int	main(int ac, char **av)
 {
@@ -18,7 +32,7 @@ int	main(int ac, char **av)
 
 	if (ac == 2)
 	{
-		check_file(av[1]);
+		check_file(&game, av[1]);
 		read_file(&game, av[1], 1);
 		check_map(&game);
 		so_long_init(&game);
@@ -27,6 +41,6 @@ int	main(int ac, char **av)
 		mlx_loop(game.mlx);
 	}
 	else
-		print_err("Usage: ./so_long map/\"filename\"");
+		print_err(&game, "Usage: ./so_long map/\"filename\"");
 	exit(1);
 }

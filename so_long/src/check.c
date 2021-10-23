@@ -6,13 +6,13 @@
 /*   By: hyeojung <hyeojung@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/04 16:43:39 by hyeojung          #+#    #+#             */
-/*   Updated: 2021/10/23 15:27:19 by hyeojung         ###   ########.fr       */
+/*   Updated: 2021/10/23 18:26:23 by hyeojung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void	check_file(char *s)
+void	check_file(t_game *game, char *s)
 {
 	int		flag;
 	char	*tmp;
@@ -27,7 +27,7 @@ void	check_file(char *s)
 						if (*s++ == 0)
 							flag = 1;
 	if (!flag)
-		print_err("Invalid filename");
+		print_err(game, "Invalid filename");
 }
 
 void	check_map(t_game *game)
@@ -40,18 +40,18 @@ void	check_map(t_game *game)
 	while (++row < game->map.row)
 	{
 		if (ft_strlen(game->map.map[row]) != game->map.col)
-			print_err(MAPERR);
+			print_err(game, MAPERR);
 		if (row == 0 || row == game->map.row - 1)
 		{
 			col = -1;
 			while (++col < game->map.col)
 				if (game->map.map[row][col] != '1')
-					print_err(MAPERR);
+					print_err(game, MAPERR);
 		}
 		if (row > 0 && row < (game->map.row - 1)
 			&& (game->map.map[row][0] != '1'
 			|| game->map.map[row][game->map.col - 1] != '1'))
-			print_err(MAPERR);
+			print_err(game, MAPERR);
 	}
 	check_map_components(game);
 }
@@ -82,20 +82,22 @@ void	check_map_components(t_game *game)
 		}
 	}
 	if (c < 1 || e != 1 || p != 1)
-		print_err(MAPERR);
+		print_err(game, MAPERR);
 }
 
 void	check_start(t_game *game, int x, int y, int p)
 {
 	if (p > 1)
-		print_err(MAPERR);
+		print_err(game, MAPERR);
 	game->map.cur_x = x * BLOCKS;
 	game->map.cur_y = y * BLOCKS;
 }
 
-void	print_err(char *s)
+void	print_err(t_game *game, char *s)
 {
 	ft_putstr("Error\n");
 	ft_putstr(s);
+	if (*s == 'I')
+		arr_free(game);
 	exit(-1);
 }

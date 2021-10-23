@@ -6,7 +6,7 @@
 /*   By: hyeojung <hyeojung@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/05 16:30:47 by hyeojung          #+#    #+#             */
-/*   Updated: 2021/10/23 15:23:03 by hyeojung         ###   ########.fr       */
+/*   Updated: 2021/10/23 16:15:43 by hyeojung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 void	so_long_init(t_game *game)
 {
 	game->mlx = mlx_init();
+	if (!game->mlx)
+		print_err(game, "mlx init error");
 	game->win = mlx_new_window(game->mlx,
 			game->map.col * BLOCKS,
 			game->map.row * BLOCKS,

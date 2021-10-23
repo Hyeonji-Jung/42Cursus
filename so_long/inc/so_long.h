@@ -6,7 +6,7 @@
 /*   By: hyeojung <hyeojung@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/04 15:01:30 by hyeojung          #+#    #+#             */
-/*   Updated: 2021/10/23 15:22:20 by hyeojung         ###   ########.fr       */
+/*   Updated: 2021/10/23 17:25:43 by hyeojung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,13 +68,14 @@ typedef struct s_game
 	int		collect;
 }			t_game;
 
-void	check_file(char *s);
+void	check_file(t_game *game, char *s);
 void	check_map(t_game *game);
 void	check_map_components(t_game *game);
 void	check_start(t_game *game, int x, int y, int p);
-void	print_err(char *s);
+void	print_err(t_game *game, char *s);
 void	ft_putstr(char *s);
-void	ft_strlcat(char *dest, char *src, size_t size);
+void	ft_strcpy(char *dest, char *from, char *to);
+void	ft_strlcat(t_game *game, char *dest, char *src, size_t size);
 void	read_file(t_game *game, char *s, int read_ret);
 void	so_long_init(t_game *game);
 void	set_game_images(t_game *game);
@@ -86,8 +87,9 @@ void	set_position(t_game *game, int x, int y);
 void	turn_player(t_game *game, int key);
 void	ft_putnbr(int n);
 void	print_steps(t_game *game);
+void	arr_free(t_game *game);
 
-char	*ft_strjoin(char *s1, char *s2);
+char	*ft_strjoin(t_game *game, char *s1, char *s2);
 char	*is_newline(char *s);
 
 char	**ft_split(t_game *game, char *src);
