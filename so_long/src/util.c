@@ -6,7 +6,7 @@
 /*   By: hyeojung <hyeojung@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/04 17:11:59 by hyeojung          #+#    #+#             */
-/*   Updated: 2021/10/23 15:17:48 by hyeojung         ###   ########.fr       */
+/*   Updated: 2021/10/23 15:27:14 by hyeojung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,8 @@ int	ft_strlen(char *str)
 
 void	ft_putnbr(int n)
 {
+	char	c;
+
 	if (n == -2147483647)
 		ft_putstr("-2147483648");
 	else
@@ -43,10 +45,11 @@ void	ft_putnbr(int n)
 			write(1, "-", 1);
 			n *= -1;
 		}
-		if (n >= 10)
+		if (n)
 		{
 			ft_putnbr(n / 10);
-			write(1, &"0123456789"[n % 10], 1);
+			c = n % 10 + '0';
+			write(1, &c, 1);
 		}
 	}
 }
