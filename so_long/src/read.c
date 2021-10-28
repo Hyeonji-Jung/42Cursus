@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   read.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hyeojung <hyeojung@student.42.fr>          +#+  +:+       +#+        */
+/*   By: hyeojung <hyeojung@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/04 18:37:02 by hyeojung          #+#    #+#             */
-/*   Updated: 2021/10/23 18:26:58 by hyeojung         ###   ########.fr       */
+/*   Updated: 2021/10/28 17:37:59 by hyeojung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,13 +39,6 @@ void	read_file(t_game *game, char *s, int read_ret)
 	game->map.map = ft_split(game, map);
 }
 
-void	ft_strcpy(char *dest, char *from, char *to)
-{
-	while (from < to)
-		*(dest++) = *(from++);
-	*dest = 0;
-}
-
 char	*ft_strjoin(t_game *game, char *s1, char *s2)
 {
 	int		len;
@@ -57,6 +50,7 @@ char	*ft_strjoin(t_game *game, char *s1, char *s2)
 	new = (char *)malloc(ft_strlen(s1) + ft_strlen(s2) + 1);
 	if (!new)
 		print_err(game, MEMERR);
+	*new = 0;
 	ft_strlcat(game, new, s1, len + 1);
 	ft_strlcat(game, new, s2, len + 1);
 	if (s1)
@@ -96,7 +90,7 @@ char	**ft_split(t_game *game, char *src)
 			arr[i] = (char *)malloc(src - tmp + 1);
 			if (!arr[i])
 				print_err(game, MEMERR);
-			ft_strcpy(arr[i++], tmp, src);
+			ft_strlcat(game, arr[i++], tmp, src - tmp + 1);
 		}
 		src++;
 	}

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   util.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hyeojung <hyeojung@student.42.fr>          +#+  +:+       +#+        */
+/*   By: hyeojung <hyeojung@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/04 17:11:59 by hyeojung          #+#    #+#             */
-/*   Updated: 2021/10/23 17:25:00 by hyeojung         ###   ########.fr       */
+/*   Updated: 2021/10/28 17:37:13 by hyeojung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,23 +58,20 @@ void	ft_strlcat(t_game *game, char *dest, char *src, size_t size)
 {
 	size_t	i;
 
-	i = 0;
 	if (!dest)
 		print_err(game, MEMERR);
+	i = 0;
 	while (*dest && i < size)
 	{
 		i++;
 		dest++;
 	}
-	if (src)
+	while (src && *src && i + 1 < size)
 	{
-		while (*src && i + 1 < size)
-		{
-			*dest = *src;
-			i++;
-			dest++;
-			src++;
-		}
+		*dest = *src;
+		i++;
+		dest++;
+		src++;
 	}
 	if (i < size)
 		*dest = 0;

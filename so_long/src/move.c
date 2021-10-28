@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   move.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hyeojung <hyeojung@student.42.fr>          +#+  +:+       +#+        */
+/*   By: hyeojung <hyeojung@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/21 17:20:41 by hyeojung          #+#    #+#             */
-/*   Updated: 2021/10/23 18:10:28 by hyeojung         ###   ########.fr       */
+/*   Updated: 2021/10/28 17:05:33 by hyeojung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,7 @@ void	key_move(t_game *game, void *side, int x, int y)
 	if (game->map.map[x][y] == 'C')
 	{
 		game->score++;
+		game->map.map[x][y] = '0';
 		mlx_put_image_to_window(game->mlx, game->win,
 			game->img.ground, y * BLOCKS, x * BLOCKS);
 	}
