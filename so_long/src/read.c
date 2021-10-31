@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   read.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hyeojung <hyeojung@student.42seoul.kr>     +#+  +:+       +#+        */
+/*   By: hyeojung <hyeojung@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/04 18:37:02 by hyeojung          #+#    #+#             */
-/*   Updated: 2021/10/28 17:37:59 by hyeojung         ###   ########.fr       */
+/*   Updated: 2021/10/31 17:33:14 by hyeojung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,20 +41,24 @@ void	read_file(t_game *game, char *s, int read_ret)
 
 char	*ft_strjoin(t_game *game, char *s1, char *s2)
 {
-	int		len;
 	char	*new;
+	char	*tmp;
+	int		i;
 
 	if (!s1 && !s2)
 		print_err(game, MAPERR);
-	len = ft_strlen(s1) + ft_strlen(s2);
+	tmp = s1;
 	new = (char *)malloc(ft_strlen(s1) + ft_strlen(s2) + 1);
 	if (!new)
 		print_err(game, MEMERR);
-	*new = 0;
-	ft_strlcat(game, new, s1, len + 1);
-	ft_strlcat(game, new, s2, len + 1);
-	if (s1)
-		free(s1);
+	i = 0;
+	while (s1 && *s1)
+		new[i++] = *s1++;
+	while (s2 && *s2)
+		new[i++] = *s2++;
+	new[i] = 0;
+	if (tmp)
+		free(tmp);
 	return (new);
 }
 

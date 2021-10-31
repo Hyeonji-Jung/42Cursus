@@ -6,7 +6,7 @@
 /*   By: hyeojung <hyeojung@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/04 15:01:30 by hyeojung          #+#    #+#             */
-/*   Updated: 2021/10/23 17:25:43 by hyeojung         ###   ########.fr       */
+/*   Updated: 2021/10/31 17:25:05 by hyeojung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 # include <unistd.h>
 # include <stdio.h>
 
-# define BUFFER_SIZE 30
+# define BUFFER_SIZE 20000
 # define BLOCKS 32
 
 # define EVENT_KEY_PRESS 2
