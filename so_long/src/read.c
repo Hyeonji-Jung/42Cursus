@@ -26,10 +26,7 @@ void	read_file(t_game *game, char *s, int read_ret)
 	{
 		read_ret = read(fd, buff, BUFFER_SIZE);
 		if (read_ret == -1)
-		{
-			free(buff);
 			print_err(game, FILEERR);
-		}
 		buff[read_ret] = 0;
 		map = ft_strjoin(game, map, buff);
 	}
@@ -42,12 +39,12 @@ void	read_file(t_game *game, char *s, int read_ret)
 char	*ft_strjoin(t_game *game, char *s1, char *s2)
 {
 	char	*new;
-	char	*tmp;
+	char	*tmp1;
 	int		i;
 
 	if (!s1 && !s2)
 		print_err(game, MAPERR);
-	tmp = s1;
+	tmp1 = s1;
 	new = (char *)malloc(ft_strlen(s1) + ft_strlen(s2) + 1);
 	if (!new)
 		print_err(game, MEMERR);
@@ -57,8 +54,8 @@ char	*ft_strjoin(t_game *game, char *s1, char *s2)
 	while (s2 && *s2)
 		new[i++] = *s2++;
 	new[i] = 0;
-	if (tmp)
-		free(tmp);
+	if (tmp1)
+		free(tmp1);
 	return (new);
 }
 
