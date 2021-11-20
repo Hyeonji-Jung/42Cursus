@@ -3,7 +3,7 @@ NAME = so_long
 SRC = src/main.c src/check.c src/util.c src/read.c src/init.c\
 	src/draw.c src/move.c
 
-FLAGS = -Wall -Wextra -Werror
+FLAGS = -g -Wall -Wextra -Werror
 
 FLAGS_MLX = -L mlx/ -lmlx -framework OpenGL -framework AppKit
 

@@ -97,7 +97,11 @@ void	print_err(t_game *game, char *s)
 {
 	ft_putstr("Error\n");
 	ft_putstr(s);
-	if (*s == 'I')
+	if (game->mlx)
+		exit_game(game);
+	else
+	{
 		arr_free(game);
-	exit(-1);
+		exit(0);
+	}
 }

@@ -88,6 +88,7 @@ void	turn_player(t_game *game, int key);
 void	ft_putnbr(int n);
 void	print_steps(t_game *game);
 void	arr_free(t_game *game);
+void	destroy_mlx(t_game *game);
 
 char	*ft_strjoin(t_game *game, char *s1, char *s2);
 char	*is_newline(char *s);
