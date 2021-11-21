@@ -6,7 +6,7 @@
 /*   By: hyeojung <hyeojung@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/04 16:43:39 by hyeojung          #+#    #+#             */
-/*   Updated: 2021/10/28 17:43:53 by hyeojung         ###   ########.fr       */
+/*   Updated: 2021/11/21 19:30:17 by hyeojung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,11 +97,6 @@ void	print_err(t_game *game, char *s)
 {
 	ft_putstr("Error\n");
 	ft_putstr(s);
-	if (game->mlx)
-		exit_game(game);
-	else
-	{
-		arr_free(game);
-		exit(0);
-	}
+	ft_putnbr(game->score);
+	exit(0);
 }

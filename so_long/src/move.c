@@ -6,7 +6,7 @@
 /*   By: hyeojung <hyeojung@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/21 17:20:41 by hyeojung          #+#    #+#             */
-/*   Updated: 2021/10/28 17:05:33 by hyeojung         ###   ########.fr       */
+/*   Updated: 2021/11/21 19:30:04 by hyeojung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,8 @@ int	exit_game(t_game *game)
 	ft_putstr(" / ");
 	ft_putnbr(game->collect);
 	ft_putstr("\nByeBye\n");
-	arr_free(game);
-	destroy_mlx(game);
+	// arr_free(game);
+	// destroy_mlx(game);
 	exit(0);
 }
 

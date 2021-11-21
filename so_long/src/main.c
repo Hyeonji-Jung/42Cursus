@@ -6,7 +6,7 @@
 /*   By: hyeojung <hyeojung@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/04 15:03:07 by hyeojung          #+#    #+#             */
-/*   Updated: 2021/10/28 17:37:34 by hyeojung         ###   ########.fr       */
+/*   Updated: 2021/11/21 19:30:13 by hyeojung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,6 @@ void	destroy_mlx(t_game *game)
 	mlx_destroy_image(game->mlx, game->img.up);
 	mlx_destroy_image(game->mlx, game->img.wall);
 	mlx_destroy_window(game->mlx, game->win);
-	free(game->mlx);
 }
 
 int	main(int ac, char **av)
