@@ -54,5 +54,9 @@ int	main(int ac, char **av)
 		mlx_loop(game.mlx);
 	}
 	else
-		print_err(&game, "Usage: ./so_long map/\"filename\"");
+	{
+		ft_putstr("Usage: ./so_long map/\"filename\"");
+		return (1);
+	}
+	return (0);
 }

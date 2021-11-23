@@ -89,11 +89,12 @@ void	ft_putnbr(int n);
 void	print_steps(t_game *game);
 void	arr_free(t_game *game);
 void	destroy_mlx(t_game *game);
+void	ft_split(t_game *game, char *src);
 
 char	*ft_strjoin(t_game *game, char *s1, char *s2);
 char	*is_newline(char *s);
 
-char	**ft_split(t_game *game, char *src);
+char	**ft_split_sub(t_game *game, char *src, char **arr);
 
 int		ft_strlen(char *str);
 int		is_valid_component(char c);
