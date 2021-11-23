@@ -97,6 +97,6 @@ void	print_err(t_game *game, char *s)
 {
 	ft_putstr("Error\n");
 	ft_putstr(s);
-	ft_putnbr(game->score);
+	arr_free(game);
 	exit(0);
 }
