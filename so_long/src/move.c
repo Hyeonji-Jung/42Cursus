@@ -14,7 +14,6 @@
 
 int	exit_game(t_game *game)
 {
-
 	ft_putstr("SCORE: ");
 	if (game->score)
 		ft_putnbr(game->score);
