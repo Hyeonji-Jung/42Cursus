@@ -14,6 +14,7 @@
 
 int	exit_game(t_game *game)
 {
+
 	ft_putstr("SCORE: ");
 	if (game->score)
 		ft_putnbr(game->score);
@@ -51,6 +52,8 @@ void	turn_player(t_game *game, int key)
 
 void	key_move(t_game *game, void *side, int x, int y)
 {
+	if (game->map.map[x][y] == 'E' && game->score != game->collect)
+		return ;
 	game->step++;
 	print_steps(game);
 	if (game->map.map[x][y] == 'C')
@@ -60,7 +63,7 @@ void	key_move(t_game *game, void *side, int x, int y)
 		mlx_put_image_to_window(game->mlx, game->win,
 			game->img.ground, y * BLOCKS, x * BLOCKS);
 	}
-	else if (game->map.map[x][y] == 'E')
+	else if (game->map.map[x][y] == 'E' && game->score == game->collect)
 		exit_game(game);
 	mlx_put_image_to_window(game->mlx, game->win, game->img.ground,
 		game->map.cur_y, game->map.cur_x);
