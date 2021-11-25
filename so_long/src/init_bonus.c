@@ -6,7 +6,7 @@
 /*   By: hyeojung <hyeojung@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/05 16:30:47 by hyeojung          #+#    #+#             */
-/*   Updated: 2021/11/25 21:22:25 by hyeojung         ###   ########.fr       */
+/*   Updated: 2021/11/25 21:49:18 by hyeojung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,9 @@ void	set_game_images(t_game *game)
 	game->img.box = mlx_xpm_file_to_image(game->mlx,
 			"./img/so_long_collect.xpm",
 			&game->img.width, &game->img.height);
+    game->img.enemy = mlx_xpm_file_to_image(game->mlx,
+            "./img/so_long_enemy.xpm",
+            &game->img.width, &game->img.height);
 	game->img.exit = mlx_xpm_file_to_image(game->mlx,
 			"./img/so_long_exit.xpm",
 			&game->img.width, &game->img.height);

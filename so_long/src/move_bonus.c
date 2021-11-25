@@ -6,7 +6,7 @@
 /*   By: hyeojung <hyeojung@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/21 17:20:41 by hyeojung          #+#    #+#             */
-/*   Updated: 2021/11/25 21:23:33 by hyeojung         ###   ########.fr       */
+/*   Updated: 2021/11/25 22:12:26 by hyeojung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	exit_game(t_game *game)
 		write(1, "0", 1);
 	ft_putstr(" / ");
 	ft_putnbr(game->collect);
-	ft_putstr("\nByeBye\n");
+	ft_putstr("\nByeBye !\n");
 	arr_free(game);
 	destroy_mlx(game);
 	exit(0);
@@ -64,6 +64,11 @@ void	key_move(t_game *game, void *side, int x, int y)
 	}
 	else if (game->map.map[x][y] == 'E' && game->score == game->collect)
 		exit_game(game);
+	else if (game->map.map[x][y] == 'N')
+	{
+		ft_putstr("You ran into the enemy 😈\n");
+		exit_game(game);
+	}
 	mlx_put_image_to_window(game->mlx, game->win, game->img.ground,
 		game->map.cur_y, game->map.cur_x);
 	set_position(game, x, y);

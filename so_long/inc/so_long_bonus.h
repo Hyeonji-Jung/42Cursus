@@ -6,7 +6,7 @@
 /*   By: hyeojung <hyeojung@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/04 15:01:30 by hyeojung          #+#    #+#             */
-/*   Updated: 2021/11/25 21:21:19 by hyeojung         ###   ########.fr       */
+/*   Updated: 2021/11/25 21:48:04 by hyeojung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,7 @@ typedef struct s_image
 	void	*ground;
 	void	*wall;
 	void	*box;
+    void    *enemy;
 	void	*exit;
 	void	*up;
 	void	*down;

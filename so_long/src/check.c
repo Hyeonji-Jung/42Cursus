@@ -6,7 +6,7 @@
 /*   By: hyeojung <hyeojung@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/04 16:43:39 by hyeojung          #+#    #+#             */
-/*   Updated: 2021/11/25 20:57:09 by hyeojung         ###   ########.fr       */
+/*   Updated: 2021/11/25 21:38:13 by hyeojung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,5 +99,5 @@ void	print_err(t_game *game, char *s)
 	ft_putstr(s);
 	if (*s != 'F')
 		arr_free(game);
-	exit(0);
+	exit(-1);
 }
