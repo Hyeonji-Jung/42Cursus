@@ -26,7 +26,7 @@ clean :
 	$(RM) $(OBJ_M) ${OBJ_B}
 
 fclean : clean
-	$(RM) $(NAME)
+	$(RM) $(NAME) ${NAME_B}
 
 bonus : ${OBJ_B} inc/so_long_bonus.h
 	gcc $(FLAGS) $(OBJ_B) -I inc/ $(FLAGS_MLX) -o $(NAME_B)
