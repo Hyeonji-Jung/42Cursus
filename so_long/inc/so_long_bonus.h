@@ -6,7 +6,7 @@
 /*   By: hyeojung <hyeojung@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/04 15:01:30 by hyeojung          #+#    #+#             */
-/*   Updated: 2021/11/25 21:48:04 by hyeojung         ###   ########.fr       */
+/*   Updated: 2021/12/02 14:54:02 by hyeojung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,8 @@ typedef struct s_image
 	void	*ground;
 	void	*wall;
 	void	*box;
-    void    *enemy;
+	void	*enemy;
+	void	*enemy_2;
 	void	*exit;
 	void	*up;
 	void	*down;
@@ -80,6 +81,7 @@ void	ft_strlcat(t_game *game, char *dest, char *src, size_t size);
 void	read_file(t_game *game, char *s, int read_ret);
 void	so_long_init(t_game *game);
 void	set_game_images(t_game *game);
+void	set_game_images_sub(t_game *game);
 void	draw_one(t_game *game, char c, int x, int y);
 void	draw_player(t_game *game, void *side);
 void	draw(t_game *game);

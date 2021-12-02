@@ -6,7 +6,7 @@
 /*   By: hyeojung <hyeojung@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/05 16:30:47 by hyeojung          #+#    #+#             */
-/*   Updated: 2021/11/25 21:49:18 by hyeojung         ###   ########.fr       */
+/*   Updated: 2021/12/02 14:53:01 by hyeojung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,16 @@ void	so_long_init(t_game *game)
 	draw(game);
 }
 
+void	set_game_images_sub(t_game *game)
+{
+	game->img.enemy = mlx_xpm_file_to_image(game->mlx,
+			"./img/so_long_enemy.xpm",
+			&game->img.width, &game->img.height);
+	game->img.enemy_2 = mlx_xpm_file_to_image(game->mlx,
+			"./img/so_long_enemy_2.xpm",
+			&game->img.width, &game->img.height);
+}
+
 void	set_game_images(t_game *game)
 {
 	game->img.ground = mlx_xpm_file_to_image(game->mlx,
@@ -38,9 +48,6 @@ void	set_game_images(t_game *game)
 	game->img.box = mlx_xpm_file_to_image(game->mlx,
 			"./img/so_long_collect.xpm",
 			&game->img.width, &game->img.height);
-    game->img.enemy = mlx_xpm_file_to_image(game->mlx,
-            "./img/so_long_enemy.xpm",
-            &game->img.width, &game->img.height);
 	game->img.exit = mlx_xpm_file_to_image(game->mlx,
 			"./img/so_long_exit.xpm",
 			&game->img.width, &game->img.height);
@@ -56,4 +63,5 @@ void	set_game_images(t_game *game)
 	game->img.right = mlx_xpm_file_to_image(game->mlx,
 			"./img/so_long_right.xpm",
 			&game->img.width, &game->img.height);
+	set_game_images_sub(game);
 }

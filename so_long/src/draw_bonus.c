@@ -6,16 +6,16 @@
 /*   By: hyeojung <hyeojung@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/18 17:54:13 by hyeojung          #+#    #+#             */
-/*   Updated: 2021/11/25 21:55:17 by hyeojung         ###   ########.fr       */
+/*   Updated: 2021/12/02 14:39:44 by hyeojung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long_bonus.h"
 
-int is_valid_component(char c)
+int	is_valid_component(char c)
 {
 	return (c == '0' || c == '1' || c == 'C'
-        || c == 'E' || c == 'P' || c == 'N');
+		|| c == 'E' || c == 'P' || c == 'N');
 }
 
 void	draw_player(t_game *game, void *side)
@@ -36,8 +36,8 @@ void	draw_one(t_game *game, char c, int x, int y)
 	}
 	else if (c == 'E')
 		mlx_put_image_to_window(game->mlx, game->win, game->img.exit, y, x);
-    else if (c == 'N')
-        mlx_put_image_to_window(game->mlx, game->win, game->img.enemy, y, x);
+	else if (c == 'N')
+		mlx_put_image_to_window(game->mlx, game->win, game->img.enemy, y, x);
 	else if (c == 'P')
 		draw_player(game, game->img.down);
 }
