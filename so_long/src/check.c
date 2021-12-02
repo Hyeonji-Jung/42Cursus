@@ -6,7 +6,7 @@
 /*   By: hyeojung <hyeojung@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/04 16:43:39 by hyeojung          #+#    #+#             */
-/*   Updated: 2021/12/02 15:06:10 by hyeojung         ###   ########.fr       */
+/*   Updated: 2021/12/02 15:07:56 by hyeojung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void	check_file(t_game *game, char *s)
 			if (i + 1 < len && s[i++] == 'b')
 				if (i + 1 < len && s[i++] == 'e')
 					if (i + 1 < len && s[i++] == 'r')
-						if (i < len && s[i] == 0)
+						if (s[i++] == 0)
 							flag = 1;
 	if (!flag)
 		print_err(game, "Invalid filename");
