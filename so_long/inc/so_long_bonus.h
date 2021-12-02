@@ -6,7 +6,7 @@
 /*   By: hyeojung <hyeojung@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/04 15:01:30 by hyeojung          #+#    #+#             */
-/*   Updated: 2021/12/02 14:54:02 by hyeojung         ###   ########.fr       */
+/*   Updated: 2021/12/02 15:56:32 by hyeojung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,5 +103,6 @@ int		ft_strlen(char *str);
 int		is_valid_component(char c);
 int		exit_game(t_game *game);
 int		key_press(int key, t_game *game);
+int 	print_score(t_game *game);
 
 #endif
