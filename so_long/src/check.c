@@ -6,7 +6,7 @@
 /*   By: hyeojung <hyeojung@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/04 16:43:39 by hyeojung          #+#    #+#             */
-/*   Updated: 2021/12/02 15:13:31 by hyeojung         ###   ########.fr       */
+/*   Updated: 2021/12/02 15:18:50 by hyeojung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	check_file(t_game *game, char *s)
 				if (len - 4 >= 0 && s[len - 4] == '.')
 					flag = 1;
 	if (!flag)
-		print_err(game, "Invalid filename");
+		print_err(game, "Filename error");
 }
 
 void	check_map(t_game *game)
