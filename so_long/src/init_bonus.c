@@ -6,7 +6,7 @@
 /*   By: hyeojung <hyeojung@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/05 16:30:47 by hyeojung          #+#    #+#             */
-/*   Updated: 2021/12/02 14:53:01 by hyeojung         ###   ########.fr       */
+/*   Updated: 2021/12/03 13:22:15 by hyeojung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ void	so_long_init(t_game *game)
 			"Slime Forest");
 	game->step = 0;
 	game->score = 0;
+	game->collect = 0;
 	set_game_images(game);
 	draw(game);
 }
