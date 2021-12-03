@@ -6,7 +6,7 @@
 /*   By: hyeojung <hyeojung@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/05 16:30:47 by hyeojung          #+#    #+#             */
-/*   Updated: 2021/12/03 13:22:15 by hyeojung         ###   ########.fr       */
+/*   Updated: 2021/12/03 15:17:30 by hyeojung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,12 @@ void	so_long_init(t_game *game)
 		print_err(game, "mlx init error");
 	game->win = mlx_new_window(game->mlx,
 			game->map.col * BLOCKS,
-			game->map.row * BLOCKS,
+			game->map.row * BLOCKS + 32,
 			"Slime Forest");
 	game->step = 0;
 	game->score = 0;
 	game->collect = 0;
+	game->flag = 0;
 	set_game_images(game);
 	draw(game);
 }
@@ -35,6 +36,9 @@ void	set_game_images_sub(t_game *game)
 			&game->img.width, &game->img.height);
 	game->img.enemy_2 = mlx_xpm_file_to_image(game->mlx,
 			"./img/so_long_enemy_2.xpm",
+			&game->img.width, &game->img.height);
+	game->img.empty = mlx_xpm_file_to_image(game->mlx,
+			"./img/so_long_empty.xpm",
 			&game->img.width, &game->img.height);
 }
 

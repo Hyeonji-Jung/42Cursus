@@ -5,7 +5,7 @@ SRC_M = src/main.c src/check.c src/util.c src/read.c src/init.c\
 	src/draw.c src/move.c
 
 SRC_B = src/main_bonus.c src/check_bonus.c src/util_bonus.c src/read_bonus.c\
-	src/init_bonus.c src/draw_bonus.c src/move_bonus.c src/score_bonus.c
+	src/init_bonus.c src/draw_bonus.c src/move_bonus.c src/bonus_bonus.c
 
 FLAGS = -g -Wall -Wextra -Werror
 

@@ -6,7 +6,7 @@
 /*   By: hyeojung <hyeojung@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/04 15:01:30 by hyeojung          #+#    #+#             */
-/*   Updated: 2021/12/03 13:22:30 by hyeojung         ###   ########.fr       */
+/*   Updated: 2021/12/03 15:21:36 by hyeojung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,7 @@ typedef struct s_image
 	void	*down;
 	void	*left;
 	void	*right;
+	void	*empty;
 }			t_image;
 
 typedef struct s_game
@@ -68,6 +69,7 @@ typedef struct s_game
 	int		step;
 	int		score;
 	int		collect;
+	int		flag;
 }			t_game;
 
 void	check_file(t_game *game, char *s);
@@ -95,6 +97,7 @@ void	destroy_mlx(t_game *game);
 void	ft_split(t_game *game, char *src);
 
 char	*ft_strjoin(t_game *game, char *s1, char *s2);
+char	*ft_itoa(t_game *game, int n);
 char	*is_newline(char *s);
 
 char	**ft_split_sub(t_game *game, char *src, char **arr);
@@ -104,5 +107,6 @@ int		is_valid_component(char c);
 int		exit_game(t_game *game);
 int		key_press(int key, t_game *game);
 int 	print_score(t_game *game);
+int		sprite_animation(t_game *game);
 
 #endif
