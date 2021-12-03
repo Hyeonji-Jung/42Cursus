@@ -6,7 +6,7 @@
 /*   By: hyeojung <hyeojung@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/04 15:03:07 by hyeojung          #+#    #+#             */
-/*   Updated: 2021/12/02 15:56:41 by hyeojung         ###   ########.fr       */
+/*   Updated: 2021/12/03 12:59:24 by hyeojung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ int	main(int ac, char **av)
 		read_file(&game, av[1], 1);
 		check_map(&game);
 		so_long_init(&game);
-		mlx_loop_hook(game.mlx, &print_score, &game);
+		// mlx_loop_hook(game.mlx, &print_score, &game);
 		mlx_hook(game.win, 17, 0, &exit_game, &game);
 		mlx_hook(game.win, EVENT_KEY_PRESS, 0, &key_press, &game);
 		mlx_loop(game.mlx);
