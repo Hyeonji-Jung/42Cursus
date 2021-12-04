@@ -69,7 +69,6 @@ typedef struct s_game
 	int		step;
 	int		score;
 	int		collect;
-	int		flag;
 }			t_game;
 
 void	check_file(t_game *game, char *s);
@@ -95,6 +94,7 @@ void	print_steps(t_game *game);
 void	arr_free(t_game *game);
 void	destroy_mlx(t_game *game);
 void	ft_split(t_game *game, char *src);
+void	sprite_animation(t_game *game);
 
 char	*ft_strjoin(t_game *game, char *s1, char *s2);
 char	*ft_itoa(t_game *game, int n);
@@ -106,7 +106,6 @@ int		ft_strlen(char *str);
 int		is_valid_component(char c);
 int		exit_game(t_game *game);
 int		key_press(int key, t_game *game);
-int 	print_score(t_game *game);
-int		sprite_animation(t_game *game);
+int		print_score(t_game *game);
 
 #endif

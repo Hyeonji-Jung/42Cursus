@@ -45,7 +45,7 @@ void	print_score_sub(t_game *game, int row)
 	char	*steps;
 	char	*score;
 
-	i = 64;
+	i = 70;
 	steps = ft_itoa(game, game->step);
 	score = ft_itoa(game, game->score);
 	while (i <= game->map.col * BLOCKS)
@@ -56,17 +56,16 @@ void	print_score_sub(t_game *game, int row)
 			game->img.empty, i, row);
 		i += 16;
 	}
-	mlx_string_put(game->mlx, game->win, 64, row, 0xFFFFFF, steps);
-	mlx_string_put(game->mlx, game->win, 64, row + 16, 0xFFFFFF, score);
+	mlx_string_put(game->mlx, game->win, 70, row - 16, 0xFFFFFF, steps);
+	mlx_string_put(game->mlx, game->win, 70, row, 0xFFFFFF, score);
 	free(steps);
 	free(score);
 }
 
-int		sprite_animation(t_game *game)
+void	sprite_animation(t_game *game)
 {
 	int	i;
 	int	j;
-	int	t;
 
 	i = -1;
 	while (++i < game->map.row)
@@ -78,31 +77,30 @@ int		sprite_animation(t_game *game)
 			{
 				mlx_put_image_to_window(game->mlx, game->win,
 					game->img.ground, j * BLOCKS, i * BLOCKS);
-				if (!game->flag)
+				if (rand() % 2 == 1)
 					mlx_put_image_to_window(game->mlx, game->win,
 						game->img.enemy_2, j * BLOCKS, i * BLOCKS);
 				else
 					mlx_put_image_to_window(game->mlx, game->win,
-					game->img.enemy, j * BLOCKS, i * BLOCKS);
-				game->flag = !game->flag;
+						game->img.enemy, j * BLOCKS, i * BLOCKS);
 			}
 		}
 	}
-	t = -1;
-	while (++t)
-		if (t == 500000000)
-			break;
-	return (game->flag);
 }
 
-int		print_score(t_game *game)
+int	print_score(t_game *game)
 {
-	int		row;
+	int	row;
+	int	t;
 
 	row = game->map.row * 32 + 12;
-	mlx_string_put(game->mlx, game->win, 16, row, 0xFFFFFF, "STEPS: ");
-	mlx_string_put(game->mlx, game->win, 16, row + 16, 0xFFFFFF, "SCORE: ");
+	mlx_string_put(game->mlx, game->win, 16, row - 16, 0xFFFFFF, "STEPS");
+	mlx_string_put(game->mlx, game->win, 16, row, 0xFFFFFF, "SCORE");
 	print_score_sub(game, row);
 	sprite_animation(game);
+	t = -1;
+	while (++t < 50000000)
+		if (t >= 50000000)
+			break ;
 	return (0);
 }

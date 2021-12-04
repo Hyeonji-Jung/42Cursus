@@ -24,7 +24,6 @@ void	so_long_init(t_game *game)
 	game->step = 0;
 	game->score = 0;
 	game->collect = 0;
-	game->flag = 0;
 	set_game_images(game);
 	draw(game);
 }
