@@ -26,19 +26,6 @@ void	arr_free(t_game *game)
 	game->map.map = 0;
 }
 
-void	destroy_mlx(t_game *game)
-{
-	mlx_destroy_image(game->mlx, game->img.box);
-	mlx_destroy_image(game->mlx, game->img.down);
-	mlx_destroy_image(game->mlx, game->img.exit);
-	mlx_destroy_image(game->mlx, game->img.ground);
-	mlx_destroy_image(game->mlx, game->img.left);
-	mlx_destroy_image(game->mlx, game->img.right);
-	mlx_destroy_image(game->mlx, game->img.up);
-	mlx_destroy_image(game->mlx, game->img.wall);
-	mlx_destroy_window(game->mlx, game->win);
-}
-
 int	main(int ac, char **av)
 {
 	t_game	game;
@@ -56,7 +43,7 @@ int	main(int ac, char **av)
 	else
 	{
 		ft_putstr("Usage: ./so_long map/\"filename\"");
-		return (1);
+		return (-1);
 	}
 	return (0);
 }
