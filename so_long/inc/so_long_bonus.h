@@ -95,6 +95,7 @@ void	arr_free(t_game *game);
 void	destroy_mlx(t_game *game);
 void	ft_split(t_game *game, char *src);
 void	sprite_animation(t_game *game);
+void	ft_free(void *ptr);
 
 char	*ft_strjoin(t_game *game, char *s1, char *s2);
 char	*ft_itoa(t_game *game, int n);
