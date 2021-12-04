@@ -35,10 +35,14 @@ void	check_map(t_game *game)
 
 	row = -1;
 	game->map.col = ft_strlen(game->map.map[0]);
+	printf("%d\n", game->map.col);
 	while (++row < game->map.row)
 	{
 		if (ft_strlen(game->map.map[row]) != game->map.col)
+		{
+			printf("row: %d %d\n", row, ft_strlen(game->map.map[row]));
 			print_err(game, MAPERR);
+		}
 		if (row == 0 || row == game->map.row - 1)
 		{
 			col = -1;

@@ -31,7 +31,7 @@ void	read_file(t_game *game, char *s, int read_ret)
 		map = ft_strjoin(game, map, buff);
 	}
 	if (*buff)
-		ft_free(buff);
+		free(buff);
 	close(fd);
 	ft_split(game, map);
 }
@@ -55,7 +55,7 @@ char	*ft_strjoin(t_game *game, char *s1, char *s2)
 		new[i++] = *s2++;
 	new[i] = 0;
 	if (tmp1)
-		ft_free(tmp1);
+		free(tmp1);
 	return (new);
 }
 

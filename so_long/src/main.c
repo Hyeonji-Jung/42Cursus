@@ -27,12 +27,8 @@ void	arr_free(t_game *game)
 
 	i = -1;
 	while (++i < game->map.row)
-	{
 		ft_free(game->map.map[i]);
-		game->map.map[i] = 0;
-	}
 	ft_free(game->map.map);
-	game->map.map = 0;
 }
 
 int	main(int ac, char **av)
