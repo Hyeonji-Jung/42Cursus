@@ -58,8 +58,8 @@ void	print_score_sub(t_game *game, int row)
 	}
 	mlx_string_put(game->mlx, game->win, 70, row - 16, 0xFFFFFF, steps);
 	mlx_string_put(game->mlx, game->win, 70, row, 0xFFFFFF, score);
-	free(steps);
-	free(score);
+	ft_free(steps);
+	ft_free(score);
 }
 
 void	sprite_animation(t_game *game)

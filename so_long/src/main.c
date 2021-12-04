@@ -12,6 +12,15 @@
 
 #include "so_long.h"
 
+void	ft_free(void *ptr)
+{
+	if (ptr)
+	{
+		free(ptr);
+		ptr = NULL;
+	}
+}
+
 void	arr_free(t_game *game)
 {
 	int	i;
@@ -19,10 +28,10 @@ void	arr_free(t_game *game)
 	i = -1;
 	while (++i < game->map.row)
 	{
-		free(game->map.map[i]);
+		ft_free(game->map.map[i]);
 		game->map.map[i] = 0;
 	}
-	free(game->map.map);
+	ft_free(game->map.map);
 	game->map.map = 0;
 }
 
