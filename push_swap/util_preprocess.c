@@ -7,6 +7,8 @@ int		ft_atoi(char *from, char *to)
 
 	num = 0;
 	sign = 1;
+	if (to - from > 11)
+		ft_error();
 	while (from < to && ((*from >= 9 && *from <= 13) || *from == 32))
 		from++;
 	if (from < to && (*from == '+' || *from == '-'))
@@ -19,35 +21,7 @@ int		ft_atoi(char *from, char *to)
 		ft_error();
 	while (from < to && *from >= '0' && *from <= '9')
 		num = num * 10 + (*(from++) - '0');
+	if (num * sign < INT_MIN || num * sign > INT_MAX)
+		ft_error();
 	return (num * sign);
 }
-
-void	ft_bzero(void *p, size_t n)
-{
-	unsigned char	*ptr;
-
-	ptr = (unsigned char *)p;
-	while (n--)
-	{
-		*(ptr++) = 0;
-	}
-	return ;
-}
-
-
-// void	*ft_bzero(void *dest, size_t size)
-// {
-// 	return (ft_memset(dest, 0, size));
-// }
-
-// void	*ft_memset(void *dest, int c, size_t size)
-// {
-// 	unsigned char	*tmp;
-// 	size_t			i;
-
-// 	tmp = (unsigned char *)dest;
-// 	i = 0;
-// 	while (i < size)
-// 		tmp[i++] = (unsigned char)c;
-// 	return (tmp);
-// }

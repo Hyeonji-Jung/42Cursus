@@ -2,25 +2,21 @@
 
 void	preprocess(t_var *var, int argc, char **argv)
 {
-	printf("a\n");
-	ft_putstr("hey\n", 1);
 	int		i;
 	int		cnt;
-	char	pos[MAX_ARR];
-	char	neg[MAX_ARR];
 
 	i = 1;
 	cnt = 0;
-	ft_bzero(pos, MAX_ARR);
-	printf("a\n");
-	ft_bzero(neg, MAX_ARR);
-	printf("b\n");
 	while (i < argc)
-		cnt += parseArg(var, argv[i++], pos, neg);
-	sortArr(var, pos, neg, cnt);
+	{
+		printf("argv[%d]: %s\n", i, argv[i]);
+		cnt += parseArg(var, argv[i], ft_strlen(argv[i]));
+		i++;
+	}
+	sortArr(var, cnt);
 }
 
-int	parseArg(t_var *var, char *str, char *pos, char *neg)
+int	parseArg(t_var *var, char *str, size_t len)
 {
 	int		i;
 	int		n;
@@ -30,7 +26,7 @@ int	parseArg(t_var *var, char *str, char *pos, char *neg)
 
 	i = 0;
 	ret = 0;
-	while (str[i++])
+	while (i < len)
 	{
 		from = 0;
 		to = 0;
@@ -41,39 +37,25 @@ int	parseArg(t_var *var, char *str, char *pos, char *neg)
 				i++;
 			to = &str[i];
 			n = ft_atoi(from, to);
-			checkArg(pos, neg, n);
 			ret++;
 			pushBottom(var->A, getNewNode(n));
 		}
+		i++;
 	}
 	return (ret);
 }
 
-void	checkArg(char *pos, char *neg, int n)
+void	sortArr(t_var *var, int cnt)
 {
-	if (n == INT_MIN && !neg[INT_MAX])
-		neg[INT_MAX] = 1;
-	else if (n < 0 && !neg[(n * -1) - 1])
-		neg[(n * -1) - 1] = 1;
-	else if (n >= 0 && !pos[n])
-		pos[n] = 1;
-	else
-		ft_error();
-}
-
-void	sortArr(t_var *var, char *pos, char *neg, int cnt)
-{
-	int	idx;
-	int	i;
+	int		idx;
+	t_node	*p;
 
 	idx = 0;
-	i = 0;
 	var->pivot_arr = (int *)malloc(sizeof(int) * cnt);
-	while (i++ < MAX_ARR - 1)
-		if (neg[i])
-			var->pivot_arr[idx++] = neg[i];
-	i = 0;
-	while (i++ < MAX_ARR - 1)
-		if (pos[i])
-			var->pivot_arr[idx++] = pos[i];
+	p = var->A->top->right;
+	while (idx < cnt && p != var->A->bottom)
+	{
+		var->pivot_arr[idx++] = p->val;
+		p = p->right;
+	}
 }

@@ -6,7 +6,6 @@
 # include <unistd.h>
 # include <limits.h>
 
-# define MAX_ARR 2147483648
 # define S_A 4
 # define S_B 2
 
@@ -35,12 +34,11 @@ typedef struct s_var
 
 /*util_preprocess.c*/
 int		ft_atoi(char *from, char *to);
-void	ft_bzero(void *dest, size_t size);
-// void	*ft_memset(void *dest, int c, size_t size);
 
 /*util_std.c*/
 void	ft_error(void);
 void	ft_putstr(char *s, int fd);
+size_t	ft_strlen(const char *str);
 
 /*util_stack.c*/
 t_node	*getNewNode(int num);
@@ -49,13 +47,12 @@ void	pushTop(t_stack *stack, t_node *new_node);
 void	pushBottom(t_stack *stack, t_node *new_node);
 t_node	*popTop(t_stack *stack);
 t_node	*popBottom(t_stack *stack);
-void	printStack_test(t_stack *stack); ///////////Please erase
+void	printStack_test(t_stack *stack);
 
 /*preprocess.c*/
 void	preprocess(t_var *var, int argc, char **argv);
-int		parseArg(t_var *var, char *str, char *pos, char *neg);
-void	checkArg(char *pos, char *neg, int n);
-void	sortArr(t_var *var, char *pos, char *neg, int cnt);
+int		parseArg(t_var *var, char *str, size_t len);
+void	sortArr(t_var *var, int cnt);
 
 /*stack_operate.c*/
 char	*sa(t_var *var);

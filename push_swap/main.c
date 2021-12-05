@@ -6,29 +6,10 @@ int		main(int argc, char *argv[])
 	
 	if (argc >= 2)
 	{
-		printf("111111\n");
 		initStack(&var);
-		printf("222222\n");
-
-		printf("A:::%p\n", var.A);
-		pushTop(var.A, getNewNode(1));
-		pushTop(var.A, getNewNode(2));
-		pushTop(var.A, getNewNode(3));
-		pushTop(var.A, getNewNode(4));
-		printStack_test(var.A);
-		printf("B:::%p\n", var.B);
-		pushTop(var.B, getNewNode(4));
-		pushTop(var.B, getNewNode(3));
-		pushTop(var.B, getNewNode(2));
-		pushTop(var.B, getNewNode(1));
-		printStack_test(var.B);
-
-		printf("33333333\n");
-		printf("%p %d %p\n", &var, argc, &argv);
 		preprocess(&var, argc, argv);
-		printf("44444444\n");
 		printStack_test(var.A);
-		printf("5555555\n");
+		printStack_test(var.B);
 	}
 	else
 		ft_error();
