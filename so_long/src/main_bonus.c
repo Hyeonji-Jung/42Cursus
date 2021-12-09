@@ -12,23 +12,30 @@
 
 #include "so_long_bonus.h"
 
-void	ft_free(void *ptr)
-{
-	if (ptr)
-	{
-		free(ptr);
-		ptr = NULL;
-	}
-}
-
 void	arr_free(t_game *game)
 {
 	int	i;
 
 	i = -1;
-	while (++i < game->map.row)
-		ft_free(game->map.map[i]);
-	ft_free(game->map.map);
+	while (i++ < game->map.row)
+		free(game->map.map[i]);
+	free(game->map.map);
+}
+
+void	destroy_mlx(t_game *game)
+{
+	mlx_destroy_image(game->mlx, game->img.box);
+	mlx_destroy_image(game->mlx, game->img.down);
+	mlx_destroy_image(game->mlx, game->img.exit);
+	mlx_destroy_image(game->mlx, game->img.ground);
+	mlx_destroy_image(game->mlx, game->img.left);
+	mlx_destroy_image(game->mlx, game->img.right);
+	mlx_destroy_image(game->mlx, game->img.up);
+	mlx_destroy_image(game->mlx, game->img.wall);
+	mlx_destroy_image(game->mlx, game->img.empty);
+	mlx_destroy_image(game->mlx, game->img.enemy);
+	mlx_destroy_image(game->mlx, game->img.enemy_2);
+	mlx_destroy_window(game->mlx, game->win);
 }
 
 int	main(int ac, char **av)

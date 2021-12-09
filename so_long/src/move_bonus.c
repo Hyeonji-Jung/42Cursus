@@ -27,8 +27,9 @@ int	exit_game(t_game *game)
 		ft_putstr("\nYou won the game 🙌");
 	ft_putstr("\nByeBye !\n");
 	arr_free(game);
-	while (1)
-		;
+	destroy_mlx(game);
+	// while (1)
+	// 	;
 	exit(0);
 }
 

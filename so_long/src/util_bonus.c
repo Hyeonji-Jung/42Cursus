@@ -54,27 +54,21 @@ void	ft_putnbr(int n)
 	}
 }
 
-void	ft_strlcat(t_game *game, char *dest, char *src, size_t size)
+void	ft_strcpy(t_game *game, char *dest, char *src, size_t size)
 {
 	size_t	i;
 
-	if (!dest)
+	if (!dest || !src)
 		print_err(game, MEMERR);
 	i = 0;
 	while (*dest && i < size)
 	{
-		i++;
-		dest++;
-	}
-	while (src && *src && i + 1 < size)
-	{
 		*dest = *src;
-		i++;
 		dest++;
 		src++;
+		i++;
 	}
-	if (i < size)
-		*dest = 0;
+	*dest = 0;
 }
 
 void	print_steps(t_game *game)

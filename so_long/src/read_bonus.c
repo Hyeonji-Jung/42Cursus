@@ -34,6 +34,7 @@ void	read_file(t_game *game, char *s, int read_ret)
 		free(buff);
 	close(fd);
 	ft_split(game, map);
+	free(map);
 }
 
 char	*ft_strjoin(t_game *game, char *s1, char *s2)
@@ -73,20 +74,25 @@ int	wd_len(char *s)
 char	**ft_split_sub(t_game *game, char *src, char **arr)
 {
 	int		i;
+	int		len;
 	char	*tmp;
 
 	i = 0;
 	while (*src)
 	{
+		len = 0;
 		if (*src != '\n')
 		{
 			tmp = src;
 			while (*src && *src != '\n')
+			{
 				src++;
-			arr[i] = (char *)malloc(src - tmp + 1);
+				len++;
+			}
+			arr[i] = (char *)malloc(len + 1);
 			if (!arr[i])
 				print_err(game, MEMERR);
-			ft_strlcat(game, arr[i++], tmp, src - tmp + 1);
+			ft_strcpy(game, arr[i++], tmp, len + 1);
 		}
 		src++;
 	}
@@ -103,5 +109,4 @@ void	ft_split(t_game *game, char *src)
 	if (!arr)
 		print_err(game, MEMERR);
 	game->map.map = ft_split_sub(game, src, arr);
-	ft_free(src);
 }

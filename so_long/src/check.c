@@ -38,6 +38,7 @@ void	check_map(t_game *game)
 	printf("%d\n", game->map.col);
 	while (++row < game->map.row)
 	{
+		printf("- %s -\n", game->map.map[row]);
 		if (ft_strlen(game->map.map[row]) != game->map.col)
 		{
 			printf("row: %d %d\n", row, ft_strlen(game->map.map[row]));

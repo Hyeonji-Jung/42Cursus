@@ -77,8 +77,7 @@ void	check_map_components(t_game *game);
 void	check_start(t_game *game, int x, int y, int p);
 void	print_err(t_game *game, char *s);
 void	ft_putstr(char *s);
-void	ft_strcpy(char *dest, char *from, char *to);
-void	ft_strlcat(t_game *game, char *dest, char *src, size_t size);
+void	ft_strcpy(t_game *game, char *dest, char *src, size_t size);
 void	read_file(t_game *game, char *s, int read_ret);
 void	so_long_init(t_game *game);
 void	set_game_images(t_game *game);
@@ -95,7 +94,6 @@ void	arr_free(t_game *game);
 void	destroy_mlx(t_game *game);
 void	ft_split(t_game *game, char *src);
 void	sprite_animation(t_game *game);
-void	ft_free(void *ptr);
 
 char	*ft_strjoin(t_game *game, char *s1, char *s2);
 char	*ft_itoa(t_game *game, int n);
