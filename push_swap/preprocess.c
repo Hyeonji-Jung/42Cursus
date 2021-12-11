@@ -10,10 +10,11 @@ void	preprocess(t_var *var, int argc, char **argv)
 	while (i < argc)
 	{
 		printf("argv[%d]: %s\n", i, argv[i]);
-		cnt += parseArg(var, argv[i], ft_strlen(argv[i]));
+		cnt += parseArg(var, argv[i], ft_strlen(argv[i])); // 총 노드의 수
 		i++;
 	}
-	sortArr(var, cnt);
+	var->max_size = cnt;
+	putArr(var); // 배열 할당하고 배열에 값 넣어준 후 정렬해줄 예정 ~
 }
 
 int	parseArg(t_var *var, char *str, size_t len)
@@ -45,17 +46,23 @@ int	parseArg(t_var *var, char *str, size_t len)
 	return (ret);
 }
 
-void	sortArr(t_var *var, int cnt)
+void	putArr(t_var *var)
 {
 	int		idx;
 	t_node	*p;
 
 	idx = 0;
-	var->pivot_arr = (int *)malloc(sizeof(int) * cnt);
+	var->pivot_arr = (int *)malloc(sizeof(int) * var->max_size);
 	p = var->A->top->right;
-	while (idx < cnt && p != var->A->bottom)
+	while (idx < var->max_size && p != var->A->bottom)
 	{
 		var->pivot_arr[idx++] = p->val;
 		p = p->right;
 	}
+	radixSort(var->pivot_arr, var->max_size);
+	checkDup(var->pivot_arr, var->max_size);
+	printf("arr: ");
+	for (int i = 0; i < var->max_size; i++)
+		printf("%d ", var->pivot_arr[i]);
+	printf("\n");
 }

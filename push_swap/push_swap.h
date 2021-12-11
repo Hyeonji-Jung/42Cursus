@@ -1,7 +1,7 @@
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-# include <stdio.h>
+# include <stdio.h> //////////PLEASE ERASE!!!!!!!!
 # include <stdlib.h>
 # include <unistd.h>
 # include <limits.h>
@@ -34,11 +34,13 @@ typedef struct s_var
 
 /*util_preprocess.c*/
 int		ft_atoi(char *from, char *to);
+void	radixSort(int *a, int cnt);
 
 /*util_std.c*/
 void	ft_error(void);
 void	ft_putstr(char *s, int fd);
 size_t	ft_strlen(const char *str);
+void	ft_bzero(void *p, size_t n);
 
 /*util_stack.c*/
 t_node	*getNewNode(int num);
@@ -47,12 +49,15 @@ void	pushTop(t_stack *stack, t_node *new_node);
 void	pushBottom(t_stack *stack, t_node *new_node);
 t_node	*popTop(t_stack *stack);
 t_node	*popBottom(t_stack *stack);
+int		getStackSize(t_stack *stack);	// 스택 전체 사이즈
+int		getCurStackSize(t_var *var, int depth);	// 스택 내의 정렬되지 않은 원소 개수
 void	printStack_test(t_stack *stack);
 
 /*preprocess.c*/
 void	preprocess(t_var *var, int argc, char **argv);
 int		parseArg(t_var *var, char *str, size_t len);
-void	sortArr(t_var *var, int cnt);
+void	putArr(t_var *var);
+void	checkDup(int *a, int cnt);
 
 /*stack_operate.c*/
 char	*sa(t_var *var);
@@ -63,5 +68,7 @@ char	*pb(t_var *var);
 char	*ra(t_var *var);
 char	*rb(t_var *var);
 char	*rr(t_var *var);
-
+char	*rra(t_var *var);
+char	*rrb(t_var *var);
+char	*rrr(t_var *var);
 #endif

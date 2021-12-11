@@ -85,6 +85,31 @@ t_node	*popBottom(t_stack *stack)
 	return (temp);
 }
 
+int	getStackSize(t_stack *stack)
+{
+	int		size;
+	t_node	*p;
+
+	size = 0;
+	p = stack->top->right;
+	while (p != stack->bottom)
+	{
+		size++;
+		p = p->right;
+	}
+	return (size);
+}
+
+int	getCurStackSize(t_var *var, int depth)
+{
+	int	ret;
+
+	ret = var->max_size;
+	while (depth--)
+		ret /= 2;
+	return (ret);
+}
+
 void	printStack_test(t_stack *stack) ////////////// please erase!
 {
 	t_node	*p;

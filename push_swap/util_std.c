@@ -23,3 +23,15 @@ size_t		ft_strlen(const char *str)
 		len++;
 	return (len);
 }
+
+void	ft_bzero(void *p, size_t n)
+{
+	unsigned char	*ptr;
+
+	ptr = (unsigned char *)p;
+	while (n--)
+	{
+		*(ptr++) = 0;
+	}
+	return ;
+}

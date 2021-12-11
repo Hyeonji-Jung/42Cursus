@@ -89,3 +89,30 @@ char	*rr(t_var *var)
 	rb(var);
 	return ("rr");
 }
+
+char	*rra(t_var *var)
+{
+	t_node	*node;
+
+	node = popBottom(var->A);
+	if (node)
+		pushTop(var->A, node);
+	return ("rra");
+}
+
+char	*rrb(t_var *var)
+{
+	t_node	*node;
+
+	node = popBottom(var->B);
+	if (node)
+		pushTop(var->B, node);
+	return ("rrb");
+}
+
+char	*rrr(t_var *var)
+{
+	rra(var);
+	rrb(var);
+	return ("rrr");
+}
