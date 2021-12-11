@@ -74,7 +74,7 @@ void	check_map_components(t_game *game);
 void	check_start(t_game *game, int x, int y, int p);
 void	print_err(t_game *game, char *s);
 void	ft_putstr(char *s);
-void	ft_strcpy(t_game *game, char *dest, char *src, size_t size);
+void	ft_strcpy(t_game *game, char *dest, char *src, int size);
 void	read_file(t_game *game, char *s, int read_ret);
 void	so_long_init(t_game *game);
 void	set_game_images(t_game *game);

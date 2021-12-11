@@ -54,18 +54,16 @@ void	ft_putnbr(int n)
 	}
 }
 
-void	ft_strcpy(t_game *game, char *dest, char *src, size_t size)
+void	ft_strcpy(t_game *game, char *dest, char *src, int size)
 {
-	size_t	i;
+	int	i;
 
 	if (!dest || !src)
 		print_err(game, MEMERR);
 	i = 0;
-	while (*dest && i < size)
+	while (i < size - 1)
 	{
-		*dest = *src;
-		dest++;
-		src++;
+		*(dest++) = *(src++);
 		i++;
 	}
 	*dest = 0;
