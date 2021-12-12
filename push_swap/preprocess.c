@@ -9,7 +9,7 @@ void	preprocess(t_var *var, int argc, char **argv)
 	cnt = 0;
 	while (i < argc)
 	{
-		printf("argv[%d]: %s\n", i, argv[i]);
+		// printf("argv[%d]: %s\n", i, argv[i]);
 		cnt += parseArg(var, argv[i], ft_strlen(argv[i])); // 총 노드의 수
 		i++;
 	}

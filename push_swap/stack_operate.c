@@ -7,13 +7,16 @@ char	*sa(t_var *var)
 
 	top = var->A->top;
 	temp = top->right;
-	top->right = temp->right;
-	temp->right->left = temp->left;
-	temp->left = temp->right;
-	temp->right = temp->right->right;
-	top->right->right = temp;
-	temp->right->left = temp;
-	return ("sa");
+	if (temp->right != var->A->bottom)
+	{
+		top->right = temp->right;
+		temp->right->left = temp->left;
+		temp->left = temp->right;
+		temp->right = temp->right->right;
+		top->right->right = temp;
+		temp->right->left = temp;
+	}
+	return ("sa\n");
 }
 
 char	*sb(t_var *var)
@@ -26,21 +29,23 @@ char	*sb(t_var *var)
 	top = var->B->top;
 	temp1 = top->right;
 	temp2 = temp1->right;
-	fixed3 = temp2->right;
-	top->right = temp2;
-	fixed3->left = temp1;
-	temp1->left = temp2;
-	temp1->right = fixed3;
-	temp2->left = top;
-	temp2->right = temp1;
-	return ("sb");
+	if (temp2 != var->B->bottom){
+		fixed3 = temp2->right;
+		top->right = temp2;
+		fixed3->left = temp1;
+		temp1->left = temp2;
+		temp1->right = fixed3;
+		temp2->left = top;
+		temp2->right = temp1;
+	}
+	return ("sb\n");
 }
 
 char	*ss(t_var *var)
 {
 	sa(var);
 	sb(var);
-	return ("ss");
+	return ("ss\n");
 }
 
 char	*pa(t_var *var)
@@ -50,7 +55,7 @@ char	*pa(t_var *var)
 	node = popTop(var->B);
 	if (node)
 		pushTop(var->A, node);
-	return ("pa");
+	return ("pa\n");
 }
 
 char	*pb(t_var *var)
@@ -60,7 +65,7 @@ char	*pb(t_var *var)
 	node = popTop(var->A);
 	if (node)
 		pushTop(var->B, node);
-	return ("pb");
+	return ("pb\n");
 }
 
 char	*ra(t_var *var)
@@ -70,7 +75,7 @@ char	*ra(t_var *var)
 	node = popTop(var->A);
 	if (node)
 		pushBottom(var->A, node);
-	return ("ra");
+	return ("ra\n");
 }
 
 char	*rb(t_var *var)
@@ -80,14 +85,14 @@ char	*rb(t_var *var)
 	node = popTop(var->B);
 	if (node)
 		pushBottom(var->B, node);
-	return ("rb");
+	return ("rb\n");
 }
 
 char	*rr(t_var *var)
 {
 	ra(var);
 	rb(var);
-	return ("rr");
+	return ("rr\n");
 }
 
 char	*rra(t_var *var)
@@ -97,7 +102,7 @@ char	*rra(t_var *var)
 	node = popBottom(var->A);
 	if (node)
 		pushTop(var->A, node);
-	return ("rra");
+	return ("rra\n");
 }
 
 char	*rrb(t_var *var)
@@ -107,12 +112,12 @@ char	*rrb(t_var *var)
 	node = popBottom(var->B);
 	if (node)
 		pushTop(var->B, node);
-	return ("rrb");
+	return ("rrb\n");
 }
 
 char	*rrr(t_var *var)
 {
 	rra(var);
 	rrb(var);
-	return ("rrr");
+	return ("rrr\n");
 }

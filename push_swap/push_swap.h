@@ -50,7 +50,7 @@ void	pushBottom(t_stack *stack, t_node *new_node);
 t_node	*popTop(t_stack *stack);
 t_node	*popBottom(t_stack *stack);
 int		getStackSize(t_stack *stack);	// 스택 전체 사이즈
-int		getCurStackSize(t_var *var, int depth);	// 스택 내의 정렬되지 않은 원소 개수
+int		getAnyStackSize(t_var *var, int curStack, int depth);	// 스택 내의 정렬되지 않은 원소 개수
 void	printStack_test(t_stack *stack);
 
 /*preprocess.c*/
