@@ -11,7 +11,7 @@ int		main(int argc, char *argv[])
 		preprocess(&var, argc, argv);
 		printStack_test(var.A);
 		printStack_test(var.B);
-		re(&var, S_A, 0, var.max_size - 1);
+		// re(&var, S_A, 0, var.max_size - 1);
 		// 여기에 써보자
 	}
 	else
@@ -39,9 +39,11 @@ int		getPivot(t_var *var, int curStack, int depth, int prePivotIdx)
 
 void	sendHalfElement(t_var *var, int curStack, int depth, int prePivotIdx)
 {
-	int	pivot = getPivot(var, curStack, depth, prePivotIdx);
-	int	size = getCurStackSize(var, depth);
+	int	pivot;
+	int	size;
 
+	pivot = getPivot(var, curStack, depth, prePivotIdx);
+	size = getCurStackSize(var, depth);
 	if (curStack == S_A)
 	{
 		// 피봇 기준으로 보내거나 내리기
