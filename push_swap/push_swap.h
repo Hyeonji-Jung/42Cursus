@@ -34,7 +34,7 @@ typedef struct s_var
 
 /*util_preprocess.c*/
 int		ft_atoi(char *from, char *to);
-void	radixSort(int *a, int cnt);
+void 	quick_sort(int *data, int start, int end);
 
 /*util_std.c*/
 void	ft_error(void);
@@ -50,7 +50,8 @@ void	pushBottom(t_stack *stack, t_node *new_node);
 t_node	*popTop(t_stack *stack);
 t_node	*popBottom(t_stack *stack);
 int		getStackSize(t_stack *stack);	// 스택 전체 사이즈
-int		getAnyStackSize(t_var *var, int curStack, int depth);	// 스택 내의 정렬되지 않은 원소 개수
+int		getAnyStackSize_A(t_var *var, int depth, int preSize);
+int		getAnyStackSize_B(t_var *var, int depth, int preSize);
 void	printStack_test(t_stack *stack);
 
 /*preprocess.c*/

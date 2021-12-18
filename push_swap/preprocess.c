@@ -59,7 +59,7 @@ void	putArr(t_var *var)
 		var->pivot_arr[idx++] = p->val;
 		p = p->right;
 	}
-	radixSort(var->pivot_arr, var->max_size);
+	quick_sort(var->pivot_arr, 0, var->max_size - 1);
 	checkDup(var->pivot_arr, var->max_size);
 	printf("arr: ");
 	for (int i = 0; i < var->max_size; i++)

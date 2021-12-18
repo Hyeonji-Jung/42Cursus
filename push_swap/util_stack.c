@@ -100,27 +100,21 @@ int	getStackSize(t_stack *stack)
 	return (size);
 }
 
-int	getAnyStackSize(t_var *var, int curStack, int depth) 
+int	getAnyStackSize_A(t_var *var, int depth, int preSize) 
 {
-	int	ret;
-	int	isPreOdd;
+	int anySize = preSize / 2;
 
-	ret = var->max_size;
-	isPreOdd = 0;
-	while (depth--)
-	{
-		isPreOdd = 0;
-		if (ret % 2 == 1)
-			isPreOdd = 1;
-		ret /= 2;
-	}
-	// if (isPreOdd && curStack == S_B)
-	// 	ret += 1;
-	printf("%d size: %d\n", curStack, ret);
-	return (ret);
+	return (anySize);
+}
 
-	// size = var->max_size;
+int	getAnyStackSize_B(t_var *var, int depth, int preSize) 
+{
+	int anySize = preSize / 2;
 
+	if (preSize % 2 == 1)
+		anySize += 1;
+
+	return anySize;
 }
 
 void	printStack_test(t_stack *stack) ////////////// please erase!

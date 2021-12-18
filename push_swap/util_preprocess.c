@@ -26,36 +26,38 @@ int		ft_atoi(char *from, char *to)
 	return (num * sign);
 }
 
-void	radixSort(int *a, int cnt) {
-	int	result[cnt];
-	int bucket[10];
-	int	maxValue;
-	int	exp;
-	int	i;
-
-	maxValue = 0;
-	exp = 1;
-	i = -1;
-	while(++i < cnt)
-		if (a[i] > maxValue) maxValue = a[i];
-	while (maxValue / exp > 0)
+void quick_sort(int *data, int start, int end)
+{
+	if(start >= end) // 원소가 1개인 경우 
+		return;
+	int pivot = start;
+	int i = pivot + 1;
+	int j = end;
+	int temp; 
+	while(i <= j)
 	{
-		ft_bzero(bucket, sizeof(int) * 10);
-		i = 0;
-		while(i < cnt)
-			bucket[a[i++] / exp % 10]++;
-		i = 0;
-		while(++i < 10)
-			bucket[i] += bucket[i - 1];
-		i = cnt;
-		while (i-- >= 0)
-			result[--bucket[a[i] / exp % 10]] = a[i];
-		i = -1;
-		while (i++ < cnt)
-			a[i] = result[i];
-		exp *= 10;
-	}
+		// 포인터가 엇갈릴때까지 반복
+		while(i <= end && data[i] <= data[pivot])
+			i++;
+		while(j > start && data[j] >= data[pivot])
+			j--;
+		if(i > j)
+		{ // 엇갈림
+			temp = data[j];
+			data[j] = data[pivot];
+			data[pivot] = temp;
+		}
+		else
+		{ // i번째와 j번째를 스왑
+			temp = data[i];
+			data[i] = data[j];
+			data[j] = temp;
+		}
+	} // 분할 계산
+	quick_sort(data, start, j - 1);
+	quick_sort(data, j + 1, end);
 }
+
 
 void	checkDup(int *a, int cnt)
 {
