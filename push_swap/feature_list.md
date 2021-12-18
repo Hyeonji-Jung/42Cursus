@@ -59,10 +59,36 @@
 그 뭐냐 그 A,B말고 그냥 re에서는 애니스택 그거 함수 쓰지 말고 바로 그냥 2로 나눵ㅋ?
 
 1. 매개변수가 이미 정렬되어 있으면 , 저기 그 출력없이 종료
-2. 출력 리스트로 -> 목요일에 (ra rra / rb rrb 상쇄, pb pa 상쇄) 
-((https://hi0seon.tistory.com/entry/42Seoul-pushswap-%ED%92%80%EC%9D%B4-%EA%B3%BC%EC%A0%95), (https://profq.tistory.com/31))
+2. 출력 리스트로 -> 목요일에 (ra rra / rb rrb 상쇄, pb pa 상쇄)
+((https://hi0seon.tistory.com/entry/42Seoul-pushswap-%ED%92%80%EC%9D%B4-%EA%B3%BC%EC%A0%95), 
+(https://profq.tistory.com/31))
+
+{
+    max가 맨 앞일때, 중간일때, 맨 뒤일때
+    - 맨앞
+        ra
+        if -> sa
+    - 중간
+        - 전체가 3개일때
+            rra
+            if -> sa
+        - 전체가 3개가 아닐때 (고정, 정렬된게 있을때)
+            ra
+            sa
+            rra
+            if -> sa
+    - 맨 뒤일때 (getanystack에 기준 상 맨뒤)
+        if -> sa
+    stackSize != getAnySize
+}
+
 3. 5개 이하로 바꾸고 하드코딩해보기 (현재 17)
     - 1개 2개 done
     - 3개는 sa ra (or sb rb) 최대 2개 명령어로 가능할듯
     - 4개?
     - 5개?
+
+목요일리스트
+- 3개일때 저거 이제 코딩으로 만들기
+- 4개 5개 조건 잘 충족하는지
+- 출력 리스트로 하고 조건에 맞춰서 중복제거하기
