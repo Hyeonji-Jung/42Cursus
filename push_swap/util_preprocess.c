@@ -1,6 +1,6 @@
 #include "push_swap.h"
 
-int		ft_atoi(char *from, char *to)
+int	ft_atoi(char *from, char *to)
 {
 	long long	num;
 	int			sign;
@@ -26,38 +26,41 @@ int		ft_atoi(char *from, char *to)
 	return (num * sign);
 }
 
-void quick_sort(int *data, int start, int end)
+static void	swap(int *data, int i, int j)
 {
-	if(start >= end) // 원소가 1개인 경우 
-		return;
-	int pivot = start;
-	int i = pivot + 1;
-	int j = end;
-	int temp; 
-	while(i <= j)
+	int	temp;
+
+	temp = data[i];
+	data[i] = data[j];
+	data[j] = temp;
+}
+
+void	quick_sort(int *data, int start, int end)
+{
+	int	pivot;
+	int	i;
+	int	j;
+	int	temp;
+
+	pivot = start;
+	i = pivot + 1;
+	j = end;
+	if (start >= end)
+		return ;
+	while (i <= j)
 	{
-		// 포인터가 엇갈릴때까지 반복
-		while(i <= end && data[i] <= data[pivot])
+		while (i <= end && data[i] <= data[pivot])
 			i++;
-		while(j > start && data[j] >= data[pivot])
+		while (j > start && data[j] >= data[pivot])
 			j--;
-		if(i > j)
-		{ // 엇갈림
-			temp = data[j];
-			data[j] = data[pivot];
-			data[pivot] = temp;
-		}
+		if (i > j)
+			swap(data, j, pivot);
 		else
-		{ // i번째와 j번째를 스왑
-			temp = data[i];
-			data[i] = data[j];
-			data[j] = temp;
-		}
-	} // 분할 계산
+			swap(data, i, j);
+	}
 	quick_sort(data, start, j - 1);
 	quick_sort(data, j + 1, end);
 }
-
 
 void	checkDup(int *a, int cnt)
 {

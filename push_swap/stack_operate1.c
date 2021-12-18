@@ -29,7 +29,8 @@ char	*sb(t_var *var)
 	top = var->B->top;
 	temp1 = top->right;
 	temp2 = temp1->right;
-	if (temp2 != var->B->bottom){
+	if (temp2 != var->B->bottom)
+	{
 		fixed3 = temp2->right;
 		top->right = temp2;
 		fixed3->left = temp1;
@@ -66,58 +67,4 @@ char	*pb(t_var *var)
 	if (node)
 		pushTop(var->B, node);
 	return ("pb\n");
-}
-
-char	*ra(t_var *var)
-{
-	t_node	*node;
-
-	node = popTop(var->A);
-	if (node)
-		pushBottom(var->A, node);
-	return ("ra\n");
-}
-
-char	*rb(t_var *var)
-{
-	t_node	*node;
-
-	node = popTop(var->B);
-	if (node)
-		pushBottom(var->B, node);
-	return ("rb\n");
-}
-
-char	*rr(t_var *var)
-{
-	ra(var);
-	rb(var);
-	return ("rr\n");
-}
-
-char	*rra(t_var *var)
-{
-	t_node	*node;
-
-	node = popBottom(var->A);
-	if (node)
-		pushTop(var->A, node);
-	return ("rra\n");
-}
-
-char	*rrb(t_var *var)
-{
-	t_node	*node;
-
-	node = popBottom(var->B);
-	if (node)
-		pushTop(var->B, node);
-	return ("rrb\n");
-}
-
-char	*rrr(t_var *var)
-{
-	rra(var);
-	rrb(var);
-	return ("rrr\n");
 }

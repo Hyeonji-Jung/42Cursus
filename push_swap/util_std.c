@@ -14,7 +14,7 @@ void	ft_error(void)
 	exit(1);
 }
 
-size_t		ft_strlen(const char *str)
+size_t	ft_strlen(const char *str)
 {
 	size_t	len;
 

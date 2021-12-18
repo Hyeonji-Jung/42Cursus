@@ -9,12 +9,11 @@ void	preprocess(t_var *var, int argc, char **argv)
 	cnt = 0;
 	while (i < argc)
 	{
-		// printf("argv[%d]: %s\n", i, argv[i]);
-		cnt += parseArg(var, argv[i], ft_strlen(argv[i])); // 총 노드의 수
+		cnt += parseArg(var, argv[i], ft_strlen(argv[i]));
 		i++;
 	}
 	var->max_size = cnt;
-	putArr(var); // 배열 할당하고 배열에 값 넣어준 후 정렬해줄 예정 ~
+	putArr(var);
 }
 
 int	parseArg(t_var *var, char *str, size_t len)
@@ -61,8 +60,4 @@ void	putArr(t_var *var)
 	}
 	quick_sort(var->pivot_arr, 0, var->max_size - 1);
 	checkDup(var->pivot_arr, var->max_size);
-	printf("arr: ");
-	for (int i = 0; i < var->max_size; i++)
-		printf("%d ", var->pivot_arr[i]);
-	printf("\n");
 }
