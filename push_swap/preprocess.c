@@ -45,6 +45,24 @@ int	parseArg(t_var *var, char *str, int len)
 	return (ret);
 }
 
+static void	checkSorted(t_var *var)
+{
+	int		idx;
+	t_node	*p;
+
+	idx = 0;
+	p = var->A->top->right;
+	while (idx < var->max_size)
+	{
+		if (var->pivot_arr[idx] != p->val)
+			return ;
+		idx++;
+		p = p->right;
+	}
+	if (idx == var->max_size)
+		exit(0);
+}
+
 void	putArr(t_var *var)
 {
 	int		idx;
@@ -60,4 +78,5 @@ void	putArr(t_var *var)
 	}
 	quick_sort(var->pivot_arr, 0, var->max_size - 1);
 	checkDup(var->pivot_arr, var->max_size);
+	checkSorted(var);
 }
