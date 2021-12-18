@@ -33,8 +33,8 @@ typedef struct s_var
 }	t_var;
 
 /*re_a.c , re_b.c*/
-void	reA(t_var *var, int depth, int preSize, int prePivotIdx);
-void	reB(t_var *var, int depth, int preSize, int prePivotIdx);
+void	reA(t_var *var, int preSize, int prePivotIdx);
+void	reB(t_var *var, int preSize, int prePivotIdx);
 
 /*util_preprocess.c*/
 int		ft_atoi(char *from, char *to);
@@ -57,13 +57,13 @@ t_node	*popTop(t_stack *stack);
 /*util_stack2.c*/
 t_node	*popBottom(t_stack *stack);
 int		getStackSize(t_stack *stack);
-int		getAnyStackSize_A(t_var *var, int depth, int preSize);
-int		getAnyStackSize_B(t_var *var, int depth, int preSize);
+int		getAnyStackSize_A(int preSize);
+int		getAnyStackSize_B(int preSize);
 void	printStack_test(t_stack *stack); // ERASE
 
 /*preprocess.c*/
 void	preprocess(t_var *var, int argc, char **argv);
-int		parseArg(t_var *var, char *str, size_t len);
+int		parseArg(t_var *var, char *str, int len);
 void	putArr(t_var *var);
 
 /*stack_operate1.c*/

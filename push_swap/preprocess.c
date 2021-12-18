@@ -16,7 +16,7 @@ void	preprocess(t_var *var, int argc, char **argv)
 	putArr(var);
 }
 
-int	parseArg(t_var *var, char *str, size_t len)
+int	parseArg(t_var *var, char *str, int len)
 {
 	int		i;
 	int		n;

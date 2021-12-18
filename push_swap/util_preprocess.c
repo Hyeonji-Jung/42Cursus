@@ -40,7 +40,6 @@ void	quick_sort(int *data, int start, int end)
 	int	pivot;
 	int	i;
 	int	j;
-	int	temp;
 
 	pivot = start;
 	i = pivot + 1;

@@ -12,7 +12,7 @@ static int	getPivotIdx_A(int size, int prePivotIdx)
 	return (prePivotIdx + gap);
 }
 
-static int	sendHalfElement_A(t_var *var, int depth, int pivot, int preSize)
+static int	sendHalfElement_A(t_var *var, int pivot, int preSize)
 {
 	int	size;
 	int	count;
@@ -20,7 +20,7 @@ static int	sendHalfElement_A(t_var *var, int depth, int pivot, int preSize)
 
 	count = 0;
 	answer = 0;
-	size = getAnyStackSize_A(var, depth, preSize);
+	size = getAnyStackSize_A(preSize);
 	while (size--)
 	{
 		if (var->A->top->right->val <= pivot)
@@ -40,14 +40,13 @@ static int	sendHalfElement_A(t_var *var, int depth, int pivot, int preSize)
 	return (answer);
 }
 
-void	reA(t_var *var, int depth, int preSize, int prePivotIdx)
+void	reA(t_var *var, int preSize, int prePivotIdx)
 {
-	t_stack	*nowStack;
 	int		now_pivot_index;
 	int		size;
 	int		sendCount;
 
-	size = getAnyStackSize_A(var, depth, preSize);
+	size = getAnyStackSize_A(preSize);
 	now_pivot_index = getPivotIdx_A(size, prePivotIdx);
 	if (size <= 2)
 	{
@@ -57,10 +56,10 @@ void	reA(t_var *var, int depth, int preSize, int prePivotIdx)
 			ft_putstr(sa(var), 1);
 		return ;
 	}
-	sendCount = sendHalfElement_A(var, depth,
+	sendCount = sendHalfElement_A(var,
 			var->pivot_arr[now_pivot_index], preSize);
-	reA(var, depth + 1, size, now_pivot_index);
-	reB(var, depth + 1, size, now_pivot_index);
+	reA(var, size, now_pivot_index);
+	reB(var, size, now_pivot_index);
 	while (sendCount--)
 		ft_putstr(pa(var), 1);
 }

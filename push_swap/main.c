@@ -25,7 +25,6 @@ static int	sendHalfElement_init(t_var *var, int pivot)
 
 static void	re(t_var *var)
 {
-	t_stack	*nowStack;
 	int		now_pivot_index;
 	int		size;
 
@@ -41,8 +40,8 @@ static void	re(t_var *var)
 	if (var->max_size % 2 == 0)
 		now_pivot_index -= 1;
 	sendHalfElement_init(var, var->pivot_arr[now_pivot_index]);
-	reA(var, 1, var->max_size, now_pivot_index);
-	reB(var, 1, var->max_size, now_pivot_index);
+	reA(var, var->max_size, now_pivot_index);
+	reB(var, var->max_size, now_pivot_index);
 	size = var->max_size / 2;
 	if (var->max_size % 2 == 1)
 		size += 1;

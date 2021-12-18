@@ -31,7 +31,7 @@ int	getStackSize(t_stack *stack)
 	return (size);
 }
 
-int	getAnyStackSize_A(t_var *var, int depth, int preSize)
+int	getAnyStackSize_A(int preSize)
 {
 	int	anySize;
 
@@ -39,7 +39,7 @@ int	getAnyStackSize_A(t_var *var, int depth, int preSize)
 	return (anySize);
 }
 
-int	getAnyStackSize_B(t_var *var, int depth, int preSize)
+int	getAnyStackSize_B(int preSize)
 {
 	int	anySize;
 

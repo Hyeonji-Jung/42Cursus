@@ -1,21 +1,29 @@
-NAME = push_swap
-CC = gcc
-RM = rm -rf
+NAME	=	push_swap
 
-SRC = 
+CC		=	gcc
+FLAGS	=	-Wall -Wextra -Werror
+SRC		=	main.c \
+			preprocess.c \
+			re_a.c \
+			re_b.c \
+			stack_operate1.c \
+			stack_operate2.c \
+			stack_operate3.c \
+			util_preprocess.c \
+			util_stack1.c \
+			util_stack2.c \
+			util_std.c
+OBJ		= $(SRC:.c=.o)
 
-FLAGS = -Wall -Wextra -Werror
-
-
-OBJ = $(SRC:.c=.o)
+RM		= rm -rf
 
 all : $(NAME)
 
 %.o : %.c
-	$(CC) $(FLAGS) -I -c $< -o $@
+	$(CC) $(FLAGS) -I. -c $< -o $@
 
 ${NAME} : $(OBJ)
-	$(CC) $(FLAGS) $(OBJ) -I -o $(NAME)
+	$(CC) $(FLAGS) $(OBJ) -I. -o $(NAME)
 
 clean :
 	$(RM) $(OBJ)
