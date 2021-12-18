@@ -60,6 +60,5 @@ int	main(int argc, char *argv[])
 		re(&var);
 	}
 	else
-		ft_error();
-	exit(0);
+		exit(0);
 }
