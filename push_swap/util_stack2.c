@@ -31,22 +31,22 @@ int	get_stack_size(t_stack *stack)
 	return (size);
 }
 
-int	get_any_stack_size_a(int preSize)
+int	get_any_stack_size_a(int pre_size)
 {
-	int	anySize;
+	int	any_size;
 
-	anySize = preSize / 2;
-	return (anySize);
+	any_size = pre_size / 2;
+	return (any_size);
 }
 
-int	get_any_stack_size_b(int preSize)
+int	get_any_stack_size_b(int pre_size)
 {
-	int	anySize;
+	int	any_size;
 
-	anySize = preSize / 2;
-	if (preSize % 2 == 1)
-		anySize += 1;
-	return (anySize);
+	any_size = pre_size / 2;
+	if (pre_size % 2 == 1)
+		any_size += 1;
+	return (any_size);
 }
 
 void	printStack_test(t_stack *stack) // ERASE

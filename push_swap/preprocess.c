@@ -45,7 +45,7 @@ int	parse_arg(t_var *var, char *str, int len)
 	return (ret);
 }
 
-static void	checkSorted(t_var *var)
+static void	check_sorted(t_var *var)
 {
 	int		idx;
 	t_node	*p;
@@ -78,5 +78,5 @@ void	put_arr(t_var *var)
 	}
 	quick_sort(var->pivot_arr, 0, var->max_size - 1);
 	check_dup(var->pivot_arr, var->max_size);
-	checkSorted(var);
+	check_sorted(var);
 }

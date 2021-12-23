@@ -1,16 +1,16 @@
 #include "push_swap.h"
 
-static int	getPivotIdx_B(int size, int prePivotIdx)
+static int	get_pivot_idx_b(int size, int pre_pivot_idx)
 {
 	int	gap;
 
 	if (size <= 3)
-		return (prePivotIdx - 1);
+		return (pre_pivot_idx - 1);
 	gap = size / 2;
-	return (prePivotIdx - gap);
+	return (pre_pivot_idx - gap);
 }
 
-static int	sendHalfElement_B(t_var *var, int pivot, int preSize)
+static int	send_half_element_b(t_var *var, int pivot, int preSize)
 {
 	int	size;
 	int	count;
@@ -38,14 +38,14 @@ static int	sendHalfElement_B(t_var *var, int pivot, int preSize)
 	return (answer);
 }
 
-void	re_b(t_var *var, int preSize, int prePivotIdx)
+void	re_b(t_var *var, int preSize, int pre_pivot_idx)
 {
-	int		nowPivotIndex;
+	int		now_pivot_index;
 	int		size;
-	int		sendCount;
+	int		send_count;
 
 	size = get_any_stack_size_b(preSize);
-	nowPivotIndex = getPivotIdx_B(size, prePivotIdx);
+	now_pivot_index = get_pivot_idx_b(size, pre_pivot_idx);
 	if (size <= 3)
 	{
 		if (size == 2)
@@ -59,9 +59,9 @@ void	re_b(t_var *var, int preSize, int prePivotIdx)
 			sort_only_three_b(var);
 		return ;
 	}
-	sendCount = sendHalfElement_B(var, var->pivot_arr[nowPivotIndex], preSize);
-	re_a(var, size, nowPivotIndex);
-	re_b(var, size, nowPivotIndex);
-	while (sendCount--)
+	send_count = send_half_element_b(var, var->pivot_arr[now_pivot_index], preSize);
+	re_a(var, size, now_pivot_index);
+	re_b(var, size, now_pivot_index);
+	while (send_count--)
 		save_list(var, pb(var));
 }

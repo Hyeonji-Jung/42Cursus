@@ -1,6 +1,6 @@
 #include "push_swap.h"
 
-static int	sendHalfElement_init(t_var *var, int pivot)
+static int	send_half_element_init(t_var *var, int pivot)
 {
 	int	size;
 	int	count;
@@ -42,7 +42,7 @@ static void	re(t_var *var)
 	now_pivot_index = var->max_size / 2;
 	if (var->max_size % 2 == 0)
 		now_pivot_index -= 1;
-	sendHalfElement_init(var, var->pivot_arr[now_pivot_index]);
+	send_half_element_init(var, var->pivot_arr[now_pivot_index]);
 	re_a(var, var->max_size, now_pivot_index);
 	re_b(var, var->max_size, now_pivot_index);
 	size = var->max_size / 2;

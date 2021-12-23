@@ -1,8 +1,8 @@
 #include "push_swap.h"
 
-int	isSorted(t_node *t1, t_node *t2, t_node *t3, int nowStack)
+int	is_sorted(t_node *t1, t_node *t2, t_node *t3, int now_stack)
 {
-	if (nowStack == S_A)
+	if (now_stack == S_A)
 	{
 		if (t1->val < t2->val && t2->val < t3->val)
 			return (1);
@@ -22,7 +22,7 @@ void	sort_only_three_a(t_var *var)
 	t_node	*max;
 
 	top = var->A->top;
-	if (isSorted(top->right, top->right->right, top->right->right->right, S_A))
+	if (is_sorted(top->right, top->right->right, top->right->right->right, S_A))
 		return ;
 	max = max_node(top->right, top->right->right, top->right->right->right);
 	if (max == top->right)
@@ -39,7 +39,7 @@ void	sort_only_three_b(t_var *var)
 	t_node	*max;
 
 	top = var->B->top;
-	if (isSorted(top->right, top->right->right, top->right->right->right, S_B))
+	if (is_sorted(top->right, top->right->right, top->right->right->right, S_B))
 		return ;
 	max = max_node(top->right, top->right->right, top->right->right->right);
 	if (max == top->right)
@@ -68,7 +68,7 @@ void	sort_three_a(t_var *var)
 	t_node	*max;
 
 	top = var->A->top;
-	if (isSorted(top->right, top->right->right, top->right->right->right, S_B))
+	if (is_sorted(top->right, top->right->right, top->right->right->right, S_B))
 		return ;
 	max = max_node(top->right, top->right->right, top->right->right->right);
 	if (max == top->right)
@@ -94,7 +94,7 @@ void	sort_three_b(t_var *var)
 	t_node	*max;
 
 	top = var->B->top;
-	if (isSorted(top->right, top->right->right, top->right->right->right, S_B))
+	if (is_sorted(top->right, top->right->right, top->right->right->right, S_B))
 		return ;
 	max = max_node(top->right, top->right->right, top->right->right->right);
 	if (max == top->right)
