@@ -1,6 +1,6 @@
 #include "push_swap.h"
 
-t_node	*getNewNode(int num)
+t_node	*get_new_node(int num)
 {
 	t_node	*node;
 
@@ -13,21 +13,21 @@ t_node	*getNewNode(int num)
 	return (node);
 }
 
-void	initStack(t_var *var)
+void	init_stack(t_var *var)
 {
 	var->A = malloc(sizeof(t_stack));
 	var->B = malloc(sizeof(t_stack));
-	var->A->top = getNewNode(0);
-	var->A->bottom = getNewNode(0);
+	var->A->top = get_new_node(0);
+	var->A->bottom = get_new_node(0);
 	var->A->top->right = var->A->bottom;
 	var->A->bottom->left = var->A->top;
-	var->B->top = getNewNode(0);
-	var->B->bottom = getNewNode(0);
+	var->B->top = get_new_node(0);
+	var->B->bottom = get_new_node(0);
 	var->B->top->right = var->B->bottom;
 	var->B->bottom->left = var->B->top;
 }
 
-void	pushTop(t_stack *stack, t_node *new_node)
+void	push_top(t_stack *stack, t_node *new_node)
 {
 	t_node	*top;
 	t_node	*temp;
@@ -40,7 +40,7 @@ void	pushTop(t_stack *stack, t_node *new_node)
 	new_node->right = temp;
 }
 
-void	pushBottom(t_stack *stack, t_node *new_node)
+void	push_bottom(t_stack *stack, t_node *new_node)
 {
 	t_node	*bottom;
 	t_node	*temp;
@@ -53,7 +53,7 @@ void	pushBottom(t_stack *stack, t_node *new_node)
 	new_node->right = bottom;
 }
 
-t_node	*popTop(t_stack *stack)
+t_node	*pop_top(t_stack *stack)
 {
 	t_node	*top;
 	t_node	*temp;

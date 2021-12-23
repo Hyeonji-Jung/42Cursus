@@ -1,6 +1,6 @@
 #include "push_swap.h"
 
-t_node	*popBottom(t_stack *stack)
+t_node	*pop_bottom(t_stack *stack)
 {
 	t_node	*bottom;
 	t_node	*temp;
@@ -16,7 +16,7 @@ t_node	*popBottom(t_stack *stack)
 	return (temp);
 }
 
-int	getStackSize(t_stack *stack)
+int	get_stack_size(t_stack *stack)
 {
 	int		size;
 	t_node	*p;
@@ -31,7 +31,7 @@ int	getStackSize(t_stack *stack)
 	return (size);
 }
 
-int	getAnyStackSize_A(int preSize)
+int	get_any_stack_size_a(int preSize)
 {
 	int	anySize;
 
@@ -39,7 +39,7 @@ int	getAnyStackSize_A(int preSize)
 	return (anySize);
 }
 
-int	getAnyStackSize_B(int preSize)
+int	get_any_stack_size_b(int preSize)
 {
 	int	anySize;
 

@@ -12,7 +12,9 @@ SRC		=	main.c \
 			util_preprocess.c \
 			util_stack1.c \
 			util_stack2.c \
-			util_std.c
+			util_std.c \
+			util_sort.c \
+			util_list.c
 OBJ		= $(SRC:.c=.o)
 
 RM		= rm -rf

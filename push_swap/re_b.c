@@ -18,46 +18,50 @@ static int	sendHalfElement_B(t_var *var, int pivot, int preSize)
 
 	count = 0;
 	answer = 0;
-	size = getAnyStackSize_B(preSize);
+	size = get_any_stack_size_b(preSize);
 	while (size--)
 	{
 		if (var->B->top->right->val > pivot)
 		{
 			answer++;
-			ft_putstr(pa(var), 1);
+			save_list(var, pa(var));
 		}
 		else
 		{
 			count++;
-			ft_putstr(rb(var), 1);
+			save_list(var, rb(var));
 		}
 	}
-	if (getStackSize(var->B) != size)
+	if (get_stack_size(var->B) != size)
 		while (count--)
-			ft_putstr(rrb(var), 1);
+			save_list(var, rrb(var));
 	return (answer);
 }
 
-void	reB(t_var *var, int preSize, int prePivotIdx)
+void	re_b(t_var *var, int preSize, int prePivotIdx)
 {
-	int		now_pivot_index;
+	int		nowPivotIndex;
 	int		size;
 	int		sendCount;
 
-	size = getAnyStackSize_B(preSize);
-	now_pivot_index = getPivotIdx_B(size, prePivotIdx);
-	if (size <= 2)
+	size = get_any_stack_size_b(preSize);
+	nowPivotIndex = getPivotIdx_B(size, prePivotIdx);
+	if (size <= 3)
 	{
-		if (size <= 1)
-			return ;
-		if (var->B->top->right->val < var->B->top->right->right->val)
-			ft_putstr(sb(var), 1);
+		if (size == 2)
+		{
+			if (var->B->top->right->val < var->B->top->right->right->val)
+				save_list(var, sb(var));
+		}
+		else if (size == 3 && get_stack_size(var->B) != size)
+			sort_three_b(var);
+		else if (size == 3 && get_stack_size(var->B) == size)
+			sort_only_three_b(var);
 		return ;
 	}
-	sendCount = sendHalfElement_B(var,
-			var->pivot_arr[now_pivot_index], preSize);
-	reA(var, size, now_pivot_index);
-	reB(var, size, now_pivot_index);
+	sendCount = sendHalfElement_B(var, var->pivot_arr[nowPivotIndex], preSize);
+	re_a(var, size, nowPivotIndex);
+	re_b(var, size, nowPivotIndex);
 	while (sendCount--)
-		ft_putstr(pb(var), 1);
+		save_list(var, pb(var));
 }

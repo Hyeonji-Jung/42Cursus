@@ -53,9 +53,9 @@ char	*pa(t_var *var)
 {
 	t_node	*node;
 
-	node = popTop(var->B);
+	node = pop_top(var->B);
 	if (node)
-		pushTop(var->A, node);
+		push_top(var->A, node);
 	return ("pa\n");
 }
 
@@ -63,8 +63,8 @@ char	*pb(t_var *var)
 {
 	t_node	*node;
 
-	node = popTop(var->A);
+	node = pop_top(var->A);
 	if (node)
-		pushTop(var->B, node);
+		push_top(var->B, node);
 	return ("pb\n");
 }

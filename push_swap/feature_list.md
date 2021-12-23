@@ -63,22 +63,61 @@
 ((https://hi0seon.tistory.com/entry/42Seoul-pushswap-%ED%92%80%EC%9D%B4-%EA%B3%BC%EC%A0%95), 
 (https://profq.tistory.com/31))
 
+A
 {
     max가 맨 앞일때, 중간일때, 맨 뒤일때
+    - 정렬되있으면 리턴
     - 맨앞
-        ra
-        if -> sa
+        - 전체가 3개일때
+            ra
+            if idx 0 > idx 1 => sa
+        - 전체가 3개가 아닐때
+            if idx 0 < idx 1 => sa ra sa rra
+            if idx 0 > idx 1 => sa ra sa rra sa
     - 중간
         - 전체가 3개일때
             rra
-            if -> sa
+            if idx 0 > idx 1 => sa
         - 전체가 3개가 아닐때 (고정, 정렬된게 있을때)
             ra
             sa
             rra
-            if -> sa
+            if idx 0 > idx 1 => sa
     - 맨 뒤일때 (getanystack에 기준 상 맨뒤)
-        if -> sa
+        if idx 0 > idx 1 => sa
+    stackSize != getAnySize
+}
+
+B
+{
+    max가 맨 앞일때, 중간일때, 맨 뒤일때
+    - 정렬되있으면 리턴
+    - 맨앞
+        - 전체가 3개일때
+            rrb
+            sb
+        - 전체가 3개가 아닐때
+            rb
+            sb
+            rrb
+    - 중간
+        - 전체가 3개일때
+            if idx 0 > idx 2 -> sb
+            if idx 0 < idx 2 -> rb
+        - 전체가 3개가 아닐때 (고정, 정렬된게 있을때)
+            if idx 0 > idx 2 -> sb
+            else
+                sb
+                rb
+                sb
+                rrb
+    - 맨 뒤일때 (getanystack에 기준 상 맨뒤)
+        - 전체가 3개일때
+            if idx 0 > idx 1 => rrb
+            if idx 0 < idx 1 => sb rrb
+        - 전체가 3개 아닐때
+            if idx 0 > idx 1 => rb sb rrb sb
+            if idx 0 < idx 1 => sb rb sb rrb sb
     stackSize != getAnySize
 }
 
@@ -92,3 +131,11 @@
 - 3개일때 저거 이제 코딩으로 만들기
 - 4개 5개 조건 잘 충족하는지
 - 출력 리스트로 하고 조건에 맞춰서 중복제거하기
+
+
+
+
+
+- 에스 리스트 노드 레프트 안쓰면 삭제
+- 함수이름변경 snake로
+- 명령어 최적화

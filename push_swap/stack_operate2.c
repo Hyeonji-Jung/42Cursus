@@ -4,9 +4,9 @@ char	*ra(t_var *var)
 {
 	t_node	*node;
 
-	node = popTop(var->A);
+	node = pop_top(var->A);
 	if (node)
-		pushBottom(var->A, node);
+		push_bottom(var->A, node);
 	return ("ra\n");
 }
 
@@ -14,9 +14,9 @@ char	*rb(t_var *var)
 {
 	t_node	*node;
 
-	node = popTop(var->B);
+	node = pop_top(var->B);
 	if (node)
-		pushBottom(var->B, node);
+		push_bottom(var->B, node);
 	return ("rb\n");
 }
 
@@ -31,9 +31,9 @@ char	*rra(t_var *var)
 {
 	t_node	*node;
 
-	node = popBottom(var->A);
+	node = pop_bottom(var->A);
 	if (node)
-		pushTop(var->A, node);
+		push_top(var->A, node);
 	return ("rra\n");
 }
 
@@ -41,8 +41,8 @@ char	*rrb(t_var *var)
 {
 	t_node	*node;
 
-	node = popBottom(var->B);
+	node = pop_bottom(var->B);
 	if (node)
-		pushTop(var->B, node);
+		push_top(var->B, node);
 	return ("rrb\n");
 }

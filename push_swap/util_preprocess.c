@@ -61,7 +61,7 @@ void	quick_sort(int *data, int start, int end)
 	quick_sort(data, j + 1, end);
 }
 
-void	checkDup(int *a, int cnt)
+void	check_dup(int *a, int cnt)
 {
 	int	i;
 	int	j;

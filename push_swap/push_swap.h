@@ -22,64 +22,90 @@ typedef struct s_stack
 	struct s_node	*bottom;
 }	t_stack;
 
+typedef struct s_list_node
+{
+	char				*val;
+	struct s_list_node	*left;
+	struct s_list_node	*right;
+}	t_list_node;
+
+typedef struct s_list
+{
+	struct s_list_node	*top;
+}	t_list;
+
 typedef struct s_var
 {
 	int				max_size;
 	int				*pivot_arr;
 	struct s_stack	*A;
 	struct s_stack	*B;
+	struct s_list	*list;
 	int				a_size;
 	int				b_size;
 }	t_var;
 
 /*re_a.c , re_b.c*/
-void	reA(t_var *var, int preSize, int prePivotIdx);
-void	reB(t_var *var, int preSize, int prePivotIdx);
+void		re_a(t_var *var, int preSize, int prePivotIdx);
+void		re_b(t_var *var, int preSize, int prePivotIdx);
 
 /*util_preprocess.c*/
-int		ft_atoi(char *from, char *to);
-void	quick_sort(int *data, int start, int end);
-void	checkDup(int *a, int cnt);
+int			ft_atoi(char *from, char *to);
+void		quick_sort(int *data, int start, int end);
+void		check_dup(int *a, int cnt);
 
 /*util_std.c*/
-void	ft_putstr(char *s, int fd);
-void	ft_error(void);
-size_t	ft_strlen(const char *str);
-void	ft_bzero(void *p, size_t n);
+void		ft_putstr(char *s, int fd);
+void		ft_error(void);
+size_t		ft_strlen(const char *str);
+void		ft_bzero(void *p, size_t n);
+t_node		*max_node(t_node *t1, t_node *t2, t_node *t3);
+
+/*util_sort.c*/
+void		sort_only_three_a(t_var *var);
+void		sort_only_three_b(t_var *var);
+void		sort_three_a(t_var *var);
+void		sort_three_b(t_var *var);
+
+/*util_list.c*/
+t_list_node	*get_new_list_node(char *str);
+void		init_list(t_var *var);
+void		save_list(t_var *var, char *str);
+void		print_list(t_var *var);
 
 /*util_stack1.c*/
-t_node	*getNewNode(int num);
-void	initStack(t_var *var);
-void	pushTop(t_stack *stack, t_node *new_node);
-void	pushBottom(t_stack *stack, t_node *new_node);
-t_node	*popTop(t_stack *stack);
+t_node		*get_new_node(int num);
+void		init_stack(t_var *var);
+void		push_top(t_stack *stack, t_node *new_node);
+void		push_bottom(t_stack *stack, t_node *new_node);
+t_node		*pop_top(t_stack *stack);
 
 /*util_stack2.c*/
-t_node	*popBottom(t_stack *stack);
-int		getStackSize(t_stack *stack);
-int		getAnyStackSize_A(int preSize);
-int		getAnyStackSize_B(int preSize);
-void	printStack_test(t_stack *stack); // ERASE
+t_node		*pop_bottom(t_stack *stack);
+int			get_stack_size(t_stack *stack);
+int			get_any_stack_size_a(int preSize);
+int			get_any_stack_size_b(int preSize);
+void		printStack_test(t_stack *stack); // ERASE
 
 /*preprocess.c*/
-void	preprocess(t_var *var, int argc, char **argv);
-int		parseArg(t_var *var, char *str, int len);
-void	putArr(t_var *var);
+void		preprocess(t_var *var, int argc, char **argv);
+int			parse_arg(t_var *var, char *str, int len);
+void		put_arr(t_var *var);
 
 /*stack_operate1.c*/
-char	*sa(t_var *var);
-char	*sb(t_var *var);
-char	*ss(t_var *var);
-char	*pa(t_var *var);
-char	*pb(t_var *var);
+char		*sa(t_var *var);
+char		*sb(t_var *var);
+char		*ss(t_var *var);
+char		*pa(t_var *var);
+char		*pb(t_var *var);
 
 /*stack_operate2.c*/
-char	*ra(t_var *var);
-char	*rb(t_var *var);
-char	*rr(t_var *var);
-char	*rra(t_var *var);
-char	*rrb(t_var *var);
+char		*ra(t_var *var);
+char		*rb(t_var *var);
+char		*rr(t_var *var);
+char		*rra(t_var *var);
+char		*rrb(t_var *var);
 
 /*stack_operate3.c*/
-char	*rrr(t_var *var);
+char		*rrr(t_var *var);
 #endif

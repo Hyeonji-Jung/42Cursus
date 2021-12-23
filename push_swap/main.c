@@ -10,16 +10,16 @@ static int	sendHalfElement_init(t_var *var, int pivot)
 	while (size--)
 	{
 		if (var->A->top->right->val <= pivot)
-			ft_putstr(pb(var), 1);
+			save_list(var, pb(var));
 		else
 		{
 			count++;
-			ft_putstr(ra(var), 1);
+			save_list(var, ra(var));
 		}
 	}
-	if (getStackSize(var->A) != size)
+	if (get_stack_size(var->A) != size)
 		while (count--)
-			ft_putstr(rra(var), 1);
+			save_list(var, rra(var));
 	return (0);
 }
 
@@ -28,36 +28,41 @@ static void	re(t_var *var)
 	int		now_pivot_index;
 	int		size;
 
-	if (var->max_size <= 2)
+	if (var->max_size <= 3)
 	{
-		if (var->max_size <= 1)
-			return ;
-		if (var->A->top->right->val > var->A->top->right->right->val)
-			ft_putstr(sa(var), 1);
+		if (var->max_size == 2)
+		{
+			if (var->A->top->right->val > var->A->top->right->right->val)
+				save_list(var, sa(var));
+		}
+		else if (var->max_size == 3)
+			sort_only_three_a(var);
 		return ;
 	}
 	now_pivot_index = var->max_size / 2;
 	if (var->max_size % 2 == 0)
 		now_pivot_index -= 1;
 	sendHalfElement_init(var, var->pivot_arr[now_pivot_index]);
-	reA(var, var->max_size, now_pivot_index);
-	reB(var, var->max_size, now_pivot_index);
+	re_a(var, var->max_size, now_pivot_index);
+	re_b(var, var->max_size, now_pivot_index);
 	size = var->max_size / 2;
 	if (var->max_size % 2 == 1)
 		size += 1;
 	while (size--)
-		ft_putstr(pa(var), 1);
+		save_list(var, pa(var));
 }
 
 int	main(int argc, char *argv[])
 {
 	t_var	var;
-
+	
 	if (argc >= 2)
 	{
-		initStack(&var);
+		init_stack(&var);
+		init_list(&var);
 		preprocess(&var, argc, argv);
 		re(&var);
+		print_list(&var);
 	}
 	else
 		exit(0);
