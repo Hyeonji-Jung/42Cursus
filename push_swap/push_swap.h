@@ -54,24 +54,33 @@ int			ft_atoi(char *from, char *to);
 void		quick_sort(int *data, int start, int end);
 void		check_dup(int *a, int cnt);
 
-/*util_std.c*/
+/*util_std1.c*/
 void		ft_putstr(char *s, int fd);
 void		ft_error(void);
 size_t		ft_strlen(const char *str);
 void		ft_bzero(void *p, size_t n);
 t_node		*max_node(t_node *t1, t_node *t2, t_node *t3);
 
-/*util_sort.c*/
+/*util_std2.c*/
+int			cmp(char *s1, char *s2);
+
+/*util_sort1.c*/
 void		sort_only_three_a(t_var *var);
 void		sort_only_three_b(t_var *var);
 void		sort_three_a(t_var *var);
 void		sort_three_b(t_var *var);
 
-/*util_list.c*/
+/*util_sort2.c*/
+void		sort_three_b_temp(t_var *var);
+
+/*util_list1.c*/
 t_list_node	*get_new_list_node(char *str);
 void		init_list(t_var *var);
 void		save_list(t_var *var, char *str);
 void		print_list(t_var *var);
+
+/*util_list2.c*/
+void		optimize_list(t_list *list);
 
 /*util_stack1.c*/
 t_node		*get_new_node(int num);

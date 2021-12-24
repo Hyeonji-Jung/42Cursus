@@ -44,7 +44,7 @@ void	print_list(t_var *var)
 	t_list_node	*temp;
 
 	temp = var->list->top;
-	while(temp != NULL)
+	while (temp != NULL)
 	{
 		ft_putstr(temp->val, 1);
 		temp = temp->right;

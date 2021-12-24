@@ -1,6 +1,6 @@
 #include "push_swap.h"
 
-int	is_sorted(t_node *t1, t_node *t2, t_node *t3, int now_stack)
+static int	is_sorted(t_node *t1, t_node *t2, t_node *t3, int now_stack)
 {
 	if (now_stack == S_A)
 	{
@@ -98,28 +98,18 @@ void	sort_three_b(t_var *var)
 		return ;
 	max = max_node(top->right, top->right->right, top->right->right->right);
 	if (max == top->right)
-	{
-		save_list(var, rb(var));
-		save_list(var, sb(var));
-		save_list(var, rrb(var));
-	}
+		sort_three_b_temp(var);
 	else if (max == top->right->right)
 	{
 		save_list(var, sb(var));
 		if (top->right->right->val > top->right->right->right->val)
-		{
-			save_list(var, rb(var));
-			save_list(var, sb(var));
-			save_list(var, rrb(var));
-		}
+			sort_three_b_temp(var);
 	}
 	else
 	{
 		if (top->right->val < top->right->right->val)
 			save_list(var, sb(var));
-		save_list(var, rb(var));
-		save_list(var, sb(var));
-		save_list(var, rrb(var));
+		sort_three_b_temp(var);
 		save_list(var, sb(var));
 	}
 }

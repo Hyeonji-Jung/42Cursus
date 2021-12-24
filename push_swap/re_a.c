@@ -12,7 +12,7 @@ static int	get_pivot_idx_a(int size, int pre_pivot_idx)
 	return (pre_pivot_idx + gap);
 }
 
-static int	send_half_element_a(t_var *var, int pivot, int preSize)
+static int	send_half_element_a(t_var *var, int pivot, int pre_size)
 {
 	int	size;
 	int	count;
@@ -20,7 +20,7 @@ static int	send_half_element_a(t_var *var, int pivot, int preSize)
 
 	count = 0;
 	answer = 0;
-	size = get_any_stack_size_a(preSize);
+	size = get_any_stack_size_a(pre_size);
 	while (size--)
 	{
 		if (var->A->top->right->val <= pivot)
@@ -40,13 +40,13 @@ static int	send_half_element_a(t_var *var, int pivot, int preSize)
 	return (answer);
 }
 
-void	re_a(t_var *var, int preSize, int pre_pivot_idx)
+void	re_a(t_var *var, int pre_size, int pre_pivot_idx)
 {
 	int		now_pivot_index;
 	int		size;
 	int		send_count;
 
-	size = get_any_stack_size_a(preSize);
+	size = get_any_stack_size_a(pre_size);
 	now_pivot_index = get_pivot_idx_a(size, pre_pivot_idx);
 	if (size <= 3)
 	{
@@ -61,7 +61,8 @@ void	re_a(t_var *var, int preSize, int pre_pivot_idx)
 			sort_only_three_a(var);
 		return ;
 	}
-	send_count = send_half_element_a(var, var->pivot_arr[now_pivot_index], preSize);
+	send_count = send_half_element_a(var,
+			var->pivot_arr[now_pivot_index], pre_size);
 	re_a(var, size, now_pivot_index);
 	re_b(var, size, now_pivot_index);
 	while (send_count--)

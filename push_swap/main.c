@@ -55,14 +55,16 @@ static void	re(t_var *var)
 int	main(int argc, char *argv[])
 {
 	t_var	var;
-	
+
 	if (argc >= 2)
 	{
 		init_stack(&var);
 		init_list(&var);
 		preprocess(&var, argc, argv);
 		re(&var);
+		optimize_list(var.list);
 		print_list(&var);
+		//printStack_test(var.A);
 	}
 	else
 		exit(0);
