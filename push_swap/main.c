@@ -64,7 +64,7 @@ int	main(int argc, char *argv[])
 		re(&var);
 		optimize_list(var.list);
 		print_list(&var);
-		//printStack_test(var.A);
+		printStack_test(var.A);
 	}
 	else
 		exit(0);

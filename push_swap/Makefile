@@ -9,13 +9,14 @@ SRC		=	main.c \
 			stack_operate1.c \
 			stack_operate2.c \
 			stack_operate3.c \
+			sort_three.c \
+			sort_four.c \
 			util_preprocess.c \
 			util_stack1.c \
 			util_stack2.c \
 			util_std1.c \
 			util_std2.c \
-			util_sort1.c \
-			util_sort2.c \
+			util_sort.c \
 			util_list1.c \
 			util_list2.c
 OBJ		= $(SRC:.c=.o)

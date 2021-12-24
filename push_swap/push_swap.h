@@ -64,14 +64,17 @@ t_node		*max_node(t_node *t1, t_node *t2, t_node *t3);
 /*util_std2.c*/
 int			cmp(char *s1, char *s2);
 
-/*util_sort1.c*/
+/*util_sort.c*/
+int			is_sorted(t_node *temp, int len, int now_stack);
+
+/*sort_3.c*/
 void		sort_only_three_a(t_var *var);
 void		sort_only_three_b(t_var *var);
 void		sort_three_a(t_var *var);
 void		sort_three_b(t_var *var);
 
-/*util_sort2.c*/
-void		sort_three_b_temp(t_var *var);
+/*sort_4.c*/
+
 
 /*util_list1.c*/
 t_list_node	*get_new_list_node(char *str);
