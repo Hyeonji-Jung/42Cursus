@@ -28,7 +28,7 @@ static void	re(t_var *var)
 	int		now_pivot_index;
 	int		size;
 
-	if (var->max_size <= 3)
+	if (var->max_size <= 4)
 	{
 		if (var->max_size == 2)
 		{
@@ -37,6 +37,8 @@ static void	re(t_var *var)
 		}
 		else if (var->max_size == 3)
 			sort_only_three_a(var);
+		else if (var->max_size == 4)
+			sort_only_four_a(var);
 		return ;
 	}
 	now_pivot_index = var->max_size / 2;
@@ -64,7 +66,7 @@ int	main(int argc, char *argv[])
 		re(&var);
 		optimize_list(var.list);
 		print_list(&var);
-		printStack_test(var.A);
+		//printStack_test(var.A);
 	}
 	else
 		exit(0);

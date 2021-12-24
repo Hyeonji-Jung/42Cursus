@@ -35,28 +35,3 @@ void	ft_bzero(void *p, size_t n)
 	}
 	return ;
 }
-
-t_node	*max_node(t_node *t1, t_node *t2, t_node *t3)
-{
-	if (t1->val < t2->val)
-	{
-		if (t2->val < t3->val)
-			return (t3);
-		else
-			return (t2);
-	}
-	else if (t2->val < t3->val)
-	{
-		if (t3->val < t1->val)
-			return (t1);
-		else
-			return (t3);
-	}
-	else
-	{
-		if (t2->val < t1->val)
-			return (t1);
-		else
-			return (t2);
-	}
-}

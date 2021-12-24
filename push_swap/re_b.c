@@ -59,6 +59,11 @@ void	re_b(t_var *var, int pre_size, int pre_pivot_idx)
 			sort_only_three_b(var);
 		return ;
 	}
+	if (size == 4 && get_stack_size(var->B) == size)
+	{
+		sort_only_four_b(var);
+		return ;
+	}
 	send_count = send_half_element_b(var,
 			var->pivot_arr[now_pivot_index], pre_size);
 	re_a(var, size, now_pivot_index);

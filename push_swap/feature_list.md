@@ -144,3 +144,54 @@ B
 12월 24일 머야 크리스마스이브네? 암튼 투두리스트
 - 리스트에서 ra rra처럼 상쇄되는 거 삭제하는 함수
 - ra rb -> rr처럼 합쳐지는 명령어 합쳐주는 함수
+
+
+
+
+//찐막
+- 맥스노드 3개말고 n개 되도록 하고 그거 sort util로 옮기기
+
+
+only 4개일때
+
+A
+{
+	if max나 min 중 하나라도 idx 0일 경우 
+		if max가 idx 0 => ra sort_three_a
+		if min가 idx 0 => ra sort_three_a rra 
+	if max나 min 중 하나라도 idx 3인 경우
+		if max가 idx 3 => sort_three_a 
+		if min가 idx 3 => sort_three_a rra
+	 if maxrk idx 2 => rra sort_three_a
+	 if min이 idx 2 => rra sort_three_a rra
+}
+
+B
+{
+	if max나 min 중 하나라도 idx 0일 경우 
+		if min가 idx 0 => rb sort_three_b
+		if max가 idx 0 => rb sort_three_b rrb 
+	if max나 min 중 하나라도 idx 3인 경우
+		if max가 idx 3 => sort_three_b rrb 
+		if min가 idx 3 => sort_three_b
+	 if max가 idx 2 => rrb sort_three_b rrb
+	 if min이 idx 2 => rrb sort_three_b
+}
+
+
+
+정렬된게 있는(고정된게 있는) 4개일때
+
+A
+{
+	
+}
+
+B
+{
+
+}
+
+
+테스터
+https://github.com/minckim42/push_swap_tester.git

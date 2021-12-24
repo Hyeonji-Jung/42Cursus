@@ -24,3 +24,35 @@ int		is_sorted(t_node *temp, int len, int now_stack)
 		return (1);
 	}
 }
+
+t_node	*max_node(t_node *temp, int len)
+{
+	t_node	*max_node;
+
+	max_node = temp;
+	len--;
+	temp = temp->right;
+	while (len--)
+	{
+		if (temp->val > max_node->val)
+			max_node = temp;
+		temp = temp->right;
+	}
+	return (max_node);
+}
+
+t_node	*min_node(t_node *temp, int len)
+{
+	t_node	*min_node;
+
+	min_node = temp;
+	len--;
+	temp = temp->right;
+	while (len--)
+	{
+		if (temp->val < min_node->val)
+			min_node = temp;
+		temp = temp->right;
+	}
+	return (min_node);
+}

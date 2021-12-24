@@ -59,13 +59,14 @@ void		ft_putstr(char *s, int fd);
 void		ft_error(void);
 size_t		ft_strlen(const char *str);
 void		ft_bzero(void *p, size_t n);
-t_node		*max_node(t_node *t1, t_node *t2, t_node *t3);
 
 /*util_std2.c*/
 int			cmp(char *s1, char *s2);
 
 /*util_sort.c*/
 int			is_sorted(t_node *temp, int len, int now_stack);
+t_node		*max_node(t_node *temp, int len);
+t_node		*min_node(t_node *temp, int len);
 
 /*sort_3.c*/
 void		sort_only_three_a(t_var *var);
@@ -74,7 +75,8 @@ void		sort_three_a(t_var *var);
 void		sort_three_b(t_var *var);
 
 /*sort_4.c*/
-
+void		sort_only_four_a(t_var *var);
+void		sort_only_four_b(t_var *var);
 
 /*util_list1.c*/
 t_list_node	*get_new_list_node(char *str);

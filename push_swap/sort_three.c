@@ -16,7 +16,7 @@ void	sort_only_three_a(t_var *var)
 	top = var->A->top;
 	if (is_sorted(top->right, 3, S_A))
 		return ;
-	max = max_node(top->right, top->right->right, top->right->right->right);
+	max = max_node(top->right, 3);
 	if (max == top->right)
 		save_list(var, ra(var));
 	else if (max == top->right->right)
@@ -33,7 +33,7 @@ void	sort_only_three_b(t_var *var)
 	top = var->B->top;
 	if (is_sorted(top->right, 3, S_B))
 		return ;
-	max = max_node(top->right, top->right->right, top->right->right->right);
+	max = max_node(top->right, 3);
 	if (max == top->right)
 	{
 		save_list(var, rrb(var));
@@ -60,9 +60,9 @@ void	sort_three_a(t_var *var)
 	t_node	*max;
 
 	top = var->A->top;
-	if (is_sorted(top->right, 3, S_B))
+	if (is_sorted(top->right, 3, S_A))
 		return ;
-	max = max_node(top->right, top->right->right, top->right->right->right);
+	max = max_node(top->right, 3);
 	if (max == top->right)
 	{
 		save_list(var, sa(var));
@@ -88,7 +88,7 @@ void	sort_three_b(t_var *var)
 	top = var->B->top;
 	if (is_sorted(top->right, 3, S_B))
 		return ;
-	max = max_node(top->right, top->right->right, top->right->right->right);
+	max = max_node(top->right, 3);
 	if (max == top->right)
 		sort_three_b_temp(var);
 	else if (max == top->right->right)
