@@ -46,7 +46,8 @@ void	print_list(t_var *var)
 	temp = var->list->top;
 	while (temp != NULL)
 	{
-		ft_putstr(temp->val, 1);
+		if (temp->val != NULL)
+			ft_putstr(temp->val, 1);
 		temp = temp->right;
 	}
 }

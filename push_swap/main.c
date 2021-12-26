@@ -3,23 +3,15 @@
 static int	send_half_element_init(t_var *var, int pivot)
 {
 	int	size;
-	int	count;
 
-	count = 0;
 	size = var->max_size;
 	while (size--)
 	{
 		if (var->A->top->right->val <= pivot)
 			save_list(var, pb(var));
 		else
-		{
-			count++;
 			save_list(var, ra(var));
-		}
 	}
-	if (get_stack_size(var->A) != size)
-		while (count--)
-			save_list(var, rra(var));
 	return (0);
 }
 
@@ -28,7 +20,7 @@ static void	re(t_var *var)
 	int		now_pivot_index;
 	int		size;
 
-	if (var->max_size <= 3)
+	if (var->max_size <= 5)
 	{
 		if (var->max_size == 2)
 		{
@@ -37,9 +29,10 @@ static void	re(t_var *var)
 		}
 		else if (var->max_size == 3)
 			sort_only_three_a(var);
-		 else if (var->max_size == 4)
-		 	sort_only_four_a(var);
-		return ;
+		else if (var->max_size == 4)
+			sort_only_four_a(var);
+		if (is_sorted(var->A->top->right, var->max_size, S_A) )
+	 		return ;
 	}
 	now_pivot_index = var->max_size / 2;
 	if (var->max_size % 2 == 0)
@@ -66,7 +59,8 @@ int	main(int argc, char *argv[])
 		re(&var);
 		optimize_list(var.list);
 		print_list(&var);
-	}
-	else
+		// printStack_test(var.A);
 		exit(0);
+	}
+	return (0);
 }

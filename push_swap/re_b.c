@@ -13,13 +13,15 @@ static int	get_pivot_idx_b(int size, int pre_pivot_idx)
 static int	send_half_element_b(t_var *var, int pivot, int pre_size)
 {
 	int	size;
+	int	post_size;
 	int	count;
 	int	answer;
 
 	count = 0;
 	answer = 0;
 	size = get_any_stack_size_b(pre_size);
-	while (size--)
+	post_size = get_any_stack_size_a(size);
+	while (size-- && answer < post_size)
 	{
 		if (var->B->top->right->val > pivot)
 		{
@@ -59,15 +61,14 @@ void	re_b(t_var *var, int pre_size, int pre_pivot_idx)
 			sort_only_three_b(var);
 		return ;
 	}
-	if (size == 4)
+	else if (size == 4)
 	{
-		if (get_stack_size(var->B) == size)
-		{
-			sort_only_four_b(var);
-			return ;
-		}
-		else if (sort_four_b(var) == 1)
-			return ;
+	 	if (get_stack_size(var->B) == size)
+	 		sort_only_four_b(var);
+	 	else
+			sort_four_b(var);
+		if (is_sorted(var->B->top->right, 4, S_B) )
+	 		return ;
 	}
 	send_count = send_half_element_b(var,
 			var->pivot_arr[now_pivot_index], pre_size);

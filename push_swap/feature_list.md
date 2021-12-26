@@ -229,6 +229,38 @@ B
 }
 
 
+
+
+only 5개일때
+
+A
+{
+    pb ra pb ra pb rra rra sa 3개 pa pa pa 13 ~ 14개
+    
+    if max가 idx 4일때 => sort_four_a
+    if min이 idx 0일때 => ra sort_four_a rra
+}
+
+B
+{
+    if max이 idx 0일때 => rb sort_four_b rrb
+    if min가 idx 4일때 => sort_four_b
+}
+
+
+not only 5개
+A
+{
+    if max가 idx 4일때 => sort_four_a
+    if min이 idx 0일때 => ra sort_four_a rra
+}
+
+B
+{
+    if max이 idx 0일때 => rb sort_four_b rrb
+    if min가 idx 4일때 => sort_four_b
+}
+
 테스터
 https://github.com/minckim42/push_swap_tester.git
 https://github.com/laisarena/push_swap_tester.git

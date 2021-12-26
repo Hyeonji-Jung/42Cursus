@@ -81,8 +81,8 @@ void		sort_only_four_a(t_var *var);
 void		sort_only_four_b(t_var *var);
 
 /*sort_4.c*/
-int			sort_four_a(t_var *var);
-int			sort_four_b(t_var *var);
+void		sort_four_a(t_var *var);
+void		sort_four_b(t_var *var);
 
 /*util_list1.c*/
 t_list_node	*get_new_list_node(char *str);
