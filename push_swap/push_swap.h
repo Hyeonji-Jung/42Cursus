@@ -1,7 +1,6 @@
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-# include <stdio.h> // Edsfdf
 # include <stdlib.h>
 # include <unistd.h>
 # include <limits.h>
@@ -105,7 +104,6 @@ t_node		*pop_bottom(t_stack *stack);
 int			get_stack_size(t_stack *stack);
 int			get_any_stack_size_a(int pre_size);
 int			get_any_stack_size_b(int pre_size);
-void		printStack_test(t_stack *stack); // ERASE
 
 /*preprocess.c*/
 void		preprocess(t_var *var, int argc, char **argv);

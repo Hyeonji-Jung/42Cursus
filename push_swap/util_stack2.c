@@ -48,17 +48,3 @@ int	get_any_stack_size_b(int pre_size)
 		any_size += 1;
 	return (any_size);
 }
-
-void	printStack_test(t_stack *stack) // ERASE
-{
-	t_node	*p;
-
-	printf("TOP:   ");
-	p = stack->top->right;
-	while (p != stack->bottom)
-	{
-		printf("%d ", p->val);
-		p = p->right;
-	}
-	printf("  :BOTTOM\n");
-}

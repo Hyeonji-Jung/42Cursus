@@ -1,6 +1,6 @@
 #include "push_swap.h"
 
-int		is_sorted(t_node *temp, int len, int now_stack)
+int	is_sorted(t_node *temp, int len, int now_stack)
 {
 	len--;
 	if (now_stack == S_A)

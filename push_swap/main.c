@@ -15,12 +15,9 @@ static int	send_half_element_init(t_var *var, int pivot)
 	return (0);
 }
 
-static void	re(t_var *var)
+static int	check_size_and_sort(t_var *var)
 {
-	int		now_pivot_index;
-	int		size;
-
-	if (var->max_size <= 5)
+	if (var->max_size <= 4)
 	{
 		if (var->max_size == 2)
 		{
@@ -31,9 +28,19 @@ static void	re(t_var *var)
 			sort_only_three_a(var);
 		else if (var->max_size == 4)
 			sort_only_four_a(var);
-		if (is_sorted(var->A->top->right, var->max_size, S_A) )
-	 		return ;
 	}
+	if (is_sorted(var->A->top->right, var->max_size, S_A))
+		return (1);
+	return (0);
+}
+
+static void	re(t_var *var)
+{
+	int	now_pivot_index;
+	int	size;
+
+	if (check_size_and_sort(var))
+		return ;
 	now_pivot_index = var->max_size / 2;
 	if (var->max_size % 2 == 0)
 		now_pivot_index -= 1;
@@ -59,7 +66,6 @@ int	main(int argc, char *argv[])
 		re(&var);
 		optimize_list(var.list);
 		print_list(&var);
-		// printStack_test(var.A);
 		exit(0);
 	}
 	return (0);

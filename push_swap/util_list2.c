@@ -66,7 +66,6 @@ void	optimize_list(t_list *list)
 	t_list_node	*temp;
 
 	temp = list->top->right;
-
 	while (temp->right != NULL)
 	{
 		if (is_erase_list_node(temp))
