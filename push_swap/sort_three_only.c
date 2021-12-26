@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   sort_three_only.c                                  :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hyeojung <hyeojung@student.42seoul.kr>     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/12/26 23:34:57 by hyeojung          #+#    #+#             */
+/*   Updated: 2021/12/26 23:48:01 by hyeojung         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 void	sort_only_three_a(t_var *var)
@@ -6,7 +18,7 @@ void	sort_only_three_a(t_var *var)
 	t_node	*max;
 	t_node	*min;
 
-	top = var->A->top;
+	top = var->stack_a->top;
 	if (is_sorted(top->right, 3, S_A))
 		return ;
 	max = max_node(top->right, 3);
@@ -35,7 +47,7 @@ void	sort_only_three_b(t_var *var)
 	t_node	*max;
 	t_node	*min;
 
-	top = var->B->top;
+	top = var->stack_b->top;
 	if (is_sorted(top->right, 3, S_B))
 		return ;
 	max = max_node(top->right, 3);

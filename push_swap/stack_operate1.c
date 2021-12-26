@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   stack_operate1.c                                   :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hyeojung <hyeojung@student.42seoul.kr>     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/12/26 23:35:12 by hyeojung          #+#    #+#             */
+/*   Updated: 2021/12/26 23:48:22 by hyeojung         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 char	*sa(t_var *var)
@@ -5,9 +17,9 @@ char	*sa(t_var *var)
 	t_node	*temp;
 	t_node	*top;
 
-	top = var->A->top;
+	top = var->stack_a->top;
 	temp = top->right;
-	if (temp->right != var->A->bottom)
+	if (temp->right != var->stack_a->bottom)
 	{
 		top->right = temp->right;
 		temp->right->left = temp->left;
@@ -26,10 +38,10 @@ char	*sb(t_var *var)
 	t_node	*fixed3;
 	t_node	*top;
 
-	top = var->B->top;
+	top = var->stack_b->top;
 	temp1 = top->right;
 	temp2 = temp1->right;
-	if (temp2 != var->B->bottom)
+	if (temp2 != var->stack_b->bottom)
 	{
 		fixed3 = temp2->right;
 		top->right = temp2;
@@ -53,9 +65,9 @@ char	*pa(t_var *var)
 {
 	t_node	*node;
 
-	node = pop_top(var->B);
+	node = pop_top(var->stack_b);
 	if (node)
-		push_top(var->A, node);
+		push_top(var->stack_a, node);
 	return ("pa\n");
 }
 
@@ -63,8 +75,8 @@ char	*pb(t_var *var)
 {
 	t_node	*node;
 
-	node = pop_top(var->A);
+	node = pop_top(var->stack_a);
 	if (node)
-		push_top(var->B, node);
+		push_top(var->stack_b, node);
 	return ("pb\n");
 }

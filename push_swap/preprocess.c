@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   preprocess.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hyeojung <hyeojung@student.42seoul.kr>     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/12/26 23:33:59 by hyeojung          #+#    #+#             */
+/*   Updated: 2021/12/26 23:45:37 by hyeojung         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 void	preprocess(t_var *var, int argc, char **argv)
@@ -38,7 +50,7 @@ int	parse_arg(t_var *var, char *str, int len)
 			to = &str[i];
 			n = ft_atoi(from, to);
 			ret++;
-			push_bottom(var->A, get_new_node(n));
+			push_bottom(var->stack_a, get_new_node(n));
 		}
 		i++;
 	}
@@ -51,7 +63,7 @@ static void	check_sorted(t_var *var)
 	t_node	*p;
 
 	idx = 0;
-	p = var->A->top->right;
+	p = var->stack_a->top->right;
 	while (idx < var->max_size)
 	{
 		if (var->pivot_arr[idx] != p->val)
@@ -70,8 +82,8 @@ void	put_arr(t_var *var)
 
 	idx = 0;
 	var->pivot_arr = (int *)malloc(sizeof(int) * var->max_size);
-	p = var->A->top->right;
-	while (idx < var->max_size && p != var->A->bottom)
+	p = var->stack_a->top->right;
+	while (idx < var->max_size && p != var->stack_a->bottom)
 	{
 		var->pivot_arr[idx++] = p->val;
 		p = p->right;

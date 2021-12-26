@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   util_stack1.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hyeojung <hyeojung@student.42seoul.kr>     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/12/26 23:36:22 by hyeojung          #+#    #+#             */
+/*   Updated: 2021/12/26 23:49:01 by hyeojung         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 t_node	*get_new_node(int num)
@@ -15,16 +27,16 @@ t_node	*get_new_node(int num)
 
 void	init_stack(t_var *var)
 {
-	var->A = malloc(sizeof(t_stack));
-	var->B = malloc(sizeof(t_stack));
-	var->A->top = get_new_node(0);
-	var->A->bottom = get_new_node(0);
-	var->A->top->right = var->A->bottom;
-	var->A->bottom->left = var->A->top;
-	var->B->top = get_new_node(0);
-	var->B->bottom = get_new_node(0);
-	var->B->top->right = var->B->bottom;
-	var->B->bottom->left = var->B->top;
+	var->stack_a = malloc(sizeof(t_stack));
+	var->stack_b = malloc(sizeof(t_stack));
+	var->stack_a->top = get_new_node(0);
+	var->stack_a->bottom = get_new_node(0);
+	var->stack_a->top->right = var->stack_a->bottom;
+	var->stack_a->bottom->left = var->stack_a->top;
+	var->stack_b->top = get_new_node(0);
+	var->stack_b->bottom = get_new_node(0);
+	var->stack_b->top->right = var->stack_b->bottom;
+	var->stack_b->bottom->left = var->stack_b->top;
 }
 
 void	push_top(t_stack *stack, t_node *new_node)

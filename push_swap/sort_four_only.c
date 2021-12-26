@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   sort_four_only.c                                   :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hyeojung <hyeojung@student.42seoul.kr>     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/12/26 23:34:49 by hyeojung          #+#    #+#             */
+/*   Updated: 2021/12/26 23:47:52 by hyeojung         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 static void	sort_four_a_temp(t_var *var)
@@ -5,7 +17,7 @@ static void	sort_four_a_temp(t_var *var)
 	t_node	*top;
 	t_node	*min;
 
-	top = var->A->top;
+	top = var->stack_a->top;
 	min = min_node(top->right, 4);
 	sort_three_a(var);
 	if (min == top->right->right->right->right)
@@ -17,7 +29,7 @@ static void	sort_four_b_temp(t_var *var)
 	t_node	*top;
 	t_node	*max;
 
-	top = var->B->top;
+	top = var->stack_b->top;
 	max = max_node(top->right, 4);
 	sort_three_b(var);
 	if (max == top->right->right->right->right)
@@ -30,7 +42,7 @@ void	sort_only_four_a(t_var *var)
 	t_node	*max;
 	t_node	*min;
 
-	top = var->A->top;
+	top = var->stack_a->top;
 	if (is_sorted(top->right, 4, S_A))
 		return ;
 	max = max_node(top->right, 4);
@@ -56,7 +68,7 @@ void	sort_only_four_b(t_var *var)
 	t_node	*max;
 	t_node	*min;
 
-	top = var->B->top;
+	top = var->stack_b->top;
 	if (is_sorted(top->right, 4, S_B))
 		return ;
 	max = max_node(top->right, 4);

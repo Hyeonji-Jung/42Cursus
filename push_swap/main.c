@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hyeojung <hyeojung@student.42seoul.kr>     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/12/26 23:34:33 by hyeojung          #+#    #+#             */
+/*   Updated: 2021/12/26 23:50:37 by hyeojung         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 static int	send_half_element_init(t_var *var, int pivot)
@@ -7,7 +19,7 @@ static int	send_half_element_init(t_var *var, int pivot)
 	size = var->max_size;
 	while (size--)
 	{
-		if (var->A->top->right->val <= pivot)
+		if (var->stack_a->top->right->val <= pivot)
 			save_list(var, pb(var));
 		else
 			save_list(var, ra(var));
@@ -17,11 +29,14 @@ static int	send_half_element_init(t_var *var, int pivot)
 
 static int	check_size_and_sort(t_var *var)
 {
+	t_node	*top;
+
+	top = var->stack_a->top;
 	if (var->max_size <= 4)
 	{
 		if (var->max_size == 2)
 		{
-			if (var->A->top->right->val > var->A->top->right->right->val)
+			if (top->right->val > top->right->right->val)
 				save_list(var, sa(var));
 		}
 		else if (var->max_size == 3)
@@ -29,7 +44,7 @@ static int	check_size_and_sort(t_var *var)
 		else if (var->max_size == 4)
 			sort_only_four_a(var);
 	}
-	if (is_sorted(var->A->top->right, var->max_size, S_A))
+	if (is_sorted(top->right, var->max_size, S_A))
 		return (1);
 	return (0);
 }

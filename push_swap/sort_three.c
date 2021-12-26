@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   sort_three.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hyeojung <hyeojung@student.42seoul.kr>     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/12/26 23:35:01 by hyeojung          #+#    #+#             */
+/*   Updated: 2021/12/26 23:48:09 by hyeojung         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 static void	sort_three_temp(t_var *var, int now_stack)
@@ -60,7 +72,7 @@ void	sort_three_a(t_var *var)
 	t_node	*max;
 	t_node	*min;
 
-	top = var->A->top;
+	top = var->stack_a->top;
 	if (is_sorted(top->right, 3, S_A))
 		return ;
 	max = max_node(top->right, 3);
@@ -86,7 +98,7 @@ void	sort_three_b(t_var *var)
 	t_node	*max;
 	t_node	*min;
 
-	top = var->B->top;
+	top = var->stack_b->top;
 	if (is_sorted(top->right, 3, S_B))
 		return ;
 	max = max_node(top->right, 3);

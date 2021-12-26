@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   re_b.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hyeojung <hyeojung@student.42seoul.kr>     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/12/26 23:34:44 by hyeojung          #+#    #+#             */
+/*   Updated: 2021/12/26 23:51:37 by hyeojung         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 static int	get_pivot_idx_b(int size, int pre_pivot_idx)
@@ -12,7 +24,7 @@ static int	get_pivot_idx_b(int size, int pre_pivot_idx)
 
 static void	re_rotate(t_var *var, int size, int count)
 {
-	if (get_stack_size(var->B) != size)
+	if (get_stack_size(var->stack_b) != size)
 		while (count--)
 			save_list(var, rrb(var));
 }
@@ -30,7 +42,7 @@ static int	send_half_element_b(t_var *var, int pivot, int pre_size)
 	post_size = get_any_stack_size_a(size);
 	while (size-- && answer < post_size)
 	{
-		if (var->B->top->right->val > pivot)
+		if (var->stack_b->top->right->val > pivot)
 		{
 			answer++;
 			save_list(var, pa(var));
@@ -47,24 +59,27 @@ static int	send_half_element_b(t_var *var, int pivot, int pre_size)
 
 static int	check_size_and_sort(t_var *var, int size)
 {
+	t_node	*top;
+
+	top = var->stack_b->top;
 	if (size <= 4)
 	{
 		if (size == 2
-			&& var->B->top->right->val < var->B->top->right->right->val)
+			&& top->right->val < top->right->right->val)
 			save_list(var, sb(var));
-		else if (size == 3 && get_stack_size(var->B) != size)
+		else if (size == 3 && get_stack_size(var->stack_b) != size)
 			sort_three_b(var);
-		else if (size == 3 && get_stack_size(var->B) == size)
+		else if (size == 3 && get_stack_size(var->stack_b) == size)
 			sort_only_three_b(var);
 		else if (size == 4)
 		{
-			if (get_stack_size(var->B) == size)
+			if (get_stack_size(var->stack_b) == size)
 				sort_only_four_b(var);
 			else
 				sort_four_b(var);
 		}
 	}
-	if (is_sorted(var->B->top->right, size, S_B))
+	if (is_sorted(top->right, size, S_B))
 		return (1);
 	return (0);
 }

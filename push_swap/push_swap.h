@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   push_swap.h                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hyeojung <hyeojung@student.42seoul.kr>     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/12/26 23:34:25 by hyeojung          #+#    #+#             */
+/*   Updated: 2021/12/26 23:49:29 by hyeojung         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
@@ -37,8 +49,8 @@ typedef struct s_var
 {
 	int				max_size;
 	int				*pivot_arr;
-	struct s_stack	*A;
-	struct s_stack	*B;
+	struct s_stack	*stack_a;
+	struct s_stack	*stack_b;
 	struct s_list	*list;
 	int				a_size;
 	int				b_size;
