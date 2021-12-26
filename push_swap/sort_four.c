@@ -1,77 +1,65 @@
 #include "push_swap.h"
 
-static void	sort_four_a_temp(t_var *var)
-{
-	t_node	*top;
-	t_node	*min;
-
-	top = var->A->top;
-	min = min_node(top->right, 4);
-	sort_three_a(var);
-	if (min == top->right->right->right->right)
-		save_list(var, rra(var));
-}
-
-static void	sort_four_b_temp(t_var *var)
-{
-	t_node	*top;
-	t_node	*max;
-
-	top = var->A->top;
-	max = max_node(top->right, 4);
-	sort_three_b(var);
-	if (max == top->right->right->right->right)
-		save_list(var, rrb(var));
-}
-
-void	sort_only_four_a(t_var *var)
+int		sort_four_a(t_var *var)
 {
 	t_node	*top;
 	t_node	*max;
 	t_node	*min;
+	int		flag;
 
+	flag = 0;
 	top = var->A->top;
 	if (is_sorted(top->right, 4, S_A))
-		return ;
+		return (1);
 	max = max_node(top->right, 4);
 	min = min_node(top->right, 4);
-	if (max == top->right || min == top->right)
+	if (min == top->right)
 	{
+		flag = 1;
 		save_list(var, ra(var));
-		sort_four_a_temp(var);
-	}
-	else if (max == top->right->right->right->right
-		|| min == top->right->right->right->right)
-		sort_four_a_temp(var);
-	else
-	{
+		sort_three_a(var);
 		save_list(var, rra(var));
-		sort_four_a_temp(var);
 	}
+	else if (max == top->right->right->right->right)
+	{
+		flag = 1;
+		sort_three_a(var);
+	}
+
+	printf("sort_four_a\n");
+	printStack_test(var->A);
+	printStack_test(var->B);
+	return (flag);
 }
 
-void	sort_only_four_b(t_var *var)
+int		sort_four_b(t_var *var)
 {
 	t_node	*top;
 	t_node	*max;
 	t_node	*min;
+	int		flag;
 
-	top = var->A->top;
+	flag = 0;
+	top = var->B->top;
 	if (is_sorted(top->right, 4, S_B))
-		return ;
+		return (1);
 	max = max_node(top->right, 4);
 	min = min_node(top->right, 4);
-	if (max == top->right || min == top->right)
+	if (max == top->right)
 	{
+		flag = 1;
 		save_list(var, rb(var));
-		sort_four_b_temp(var);
-	}
-	else if (max == top->right->right->right->right
-		|| min == top->right->right->right->right)
-		sort_four_b_temp(var);
-	else
-	{
+		sort_three_b(var);
 		save_list(var, rrb(var));
-		sort_four_b_temp(var);
 	}
+	else if (min == top->right->right->right->right)
+	{
+		flag = 1;
+		sort_three_b(var);
+	}
+
+	printf("sort_four_b\n");
+	printStack_test(var->A);
+	printStack_test(var->B);
+	return (flag);
 }

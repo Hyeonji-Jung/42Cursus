@@ -162,8 +162,8 @@ A
 	if max나 min 중 하나라도 idx 3인 경우
 		if max가 idx 3 => sort_three_a 
 		if min가 idx 3 => sort_three_a rra
-	 if maxrk idx 2 => rra sort_three_a
-	 if min이 idx 2 => rra sort_three_a rra
+	if maxrk idx 2 => rra sort_three_a
+	if min이 idx 2 => rra sort_three_a rra
 }
 
 B
@@ -174,8 +174,8 @@ B
 	if max나 min 중 하나라도 idx 3인 경우
 		if max가 idx 3 => sort_three_b rrb 
 		if min가 idx 3 => sort_three_b
-	 if max가 idx 2 => rrb sort_three_b rrb
-	 if min이 idx 2 => rrb sort_three_b
+	if max가 idx 2 => rrb sort_three_b rrb
+	if min이 idx 2 => rrb sort_three_b
 }
 
 
@@ -184,12 +184,26 @@ B
 
 A
 {
-	
+	if max나 min 중 하나라도 idx 0일 경우
+		if max가 idx 0 => x
+		if min가 idx 0 => ra sort_three_a rra
+	if max나 min 중 하나라도 idx 3인 경우
+		if max가 idx 3 => sort_three_a 
+		if min가 idx 3 => x
+	if max이 idx 2 => x
+	if min이 idx 2 => x
 }
 
 B
 {
-
+    if max나 min 중 하나라도 idx 0일 경우 
+		if max가 idx 0 => rb sort_three_b rrb
+		if min가 idx 0 => x
+	if max나 min 중 하나라도 idx 3인 경우
+		if max가 idx 3 => x
+		if min가 idx 3 => sort_three_b 
+	if max이 idx 2 => x
+	if min이 idx 2 => x
 }
 
 

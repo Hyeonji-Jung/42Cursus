@@ -10,6 +10,7 @@ SRC		=	main.c \
 			stack_operate2.c \
 			stack_operate3.c \
 			sort_three.c \
+			sort_four_only.c \
 			sort_four.c \
 			util_preprocess.c \
 			util_stack1.c \

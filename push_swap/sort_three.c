@@ -23,6 +23,11 @@ void	sort_only_three_a(t_var *var)
 		save_list(var, rra(var));
 	if (top->right->val > top->right->right->val)
 		save_list(var, sa(var));
+	
+
+	printf("sort_only_three_a\n");
+	printStack_test(var->A);
+	printStack_test(var->B);
 }
 
 void	sort_only_three_b(t_var *var)
@@ -52,6 +57,11 @@ void	sort_only_three_b(t_var *var)
 			save_list(var, sb(var));
 		save_list(var, rrb(var));
 	}
+
+
+	printf("sort_only_three_b\n");
+	printStack_test(var->A);
+	printStack_test(var->B);
 }
 
 void	sort_three_a(t_var *var)
@@ -78,6 +88,12 @@ void	sort_three_a(t_var *var)
 	}
 	if (top->right->val > top->right->right->val)
 		save_list(var, sa(var));
+	
+
+
+	printf("sort_three_a\n");
+	printStack_test(var->A);
+	printStack_test(var->B);
 }
 
 void	sort_three_b(t_var *var)
@@ -104,4 +120,8 @@ void	sort_three_b(t_var *var)
 		sort_three_b_temp(var);
 		save_list(var, sb(var));
 	}
+
+	printf("sort_three_b\n");
+	printStack_test(var->A);
+	printStack_test(var->B);
 }
