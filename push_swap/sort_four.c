@@ -25,10 +25,6 @@ int		sort_four_a(t_var *var)
 		flag = 1;
 		sort_three_a(var);
 	}
-
-	printf("sort_four_a\n");
-	printStack_test(var->A);
-	printStack_test(var->B);
 	return (flag);
 }
 
@@ -57,9 +53,5 @@ int		sort_four_b(t_var *var)
 		flag = 1;
 		sort_three_b(var);
 	}
-
-	printf("sort_four_b\n");
-	printStack_test(var->A);
-	printStack_test(var->B);
 	return (flag);
 }

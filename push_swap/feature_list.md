@@ -63,63 +63,85 @@
 ((https://hi0seon.tistory.com/entry/42Seoul-pushswap-%ED%92%80%EC%9D%B4-%EA%B3%BC%EC%A0%95), 
 (https://profq.tistory.com/31))
 
+//전체가 3개일때
 A
 {
-    max가 맨 앞일때, 중간일때, 맨 뒤일때
     - 정렬되있으면 리턴
-    - 맨앞
-        - 전체가 3개일때
-            ra
-            if idx 0 > idx 1 => sa
-        - 전체가 3개가 아닐때
-            if idx 0 < idx 1 => sa ra sa rra
-            if idx 0 > idx 1 => sa ra sa rra sa
-    - 중간
-        - 전체가 3개일때
+    - if min, max 중 하나가 맨 뒤일때 (getanystack에 기준 상 맨뒤)
+        - if max가 맨뒤
+            if idx0 > idx1 => sa
+        - if min이 맨뒤
+            if idx0 > idx1 => sa
             rra
-            if idx 0 > idx 1 => sa
-        - 전체가 3개가 아닐때 (고정, 정렬된게 있을때)
+    - if min, max 중 하나가 맨앞
+        - if max가 맨앞
             ra
-            sa
+            if idx0 > idx1 => sa
+        - if min이 맨앞
+            ra
+            if idx0 > idx1 => sa
             rra
-            if idx 0 > idx 1 => sa
-    - 맨 뒤일때 (getanystack에 기준 상 맨뒤)
-        if idx 0 > idx 1 => sa
-    stackSize != getAnySize
 }
 
 B
 {
     max가 맨 앞일때, 중간일때, 맨 뒤일때
     - 정렬되있으면 리턴
-    - 맨앞
-        - 전체가 3개일때
+    - if min, max가 맨 뒤일때 (getanystack에 기준 상 맨뒤)
+        - if max가 맨두ㅣ
+            if idx0 < idx1 => sb
             rrb
-            sb
-        - 전체가 3개가 아닐때
+        - if min이 맨뒤
+            if idx0 < idx1 => sb
+    - if min, max 중 하나가 맨앞
+        - if max가 맨앞
             rb
-            sb
+            if idx0 < idx1 => sb
             rrb
-    - 중간
-        - 전체가 3개일때
-            if idx 0 > idx 2 -> sb
-            if idx 0 < idx 2 -> rb
-        - 전체가 3개가 아닐때 (고정, 정렬된게 있을때)
-            if idx 0 > idx 2 -> sb
-            else
-                sb
-                rb
-                sb
-                rrb
-    - 맨 뒤일때 (getanystack에 기준 상 맨뒤)
-        - 전체가 3개일때
-            if idx 0 > idx 1 => rrb
-            if idx 0 < idx 1 => sb rrb
-        - 전체가 3개 아닐때
-            if idx 0 > idx 1 => rb sb rrb sb
-            if idx 0 < idx 1 => sb rb sb rrb sb
-    stackSize != getAnySize
+        - if min이 맨앞
+            rb
+            if idx0 < idx1 => sb
 }
+
+//sort three에서 전체가 3개가 아닐때
+A
+{
+    - 정렬되있으면 리턴
+    - if min, max 중 하나가 맨앞
+        - if max가 맨앞
+            sa ra sa rra
+            if idx0 > idx1 => sa
+        - if min이 맨앞
+            ra
+            if idx0 > idx1 => sa
+            rra
+    - 맨 뒤일때 (getanystack에 기준 상 맨뒤)
+        - if max가 맨뒤
+            if idx0 > idx1 => sa
+        - if min이 맨뒤
+            if idx0 > idx1 => sa
+            ra sa rra sa
+}
+
+B
+{
+    - 정렬되있으면 리턴
+    - if min, max 중 하나가 맨앞
+        - if max이 맨앞
+            rb
+            if idx0 < idx1 => sb
+            rrb
+        - if min가 맨앞
+            sb rb sb rrb
+            if idx0 < idx1 => sb
+    - 맨 뒤일때 (getanystack에 기준 상 맨뒤)
+        - if max가 맨뒤
+            if idx0 < idx1 => sb
+            rb sb rrb sb
+        - if min가 맨뒤
+            if idx0 < idx1 => sb
+}
+
 
 3. 5개 이하로 바꾸고 하드코딩해보기 (현재 17)
     - 1개 2개 done
@@ -209,3 +231,4 @@ B
 
 테스터
 https://github.com/minckim42/push_swap_tester.git
+https://github.com/laisarena/push_swap_tester.git

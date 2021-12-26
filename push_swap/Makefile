@@ -9,6 +9,7 @@ SRC		=	main.c \
 			stack_operate1.c \
 			stack_operate2.c \
 			stack_operate3.c \
+			sort_three_only.c \
 			sort_three.c \
 			sort_four_only.c \
 			sort_four.c \

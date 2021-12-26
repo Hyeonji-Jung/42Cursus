@@ -68,9 +68,11 @@ int			is_sorted(t_node *temp, int len, int now_stack);
 t_node		*max_node(t_node *temp, int len);
 t_node		*min_node(t_node *temp, int len);
 
-/*sort_3.c*/
+/*sort_3_only.c*/
 void		sort_only_three_a(t_var *var);
 void		sort_only_three_b(t_var *var);
+
+/*sort_3_only.c*/
 void		sort_three_a(t_var *var);
 void		sort_three_b(t_var *var);
 

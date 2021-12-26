@@ -48,10 +48,6 @@ void	sort_only_four_a(t_var *var)
 		save_list(var, rra(var));
 		sort_four_a_temp(var);
 	}
-
-	printf("sort_only_four_a\n");
-	printStack_test(var->A);
-	printStack_test(var->B);
 }
 
 void	sort_only_four_b(t_var *var)
@@ -78,8 +74,4 @@ void	sort_only_four_b(t_var *var)
 		save_list(var, rrb(var));
 		sort_four_b_temp(var);
 	}
-
-	printf("sort_only_four_b\n");
-	printStack_test(var->A);
-	printStack_test(var->B);
 }
