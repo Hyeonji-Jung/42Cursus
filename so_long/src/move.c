@@ -21,7 +21,9 @@ int	exit_game(t_game *game)
 		write(1, "0", 1);
 	ft_putstr(" / ");
 	ft_putnbr(game->collect);
-	if (game->score == game->collect)
+	if (game->score == game->collect
+		&& game->map.map[game->map.cur_x / BLOCKS][game->map.cur_y / BLOCKS]
+		== 'E')
 		ft_putstr("\nYou won the game 🙌");
 	ft_putstr("\nByeBye !\n");
 	arr_free(game);

@@ -97,12 +97,6 @@ char	**ft_split_sub(t_game *game, char *src, char **arr)
 		src++;
 	}
 	arr[i] = 0;
-	for (int row = 0; row < i; row++)
-	{
-		for (int col = 0; arr[row][col]; col++)
-			printf("%c", arr[row][col]);
-		printf("\n");
-	}
 	return (arr);
 }
 

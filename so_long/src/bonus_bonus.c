@@ -51,13 +51,13 @@ void	print_score_sub(t_game *game, int row)
 	while (i <= game->map.col * BLOCKS)
 	{
 		mlx_put_image_to_window(game->mlx, game->win,
-			game->img.empty, i, row - 16);
+			game->img.empty, i, row - 12);
 		mlx_put_image_to_window(game->mlx, game->win,
 			game->img.empty, i, row);
 		i += 16;
 	}
-	mlx_string_put(game->mlx, game->win, 70, row - 16, 0xFFFFFF, steps);
-	mlx_string_put(game->mlx, game->win, 70, row, 0xFFFFFF, score);
+	mlx_string_put(game->mlx, game->win, 70, row, 0xFFFFFF, steps);
+	mlx_string_put(game->mlx, game->win, 70, row + 16, 0xFFFFFF, score);
 	free(steps);
 	free(score);
 }
@@ -94,8 +94,8 @@ int	print_score(t_game *game)
 	int	t;
 
 	row = game->map.row * 32 + 12;
-	mlx_string_put(game->mlx, game->win, 16, row - 16, 0xFFFFFF, "STEPS");
-	mlx_string_put(game->mlx, game->win, 16, row, 0xFFFFFF, "SCORE");
+	mlx_string_put(game->mlx, game->win, 16, row, 0xFFFFFF, "STEPS");
+	mlx_string_put(game->mlx, game->win, 16, row + 16, 0xFFFFFF, "SCORE");
 	print_score_sub(game, row);
 	sprite_animation(game);
 	t = -1;
