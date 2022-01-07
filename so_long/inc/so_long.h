@@ -6,7 +6,7 @@
 /*   By: hyeojung <hyeojung@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/04 15:01:30 by hyeojung          #+#    #+#             */
-/*   Updated: 2021/12/02 14:53:58 by hyeojung         ###   ########.fr       */
+/*   Updated: 2022/01/07 12:42:51 by hyeojung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@
 # include <string.h>
 # include <fcntl.h>
 # include <unistd.h>
-# include <stdio.h>
 
 # define BUFFER_SIZE 20000
 # define BLOCKS 32
