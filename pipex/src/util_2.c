@@ -6,23 +6,40 @@
 /*   By: hyeojung <hyeojung@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/27 21:04:04 by hyeojung          #+#    #+#             */
-/*   Updated: 2022/04/16 14:56:41 by hyeojung         ###   ########.fr       */
+/*   Updated: 2022/04/16 17:16:40 by hyeojung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex.h"
 
-char	**get_filenames(char *command)
+char	**get_paths(char **envp)
+{
+	char	*ret;
+
+	ret = 0;
+	while (!ret && *envp)
+	{
+		ret = ft_strnstr(*envp, "PATH=", 5);
+		if (ret)
+			break ;
+		envp++;
+	}
+	return (ft_split(ret + 5, ':'));
+}
+
+char	**get_filenames(char *command, char **envp)
 {
 	char	**ret;
+	int		i;
 
-	ret = (char **)malloc(sizeof(char *) * 6);
-	ret[0] = ft_strjoin("/usr/local/bin/", command);
-	ret[1] = ft_strjoin("/usr/bin/", command);
-	ret[2] = ft_strjoin("/bin/", command);
-	ret[3] = ft_strjoin("/usr/sbin/", command);
-	ret[4] = ft_strjoin("/sbin/", command);
-	ret[5] = 0;
+	ret = get_paths(envp);
+	i = 0;
+	while (ret[i])
+	{
+		ret[i] = ft_strjoin(ret[i], "/");
+		ret[i] = ft_strjoin(ret[i], command);
+		i++;
+	}
 	return (ret);
 }
 
@@ -35,5 +52,11 @@ char	*check_filename(char **filenames)
 		filenames++;
 	}
 	perror("ERROR: access file failure");
+	exit(EXIT_FAILURE);
+}
+
+void	print_err(char *err)
+{
+	perror(err);
 	exit(EXIT_FAILURE);
 }

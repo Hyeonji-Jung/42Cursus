@@ -6,7 +6,7 @@
 /*   By: hyeojung <hyeojung@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/27 21:04:04 by hyeojung          #+#    #+#             */
-/*   Updated: 2022/04/16 14:56:34 by hyeojung         ###   ########.fr       */
+/*   Updated: 2022/04/16 17:13:53 by hyeojung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,41 @@ void	ft_strlcat(char *dest, char *src, size_t size)
 		*dest = 0;
 }
 
+int	ft_strncmp(char *s1, char *s2, size_t size)
+{
+	size_t	i;
+
+	i = 0;
+	while (i < size)
+	{
+		if (s1[i] != s2[i])
+			return ((unsigned char)s1[i] - (unsigned char)s2[i]);
+		if (!s1[i] || !s2[i])
+			break ;
+		i++;
+	}
+	return (0);
+}
+
+char	*ft_strnstr(char *str, char *find, size_t size)
+{
+	size_t	find_len;
+
+	find_len = ft_strlen(find);
+	if (*find)
+	{
+		if (size == 0)
+			return (NULL);
+		while (ft_strncmp(str, find, find_len) != 0 && size--)
+		{
+			if (!*str || size < find_len)
+				return (NULL);
+			str++;
+		}
+	}
+	return ((char *)str);
+}
+
 int	ft_strlen(char *str)
 {
 	int	i;
@@ -59,10 +94,4 @@ int	ft_strlen(char *str)
 	while (str[i])
 		i++;
 	return (i);
-}
-
-void	print_err(char *err)
-{
-	perror(err);
-	exit(EXIT_FAILURE);
 }

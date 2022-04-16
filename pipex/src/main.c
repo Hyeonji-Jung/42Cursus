@@ -6,7 +6,7 @@
 /*   By: hyeojung <hyeojung@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/23 21:32:26 by hyeojung          #+#    #+#             */
-/*   Updated: 2022/04/16 14:53:20 by hyeojung         ###   ########.fr       */
+/*   Updated: 2022/04/16 17:25:36 by hyeojung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,21 +15,19 @@
 void	pipex(char **argv, char **envp, int pid)
 {
 	char	**parent_command;
-	char	*parent_filename;
 	char	**child_command;
-	char	*child_filename;
 
 	if (pid == 0)
 	{
 		child_command = ft_split(argv[2], ' ');
-		child_filename = check_filename(get_filenames(child_command[0]));
-		execve(child_filename, child_command, envp);
+		execve(check_filename(get_filenames(child_command[0], envp)),
+			child_command, envp);
 	}
 	else
 	{
 		parent_command = ft_split(argv[3], ' ');
-		parent_filename = check_filename(get_filenames(parent_command[0]));
-		execve(parent_filename, parent_command, envp);
+		execve(check_filename(get_filenames(parent_command[0], envp)),
+			parent_command, envp);
 	}
 }
 
@@ -37,17 +35,17 @@ void	init_pipex(int pipe_fd[2], int file_fd[2], int pid)
 {
 	if (pid == 0)
 	{
-		close(pipe_fd[1]);
-		dup2(pipe_fd[0], STDIN_FILENO);
-		close(pipe_fd[0]);
-		dup2(file_fd[1], STDOUT_FILENO);
-	}
-	else
-	{
 		close(pipe_fd[0]);
 		dup2(pipe_fd[1], STDOUT_FILENO);
 		close(pipe_fd[1]);
 		dup2(file_fd[0], STDIN_FILENO);
+	}
+	else
+	{
+		close(pipe_fd[1]);
+		dup2(pipe_fd[0], STDIN_FILENO);
+		close(pipe_fd[0]);
+		dup2(file_fd[1], STDOUT_FILENO);
 	}
 }
 
@@ -72,7 +70,7 @@ int	main(int argc, char **argv, char **envp)
 			print_err("ERROR: fork execution failure");
 		init_pipex(pipe_fd, file_fd, pid);
 		pipex(argv, envp, pid);
-	}
-	else
 		exit(EXIT_SUCCESS);
+	}
+	print_err("ERROR: require 4 arguments");
 }
