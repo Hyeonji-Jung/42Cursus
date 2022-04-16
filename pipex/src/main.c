@@ -6,7 +6,7 @@
 /*   By: hyeojung <hyeojung@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/23 21:32:26 by hyeojung          #+#    #+#             */
-/*   Updated: 2022/04/17 00:28:57 by hyeojung         ###   ########.fr       */
+/*   Updated: 2022/04/17 00:30:21 by hyeojung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,8 @@ void	pipex(char **argv, char **envp, int pid)
 	if (pid == 0)
 	{
 		child_command = ft_split(argv[2], ' ');
-		if (execve(check_filename(get_filenames(child_command[0], envp)),
-			child_command, envp) == -1)
-			print_err("err");
+		execve(check_filename(get_filenames(child_command[0], envp)),
+			child_command, envp);
 	}
 	else
 	{
