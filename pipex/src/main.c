@@ -6,7 +6,7 @@
 /*   By: hyeojung <hyeojung@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/23 21:32:26 by hyeojung          #+#    #+#             */
-/*   Updated: 2022/04/16 23:25:17 by hyeojung         ###   ########.fr       */
+/*   Updated: 2022/04/17 00:28:57 by hyeojung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,15 +24,18 @@ void	pipex(char **argv, char **envp, int pid)
 {
 	char	**parent_command;
 	char	**child_command;
+	int		status;
 
 	if (pid == 0)
 	{
 		child_command = ft_split(argv[2], ' ');
-		execve(check_filename(get_filenames(child_command[0], envp)),
-			child_command, envp);
+		if (execve(check_filename(get_filenames(child_command[0], envp)),
+			child_command, envp) == -1)
+			print_err("err");
 	}
 	else
 	{
+		waitpid(pid, &status, 0);
 		parent_command = ft_split(argv[3], ' ');
 		execve(check_filename(get_filenames(parent_command[0], envp)),
 			parent_command, envp);
@@ -41,8 +44,6 @@ void	pipex(char **argv, char **envp, int pid)
 
 void	init_pipex(int pipe_fd[2], int file_fd[2], int pid)
 {
-	int	status;
-
 	if (pid == 0)
 	{
 		close(pipe_fd[0]);
@@ -52,7 +53,6 @@ void	init_pipex(int pipe_fd[2], int file_fd[2], int pid)
 	}
 	else
 	{
-		waitpid(pid, &status, 0);
 		close(pipe_fd[1]);
 		dup2(pipe_fd[0], STDIN_FILENO);
 		close(pipe_fd[0]);
