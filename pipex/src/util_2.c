@@ -6,7 +6,7 @@
 /*   By: hyeojung <hyeojung@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/27 21:04:04 by hyeojung          #+#    #+#             */
-/*   Updated: 2022/04/16 17:16:40 by hyeojung         ###   ########.fr       */
+/*   Updated: 2022/04/16 23:25:28 by hyeojung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,16 +47,34 @@ char	*check_filename(char **filenames)
 {
 	while (*filenames)
 	{
-		if (access(*filenames, F_OK | X_OK) == 0)
-			return (*filenames);
+		if (access(*filenames, F_OK) == 0)
+		{
+			if (access(*filenames, X_OK) == 0)
+				return (*filenames);
+			perror("pipex: command not found");
+			exit(126);
+		}
 		filenames++;
 	}
-	perror("ERROR: access file failure");
-	exit(EXIT_FAILURE);
+	perror("pipex: command not found");
+	exit(127);
 }
 
 void	print_err(char *err)
 {
 	perror(err);
 	exit(EXIT_FAILURE);
+}
+
+void	open_err(char *filename)
+{
+	char	*err;
+	int		len;
+
+	len = ft_strlen(filename) + 8;
+	err = (char *)malloc(len);
+	*err = 0;
+	ft_strlcat(err, "pipex: ", len);
+	ft_strlcat(err, filename, len);
+	print_err(err);
 }
