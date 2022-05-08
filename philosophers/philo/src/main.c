@@ -21,6 +21,7 @@ int	init_philo_info(int ac, char *av[], t_info *info)
 	info->time_to_sleep = (uint64_t)ft_atoi(av[4]);
 	if (ac == 6)
 		info->num_of_must_eat = ft_atoi(av[5]);
+	info->done = 0;
 	info->do_cnt = 0;
 	info->max_cnt = -1;
 	if (info->num_of_must_eat != -1)
@@ -49,9 +50,6 @@ int	init_philo_philos(t_info *info)
 		else
 			info->philos[i].left = &info->forks[i - 1];
 		info->philos[i].right = &info->forks[i];
-		info->philos[i].done = 0;
-		info->philos[i].time = 0;
-		info->philos[i].last_eat = 0;
 		info->philos[i].info = info;
 	}
 	return (0);

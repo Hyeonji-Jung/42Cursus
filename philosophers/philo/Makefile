@@ -12,7 +12,7 @@
 
 NAME = philo
 
-FLAGS = -Wall -Wextra -Werror -I ./inc
+FLAGS = -Wall -Wextra -Werror -g -fsanitize=address -I ./inc
 
 SRCS = src/main.c src/action.c src/philo.c src/print.c src/util.c
 

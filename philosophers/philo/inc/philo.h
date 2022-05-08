@@ -33,6 +33,7 @@ typedef struct s_info
 	int				num_of_must_eat;
 	int				do_cnt;
 	int				max_cnt;
+	int				done;
 	uint64_t		time_to_start;
 	uint64_t		time_to_die;
 	uint64_t		time_to_eat;
@@ -47,7 +48,6 @@ typedef struct s_info
 typedef struct s_philo
 {
 	int				id;
-	int				done;
 	pthread_t		thread;
 	pthread_t		moniter;
 	pthread_mutex_t	*left;
@@ -72,6 +72,7 @@ void		take_forks(t_philo *philo);
 void		eating(t_philo *philo);
 void		sleeping_and_thinking(t_philo *philo);
 void		print_state(t_philo *philo, int state);
+void		print_finish(t_philo *philo, int state);
 void		free_philo(t_info *info);
 int			check_philo(t_philo *philo);
 void		*do_philo(void *void_philo);

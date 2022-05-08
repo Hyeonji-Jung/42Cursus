@@ -20,11 +20,18 @@ void	*moniter_philo(void *void_philo)
 	while (1)
 	{
 		pthread_mutex_lock(philo->info->moniter);
-		if (get_time() > philo->time)
+		if (get_time() - philo->last_eat >= philo->info->time_to_die)
 		{
-			philo->done = 1;
-			print_state(philo, DEAD);
+			philo->info->done = 1;
+			print_finish(philo, DEAD);
 			pthread_mutex_unlock(philo->info->stop);
+			pthread_mutex_unlock(philo->info->moniter);
+			break ;
+		}
+		if (philo->info->done)
+		{
+			pthread_mutex_unlock(philo->info->stop);
+			pthread_mutex_unlock(philo->info->moniter);
 			break ;
 		}
 		pthread_mutex_unlock(philo->info->moniter);
@@ -34,16 +41,15 @@ void	*moniter_philo(void *void_philo)
 
 int	check_philo(t_philo *philo)
 {
-	pthread_mutex_lock(philo->info->moniter);
 	if (philo->info->num_of_must_eat != -1
 		&& philo->info->do_cnt >= philo->info->max_cnt)
 	{
-		philo->done = 1;
-		print_state(philo, DONE);
+		pthread_mutex_lock(philo->info->moniter);
+		philo->info->done = 1;
 		pthread_mutex_unlock(philo->info->stop);
+		pthread_mutex_unlock(philo->info->moniter);
 		return (1);
 	}
-	pthread_mutex_unlock(philo->info->moniter);
 	return (0);
 }
 
@@ -59,11 +65,13 @@ void	*do_philo(void *void_philo)
 		print_err("ERROR: create thread failed");
 		return (0);
 	}
-	pthread_detach(philo->moniter);
 	while (1)
 	{
-		if (philo->done)
+		if (philo->info->done)
+		{
+			pthread_mutex_unlock(philo->info->stop);
 			break ;
+		}
 		take_forks(philo);
 		eating(philo);
 		if (check_philo(philo))
@@ -85,9 +93,16 @@ int	start_philo(t_info *info)
 		if (pthread_create(&info->philos[i].thread, NULL,
 				do_philo, (void *)&info->philos[i]))
 			return (print_err("ERROR: create thread failed"));
-		pthread_detach(info->philos[i].thread);
+		usleep(300);
+		if (info->num_of_philo == 1)
+			pthread_detach(info->philos[0].thread);
 	}
-	pthread_mutex_lock(info->stop);
+	i = -1;
+	while (++i < info->num_of_philo)
+	{
+		pthread_join(info->philos[i].thread, NULL);
+		pthread_join(info->philos[i].moniter, NULL);
+	}
 	free_philo(info);
 	return (0);
 }
