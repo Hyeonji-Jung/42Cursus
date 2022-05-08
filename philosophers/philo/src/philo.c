@@ -25,13 +25,11 @@ void	*moniter_philo(void *void_philo)
 			philo->info->done = 1;
 			print_finish(philo, DEAD);
 			pthread_mutex_unlock(philo->info->stop);
-			pthread_mutex_unlock(philo->info->moniter);
 			break ;
 		}
 		if (philo->info->done)
 		{
 			pthread_mutex_unlock(philo->info->stop);
-			pthread_mutex_unlock(philo->info->moniter);
 			break ;
 		}
 		pthread_mutex_unlock(philo->info->moniter);
@@ -44,10 +42,10 @@ int	check_philo(t_philo *philo)
 	if (philo->info->num_of_must_eat != -1
 		&& philo->info->do_cnt >= philo->info->max_cnt)
 	{
-		pthread_mutex_lock(philo->info->moniter);
+		// pthread_mutex_lock(philo->info->moniter);
 		philo->info->done = 1;
 		pthread_mutex_unlock(philo->info->stop);
-		pthread_mutex_unlock(philo->info->moniter);
+		// pthread_mutex_unlock(philo->info->moniter);
 		return (1);
 	}
 	return (0);
@@ -68,10 +66,7 @@ void	*do_philo(void *void_philo)
 	while (1)
 	{
 		if (philo->info->done)
-		{
-			pthread_mutex_unlock(philo->info->stop);
 			break ;
-		}
 		take_forks(philo);
 		eating(philo);
 		if (check_philo(philo))

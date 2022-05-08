@@ -98,6 +98,12 @@ int	main(int ac, char *av[])
 	if (init_philo(ac, av, &info))
 		return (1);
 	if (start_philo(&info))
+	{
+		while (1)
+			;
 		return (1);
+	}
+	while (1)
+		;
 	return (0);
 }

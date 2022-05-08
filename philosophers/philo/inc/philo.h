@@ -39,8 +39,6 @@ typedef struct s_info
 	uint64_t		time_to_eat;
 	uint64_t		time_to_sleep;
 	pthread_mutex_t	*forks;
-	pthread_mutex_t	*moniter;
-	pthread_mutex_t	*print;
 	pthread_mutex_t	*stop;
 	struct s_philo	*philos;
 }	t_info;
@@ -49,9 +47,9 @@ typedef struct s_philo
 {
 	int				id;
 	pthread_t		thread;
-	pthread_t		moniter;
 	pthread_mutex_t	*left;
 	pthread_mutex_t	*right;
+	pthread_mutex_t	*check;
 	uint64_t		time;
 	uint64_t		last_eat;
 	struct s_info	*info;
