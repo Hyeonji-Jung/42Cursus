@@ -53,6 +53,7 @@ typedef struct s_philo
 	pthread_mutex_t	*left;
 	pthread_mutex_t	*right;
 	uint64_t		time;
+	uint64_t		last_eat;
 	struct s_info	*info;
 }	t_philo;
 
@@ -72,6 +73,7 @@ void		eating(t_philo *philo);
 void		sleeping_and_thinking(t_philo *philo);
 void		print_state(t_philo *philo, int state);
 void		free_philo(t_info *info);
+int			check_philo(t_philo *philo);
 void		*do_philo(void *void_philo);
 void		*moniter_philo(void *void_philo);
 

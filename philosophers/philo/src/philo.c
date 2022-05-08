@@ -27,15 +27,23 @@ void	*moniter_philo(void *void_philo)
 			pthread_mutex_unlock(philo->info->stop);
 			break ;
 		}
-		else if (philo->info->num_of_must_eat != -1
-			&& philo->info->do_cnt >= philo->info->max_cnt)
-		{
-			philo->done = 1;
-			print_state(philo, DONE);
-			pthread_mutex_unlock(philo->info->stop);
-		}
 		pthread_mutex_unlock(philo->info->moniter);
 	}
+	return (0);
+}
+
+int	check_philo(t_philo *philo)
+{
+	pthread_mutex_lock(philo->info->moniter);
+	if (philo->info->num_of_must_eat != -1
+		&& philo->info->do_cnt >= philo->info->max_cnt)
+	{
+		philo->done = 1;
+		print_state(philo, DONE);
+		pthread_mutex_unlock(philo->info->stop);
+		return (1);
+	}
+	pthread_mutex_unlock(philo->info->moniter);
 	return (0);
 }
 
@@ -45,6 +53,7 @@ void	*do_philo(void *void_philo)
 
 	philo = (t_philo *)void_philo;
 	philo->time = philo->info->time_to_start + philo->info->time_to_die;
+	philo->last_eat = philo->info->time_to_start;
 	if (pthread_create(&philo->moniter, NULL, moniter_philo, (void *)philo))
 	{
 		print_err("ERROR: create thread failed");
@@ -57,6 +66,8 @@ void	*do_philo(void *void_philo)
 			break ;
 		take_forks(philo);
 		eating(philo);
+		if (check_philo(philo))
+			break ;
 		sleeping_and_thinking(philo);
 	}
 	return (0);

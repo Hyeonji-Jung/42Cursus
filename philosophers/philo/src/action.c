@@ -28,15 +28,13 @@ void	take_forks(t_philo *philo)
 
 void	eating(t_philo *philo)
 {
-	u_int64_t	eat_time;
-
 	print_state(philo, EAT);
-	philo->time = get_time() + philo->info->time_to_die;
-	eat_time = get_time() + philo->info->time_to_eat;
-	while (get_time() < eat_time)
+	philo->last_eat = philo->last_eat
+		+ philo->info->time_to_eat + philo->info->time_to_sleep;
+	philo->time = philo->last_eat + philo->info->time_to_die;
+	while (get_time() < philo->last_eat)
 		;
-	if (philo->info->num_of_must_eat != -1)
-		philo->info->do_cnt++;
+	philo->info->do_cnt++;
 	pthread_mutex_unlock(philo->left);
 	pthread_mutex_unlock(philo->right);
 }
@@ -46,9 +44,8 @@ void	sleeping_and_thinking(t_philo *philo)
 	u_int64_t	sleep_time;
 
 	print_state(philo, SLEEP);
-	sleep_time = get_time() + philo->info->time_to_eat;
+	sleep_time = philo->last_eat + philo->info->time_to_sleep;
 	while (get_time() < sleep_time)
 		;
 	print_state(philo, THINK);
-	usleep(200);
 }

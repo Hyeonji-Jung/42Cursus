@@ -51,6 +51,7 @@ int	init_philo_philos(t_info *info)
 		info->philos[i].right = &info->forks[i];
 		info->philos[i].done = 0;
 		info->philos[i].time = 0;
+		info->philos[i].last_eat = 0;
 		info->philos[i].info = info;
 	}
 	return (0);
