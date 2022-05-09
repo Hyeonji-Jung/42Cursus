@@ -6,7 +6,7 @@
 /*   By: hyeojung <hyeojung@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/01 15:24:54 by hyeojung          #+#    #+#             */
-/*   Updated: 2022/05/08 04:49:10 by hyeojung         ###   ########.fr       */
+/*   Updated: 2022/05/09 14:49:57 by hyeojung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ typedef struct s_info
 	uint64_t		time_to_eat;
 	uint64_t		time_to_sleep;
 	pthread_mutex_t	*forks;
-	pthread_mutex_t	*stop;
+	pthread_mutex_t	stop;
 	struct s_philo	*philos;
 }	t_info;
 
@@ -49,8 +49,8 @@ typedef struct s_philo
 	pthread_t		thread;
 	pthread_mutex_t	*left;
 	pthread_mutex_t	*right;
-	pthread_mutex_t	*check;
-	uint64_t		time;
+	pthread_mutex_t	moniter;
+	uint64_t		dead_time;
 	uint64_t		last_eat;
 	struct s_info	*info;
 }	t_philo;
@@ -65,15 +65,12 @@ int			init_philo_mutex(t_info *info);
 int			start_philo(t_info *info);
 int			threading(t_info *info);
 uint64_t	get_time(void);
-void		spend_time(uint64_t time);
 void		take_forks(t_philo *philo);
 void		eating(t_philo *philo);
 void		sleeping_and_thinking(t_philo *philo);
-void		print_state(t_philo *philo, int state);
-void		print_finish(t_philo *philo, int state);
 void		free_philo(t_info *info);
-int			check_philo(t_philo *philo);
 void		*do_philo(void *void_philo);
 void		*moniter_philo(void *void_philo);
+void		*moniter_philo_must_eat(void *void_info);
 
 #endif

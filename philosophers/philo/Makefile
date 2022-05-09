@@ -6,7 +6,7 @@
 #    By: hyeojung <hyeojung@student.42seoul.kr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/01 19:47:47 by hyeojung          #+#    #+#              #
-#    Updated: 2022/05/07 22:55:26 by hyeojung         ###   ########.fr        #
+#    Updated: 2022/05/09 14:50:32 by hyeojung         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME = philo
 
 FLAGS = -Wall -Wextra -Werror -g -fsanitize=address -I ./inc
 
-SRCS = src/main.c src/action.c src/philo.c src/print.c src/util.c
+SRCS = src/main.c src/action.c src/philo.c src/util.c
 
 OBJS = $(SRCS:.c=.o)
 

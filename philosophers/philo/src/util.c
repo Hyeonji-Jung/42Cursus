@@ -6,7 +6,7 @@
 /*   By: hyeojung <hyeojung@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/01 18:37:50 by hyeojung          #+#    #+#             */
-/*   Updated: 2022/05/08 04:24:25 by hyeojung         ###   ########.fr       */
+/*   Updated: 2022/05/09 14:55:27 by hyeojung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,14 +54,15 @@ void	free_philo(t_info *info)
 
 	i = -1;
 	while (++i < info->num_of_philo)
+	{
+		pthread_join(info->philos[i].thread, NULL);
+		pthread_mutex_destroy(&info->philos[i].moniter);
+	}
+	free(info->philos);
+	i = -1;
+	while (++i < info->num_of_philo)
 		pthread_mutex_destroy(&info->forks[i]);
 	free(info->forks);
-	pthread_mutex_destroy(info->moniter);
-	free(info->moniter);
-	pthread_mutex_destroy(info->print);
-	free(info->print);
-	pthread_mutex_destroy(info->stop);
-	free(info->stop);
 }
 
 uint64_t	get_time(void)
@@ -70,4 +71,10 @@ uint64_t	get_time(void)
 
 	gettimeofday(&curr, NULL);
 	return ((curr.tv_sec * 1000) + (curr.tv_usec / 1000));
+}
+
+int	print_err(char *err)
+{
+	printf("%s\n", err);
+	return (1);
 }
