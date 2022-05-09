@@ -6,7 +6,7 @@
 /*   By: hyeojung <hyeojung@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/01 15:24:54 by hyeojung          #+#    #+#             */
-/*   Updated: 2022/05/09 14:49:57 by hyeojung         ###   ########.fr       */
+/*   Updated: 2022/05/09 17:02:10 by hyeojung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,17 +45,30 @@ typedef struct s_philo
 	uint64_t			last_eat;
 	pthread_t			thread;
 	struct s_info		*info;
-}						t_philosopher;
+}	t_philo;
 
-int						write_error(char *str);
-int						error_manager(int error);
-int						init_all(t_rules *rules, char **argv);
-int						ft_atoi(const char *str);
-void					action_print(t_rules *rules, int id, char *string);
-long long				timestamp(void);
-long long				time_diff(long long past, long long pres);
-void					smart_sleep(long long time, t_rules *rules);
-int						launcher(t_rules *rules);
-void					exit_launcher(t_rules *rules, t_philosopher *philos);
+/* action.c */
+void		take_forks(t_philo *philo);
+void		eating(t_philo *philo);
+void		sleeping_and_thinking(t_philo *philo);
+
+/* main.c */
+int			init_philo_info(int ac, char *av[], t_info *info);
+int			init_philo_philos(t_info *info);
+int			init_philo_mutex(t_info *info);
+int			init_philo(int ac, char *av[], t_info *info);
+
+/* philo.c */
+void		free_philo(t_info *info);
+void		check_philo_done(t_info *info);
+void		*do_philo(void *void_philo);
+int			start_philo(t_info *info);
+
+/* util.c */
+int			ft_atoi(char *str);
+int			check_args(int ac, char *av[]);
+uint64_t	get_time(void);
+int			print_err(char *err);
+void		print_state(t_philo *philo, uint64_t time, char *state);
 
 #endif

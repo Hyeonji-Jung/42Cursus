@@ -6,7 +6,7 @@
 /*   By: hyeojung <hyeojung@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/01 21:17:10 by hyeojung          #+#    #+#             */
-/*   Updated: 2022/05/09 14:49:40 by hyeojung         ###   ########.fr       */
+/*   Updated: 2022/05/09 16:59:57 by hyeojung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,43 +15,37 @@
 void	take_forks(t_philo *philo)
 {
 	if (philo->id % 2 == 0)
-		pthread_mutex_lock(philo->left);
+		pthread_mutex_lock(&philo->info->forks[philo->left]);
 	else
-		pthread_mutex_lock(philo->right);
-	printf("%lld\t%d\thas taken a fork\n",
-		get_time() - philo->info->time_to_start, philo->id);
+		pthread_mutex_lock(&philo->info->forks[philo->right]);
+	print_state(philo,
+		get_time() - philo->info->time_to_start, "has taken a fork");
 	if (philo->id % 2 == 0)
-		pthread_mutex_lock(philo->right);
+		pthread_mutex_lock(&philo->info->forks[philo->right]);
 	else
-		pthread_mutex_lock(philo->left);
-	printf("%lld\t%d\thas taken a fork\n",
-		get_time() - philo->info->time_to_start, philo->id);
+		pthread_mutex_lock(&philo->info->forks[philo->left]);
+	print_state(philo,
+		get_time() - philo->info->time_to_start, "has taken a fork");
 }
 
 void	eating(t_philo *philo)
 {
-	pthread_mutex_lock(&philo->moniter);
+	pthread_mutex_lock(&philo->info->moniter);
 	philo->last_eat = get_time();
-	pthread_mutex_lock(&philo->info->stop);
-	if (!philo->info->done)
-		printf("%lld\t%d\t %s\n",
-			philo->last_eat - philo->info->time_to_start,
-			philo->id, "is eating");
-	philo->info->do_cnt++;
-	pthread_mutex_unlock(&philo->info->stop);
+	print_state(philo,
+		philo->last_eat - philo->info->time_to_start, "is eating");
+	pthread_mutex_unlock(&philo->info->moniter);
 	usleep(philo->info->time_to_eat * 1000);
-	pthread_mutex_unlock(philo->left);
-	pthread_mutex_unlock(philo->right);
-	pthread_mutex_unlock(&philo->moniter);
+	philo->num_of_eat++;
+	pthread_mutex_unlock(&philo->info->forks[philo->left]);
+	pthread_mutex_unlock(&philo->info->forks[philo->right]);
 }
 
 void	sleeping_and_thinking(t_philo *philo)
 {
-	if (philo->info->done)
-		return ;
-	printf("%lld\t%d\tis sleeping\n",
-		get_time() - philo->info->time_to_start, philo->id);
+	print_state(philo,
+		get_time() - philo->info->time_to_start, "is sleeping");
 	usleep(philo->info->time_to_sleep * 1000);
-	printf("%lld\t%d\tis thinking\n",
-		get_time() - philo->info->time_to_start, philo->id);
+	print_state(philo,
+		get_time() - philo->info->time_to_start, "is thinking");
 }

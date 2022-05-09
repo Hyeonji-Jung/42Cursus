@@ -6,50 +6,59 @@
 /*   By: hyeojung <hyeojung@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/01 19:47:39 by hyeojung          #+#    #+#             */
-/*   Updated: 2022/05/09 15:10:57 by hyeojung         ###   ########.fr       */
+/*   Updated: 2022/05/09 17:05:27 by hyeojung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-void	*moniter_philo(void *void_philo)
+void	free_philo(t_info *info)
 {
-	t_philo		*philo;
-	uint64_t	curr_time;
+	int	i;
 
-	philo = (t_philo *)void_philo;
-	while (!philo->info->done)
-	{
-		pthread_mutex_lock(&philo->moniter);
-		pthread_mutex_lock(&philo->info->stop);
-		curr_time = get_time();
-		if (curr_time - philo->last_eat >= philo->info->time_to_die
-			&& philo->info->done == 0)
-		{
-			philo->info->done = 1;
-			printf("%lld\t%d\tdied\n",
-				curr_time - philo->info->time_to_start, philo->id);
-		}
-		pthread_mutex_unlock(&philo->info->stop);
-		pthread_mutex_unlock(&philo->moniter);
-	}
-	return (0);
+	i = -1;
+	if (info->num_of_philo == 1)
+		pthread_detach(info->philos[0].thread);
+	while (++i < info->num_of_philo)
+		pthread_join(info->philos[i].thread, NULL);
+	free(info->philos);
+	i = -1;
+	while (++i < info->num_of_philo)
+		pthread_mutex_destroy(&info->forks[i]);
+	free(info->forks);
+	pthread_mutex_destroy(&info->moniter);
+	pthread_mutex_destroy(&info->print);
 }
 
-void	*moniter_philo_must_eat(void *void_info)
+void	check_philo_done(t_info *info)
 {
-	t_info	*info;
+	int	i;
 
-	info = void_info;
 	while (!info->done)
 	{
-		pthread_mutex_lock(&info->stop);
-		if (info->num_of_must_eat != -1
-			&& info->do_cnt >= info->max_cnt)
-			info->done = 1;
-		pthread_mutex_unlock(&info->stop);
+		i = -1;
+		while (++i < info->num_of_philo && !info->dead)
+		{
+			pthread_mutex_lock(&info->moniter);
+			if (get_time() - info->philos[i].last_eat > info->time_to_die)
+			{
+				print_state(&info->philos[i],
+					get_time() - info->time_to_start, "died");
+				info->dead = 1;
+			}
+			pthread_mutex_unlock(&info->moniter);
+		}
+		if (info->dead)
+			break ;
+		i = 0;
+		while (info->num_of_must_eat != -1 && i < info->num_of_philo
+			&& info->philos[i].num_of_eat >= info->num_of_must_eat)
+		{
+			i++;
+			if (info->num_of_philo == i)
+				info->done = 1;
+		}
 	}
-	return (0);
 }
 
 void	*do_philo(void *void_philo)
@@ -59,10 +68,12 @@ void	*do_philo(void *void_philo)
 	philo = (t_philo *)void_philo;
 	if (philo->id % 2 == 0)
 		usleep(philo->info->time_to_eat * 1000);
-	while (!philo->info->done)
+	while (!philo->info->dead)
 	{
 		take_forks(philo);
 		eating(philo);
+		if (philo->info->done)
+			break ;
 		sleeping_and_thinking(philo);
 	}
 	return (0);
@@ -70,26 +81,18 @@ void	*do_philo(void *void_philo)
 
 int	start_philo(t_info *info)
 {
-	pthread_t	thread;
-	int			i;
+	int	i;
 
 	info->time_to_start = get_time();
 	i = -1;
 	while (++i < info->num_of_philo)
 	{
-		info->philos[i].last_eat = info->time_to_start;
+		info->philos[i].last_eat = get_time();
 		if (pthread_create(&info->philos[i].thread, NULL,
 				do_philo, &info->philos[i]))
 			return (print_err("ERROR: create thread failed"));
-		if (pthread_create(&thread, NULL, moniter_philo, &info->philos[i]))
-			return (print_err("ERROR: create thread failed"));
-		pthread_detach(thread);
 	}
-	if (info->num_of_must_eat != -1)
-	{
-		pthread_create(&thread, NULL, moniter_philo_must_eat, info);
-		pthread_detach(thread);
-	}
+	check_philo_done(info);
 	free_philo(info);
 	return (0);
 }

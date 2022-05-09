@@ -6,7 +6,7 @@
 /*   By: hyeojung <hyeojung@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/01 15:26:41 by hyeojung          #+#    #+#             */
-/*   Updated: 2022/05/09 12:54:12 by hyeojung         ###   ########.fr       */
+/*   Updated: 2022/05/09 16:11:12 by hyeojung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,13 +34,9 @@ int	init_philo_philos(t_info *info)
 	i = -1;
 	while (++i < info->num_of_philo)
 	{
-		pthread_mutex_init(&info->philos[i].moniter, NULL);
 		info->philos[i].id = i + 1;
-		if (i == 0)
-			info->philos[i].left = &info->forks[info->num_of_philo - 1];
-		else
-			info->philos[i].left = &info->forks[i - 1];
-		info->philos[i].right = &info->forks[i];
+		info->philos[i].left = i;
+		info->philos[i].right = (i + 1) % info->num_of_philo;
 		info->philos[i].info = info;
 	}
 	return (0);
@@ -57,7 +53,8 @@ int	init_philo_mutex(t_info *info)
 	i = -1;
 	while (++i < info->num_of_philo)
 		pthread_mutex_init(&info->forks[i], NULL);
-	pthread_mutex_init(&info->stop, NULL);
+	pthread_mutex_init(&info->moniter, NULL);
+	pthread_mutex_init(&info->print, NULL);
 	return (0);
 }
 

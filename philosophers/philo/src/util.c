@@ -6,7 +6,7 @@
 /*   By: hyeojung <hyeojung@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/01 18:37:50 by hyeojung          #+#    #+#             */
-/*   Updated: 2022/05/09 14:55:27 by hyeojung         ###   ########.fr       */
+/*   Updated: 2022/05/09 16:57:51 by hyeojung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,23 +48,6 @@ int	check_args(int ac, char *av[])
 	return (0);
 }
 
-void	free_philo(t_info *info)
-{
-	int	i;
-
-	i = -1;
-	while (++i < info->num_of_philo)
-	{
-		pthread_join(info->philos[i].thread, NULL);
-		pthread_mutex_destroy(&info->philos[i].moniter);
-	}
-	free(info->philos);
-	i = -1;
-	while (++i < info->num_of_philo)
-		pthread_mutex_destroy(&info->forks[i]);
-	free(info->forks);
-}
-
 uint64_t	get_time(void)
 {
 	struct timeval	curr;
@@ -77,4 +60,12 @@ int	print_err(char *err)
 {
 	printf("%s\n", err);
 	return (1);
+}
+
+void	print_state(t_philo *philo, uint64_t time, char *state)
+{
+	pthread_mutex_lock(&philo->info->print);
+	if (!philo->info->dead)
+		printf("%lld\t%d\t%s\n", time, philo->id, state);
+	pthread_mutex_unlock(&philo->info->print);
 }
