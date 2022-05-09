@@ -6,7 +6,7 @@
 /*   By: hyeojung <hyeojung@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/01 19:47:39 by hyeojung          #+#    #+#             */
-/*   Updated: 2022/05/09 17:05:27 by hyeojung         ###   ########.fr       */
+/*   Updated: 2022/05/09 17:22:35 by hyeojung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,11 +53,9 @@ void	check_philo_done(t_info *info)
 		i = 0;
 		while (info->num_of_must_eat != -1 && i < info->num_of_philo
 			&& info->philos[i].num_of_eat >= info->num_of_must_eat)
-		{
 			i++;
-			if (info->num_of_philo == i)
-				info->done = 1;
-		}
+		if (info->num_of_philo == i)
+			info->done = 1;
 	}
 }
 
@@ -87,7 +85,9 @@ int	start_philo(t_info *info)
 	i = -1;
 	while (++i < info->num_of_philo)
 	{
-		info->philos[i].last_eat = get_time();
+		info->philos[i].last_eat = info->time_to_start;
+		info->philos[i].last_sleep = info->time_to_start;
+		info->philos[i].num_of_eat = 0;
 		if (pthread_create(&info->philos[i].thread, NULL,
 				do_philo, &info->philos[i]))
 			return (print_err("ERROR: create thread failed"));

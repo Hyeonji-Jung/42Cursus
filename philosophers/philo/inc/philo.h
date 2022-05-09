@@ -6,7 +6,7 @@
 /*   By: hyeojung <hyeojung@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/01 15:24:54 by hyeojung          #+#    #+#             */
-/*   Updated: 2022/05/09 17:02:10 by hyeojung         ###   ########.fr       */
+/*   Updated: 2022/05/09 17:14:46 by hyeojung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@ typedef struct s_philo
 	int					left;
 	int					right;
 	uint64_t			last_eat;
+	uint64_t			last_sleep;
 	pthread_t			thread;
 	struct s_info		*info;
 }	t_philo;
