@@ -21,9 +21,6 @@ int	init_philo_info(int ac, char *av[], t_info *info)
 	info->num_of_must_eat = -1;
 	if (ac == 6)
 		info->num_of_must_eat = ft_atoi(av[5]);
-	info->max_cnt = -1;
-	if (info->num_of_must_eat != -1)
-		info->max_cnt = info->num_of_philo * info->num_of_must_eat;
 	return (0);
 }
 

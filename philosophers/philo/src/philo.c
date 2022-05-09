@@ -57,6 +57,8 @@ void	*do_philo(void *void_philo)
 	t_philo	*philo;
 
 	philo = (t_philo *)void_philo;
+	if (philo->id % 2 == 0)
+		usleep(philo->info->time_to_eat * 1000);
 	while (!philo->info->done)
 	{
 		take_forks(philo);
@@ -79,12 +81,9 @@ int	start_philo(t_info *info)
 		if (pthread_create(&info->philos[i].thread, NULL,
 				do_philo, &info->philos[i]))
 			return (print_err("ERROR: create thread failed"));
-		if (info->num_of_philo == 1)
-			pthread_detach(info->philos[0].thread);
 		if (pthread_create(&thread, NULL, moniter_philo, &info->philos[i]))
 			return (print_err("ERROR: create thread failed"));
 		pthread_detach(thread);
-		usleep(100);
 	}
 	if (info->num_of_must_eat != -1)
 	{

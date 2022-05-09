@@ -32,11 +32,11 @@ void	eating(t_philo *philo)
 {
 	pthread_mutex_lock(&philo->moniter);
 	philo->last_eat = get_time();
-	philo->dead_time = philo->last_eat + philo->info->time_to_die;
 	pthread_mutex_lock(&philo->info->stop);
 	if (!philo->info->done)
 		printf("%lld\t%d\t %s\n",
-			philo->last_eat - philo->info->time_to_start, philo->id, "is eating");
+			philo->last_eat - philo->info->time_to_start,
+			philo->id, "is eating");
 	philo->info->do_cnt++;
 	pthread_mutex_unlock(&philo->info->stop);
 	usleep(philo->info->time_to_eat * 1000);
@@ -54,5 +54,4 @@ void	sleeping_and_thinking(t_philo *philo)
 	usleep(philo->info->time_to_sleep * 1000);
 	printf("%lld\t%d\tis thinking\n",
 		get_time() - philo->info->time_to_start, philo->id);
-	usleep(100);
 }
