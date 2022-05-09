@@ -69,7 +69,7 @@ void	do_philo(t_philo *philo)
 	philo->last_sleep = philo->info->time_to_start;
 	philo->num_of_eat = 0;
 	if (pthread_create(&philo->moniter_dead, NULL,
-		check_philo_dead, (void *)philo))
+			check_philo_dead, (void *)philo))
 	{
 		print_err("ERROR: create thread failed");
 		return ;
