@@ -6,7 +6,7 @@
 #    By: hyeojung <hyeojung@student.42seoul.kr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/01 19:48:00 by hyeojung          #+#    #+#              #
-#    Updated: 2022/05/07 19:48:05 by hyeojung         ###   ########.fr        #
+#    Updated: 2022/05/09 17:30:01 by hyeojung         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME = philo_bonus
 
 FLAGS = -Wall -Wextra -Werror -I ./inc
 
-SRCS = src/main.c
+SRCS = src/main.c src/action.c src/philo.c src/util.c
 
 OBJS = $(SRCS:.c=.o)
 

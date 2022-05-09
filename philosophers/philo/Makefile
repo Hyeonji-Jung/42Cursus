@@ -6,13 +6,13 @@
 #    By: hyeojung <hyeojung@student.42seoul.kr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/01 19:47:47 by hyeojung          #+#    #+#              #
-#    Updated: 2022/05/09 14:50:32 by hyeojung         ###   ########.fr        #
+#    Updated: 2022/05/09 17:30:09 by hyeojung         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = philo
 
-FLAGS = -Wall -Wextra -Werror -g -fsanitize=address -I ./inc
+FLAGS = -Wall -Wextra -Werror -I ./inc
 
 SRCS = src/main.c src/action.c src/philo.c src/util.c
 

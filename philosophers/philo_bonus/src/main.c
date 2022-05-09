@@ -6,11 +6,11 @@
 /*   By: hyeojung <hyeojung@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/01 15:26:41 by hyeojung          #+#    #+#             */
-/*   Updated: 2022/05/09 17:49:09 by hyeojung         ###   ########.fr       */
+/*   Updated: 2022/05/09 17:47:59 by hyeojung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "philo.h"
+#include "philo_bonus.h"
 
 int	init_philo_info(int ac, char *av[], t_info *info)
 {
@@ -35,26 +35,21 @@ int	init_philo_philos(t_info *info)
 	while (++i < info->num_of_philo)
 	{
 		info->philos[i].id = i + 1;
-		info->philos[i].left = i;
-		info->philos[i].right = (i + 1) % info->num_of_philo;
 		info->philos[i].info = info;
 	}
 	return (0);
 }
 
-int	init_philo_mutex(t_info *info)
+int	init_philo_sem(t_info *info)
 {
-	int	i;
-
-	info->forks = (pthread_mutex_t *)malloc \
-			(sizeof(pthread_mutex_t) * info->num_of_philo);
-	if (info->forks == NULL)
-		return (print_err("ERROR: memory allocation failed"));
-	i = -1;
-	while (++i < info->num_of_philo)
-		pthread_mutex_init(&info->forks[i], NULL);
-	pthread_mutex_init(&info->moniter, NULL);
-	pthread_mutex_init(&info->print, NULL);
+	sem_unlink("moniter_philo");
+	sem_unlink("print_philo");
+	sem_unlink("forks_philo");
+	info->moniter = sem_open("moniter_philo", O_CREAT, 0600, 1);
+	info->print = sem_open("print_philo", O_CREAT, 0600, 1);
+	info->forks = sem_open("forks_philo", O_CREAT, 0600, info->num_of_philo);
+	if (info->moniter <= 0 || info->print <= 0 || info->forks <= 0)
+		return (1);
 	return (0);
 }
 
@@ -66,7 +61,7 @@ int	init_philo(int ac, char *av[], t_info *info)
 	{
 		if (init_philo_info(ac, av, info))
 			return (1);
-		if (init_philo_mutex(info))
+		if (init_philo_sem(info))
 			return (1);
 		if (init_philo_philos(info))
 			return (1);
